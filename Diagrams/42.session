@@ -1,8 +1,0 @@
-window_sizes 3840 2035 900 2930 1853 103
-
-show_stereotypes
-open
-  classview_ref 128170 // classes
-  classview_ref 134826 // diagrams
-end
-end
