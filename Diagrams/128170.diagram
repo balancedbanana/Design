@@ -1,0 +1,89 @@
+format 222
+
+classcanvas 128042 class_ref 128170 // Communicator
+  classdiagramsettings member_max_width 0 end
+  xyz 36.4 281.8 2000
+end
+classcanvas 128170 class_ref 128298 // SSLSocket
+  classdiagramsettings member_max_width 0 end
+  xyz 132.4 41 2000
+end
+classcanvas 128682 class_ref 128426 // MessageProcessor
+  classdiagramsettings member_max_width 0 end
+  xyz 609.6 255.8 2000
+end
+classcanvas 128810 class_ref 128554 // ClientMP
+  classdiagramsettings member_max_width 0 end
+  xyz 664.6 482.6 2000
+end
+classcanvas 129066 class_ref 128810 // WorkerMP
+  classdiagramsettings member_max_width 0 end
+  xyz 1129 482.6 2000
+end
+classcanvas 129962 class_ref 128938 // Message
+  classdiagramsettings member_max_width 0 end
+  xyz 553.6 658.8 2000
+end
+classcanvas 130090 class_ref 129066 // MsgX
+  classdiagramsettings member_max_width 0 end
+  xyz 40.2 882.2 2000
+end
+classcanvas 130218 class_ref 129194 // MsgY
+  classdiagramsettings member_max_width 0 end
+  xyz 624.6 879.6 2000
+end
+classcanvas 135978 class_ref 128682 // SchedulerMP
+  classdiagramsettings member_max_width 0 end
+  xyz 204.6 481.8 2000
+end
+relationcanvas 129578 relation_ref 128810 // <generalisation>
+  geometry VHV unfixed
+  decenter_begin 508
+  decenter_end 504
+  from ref 129066 z 2001 to point 1341 440.2
+  line 137130 z 2001 to point 877 440.2
+  line 137258 z 2001 to ref 128682
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129834 relation_ref 129066 // <generalisation>
+  decenter_begin 508
+  decenter_end 504
+  from ref 128810 z 2001 to ref 128682
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130346 relation_ref 129194 // <generalisation>
+  geometry VHV unfixed
+  from ref 130090 z 2001 to point 310.2 840.2
+  line 136362 z 2001 to point 894.6 840.2
+  line 136490 z 2001 to ref 129962
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130474 relation_ref 129322 // <generalisation>
+  from ref 130218 z 2001 to ref 129962
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130730 relation_ref 129578 // <aggregation>
+  from ref 128042 z 2001 to ref 128170
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130858 relation_ref 129706 // <aggregation>
+  from ref 128042 z 2001 to ref 128682
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 136106 relation_ref 128938 // <generalisation>
+  geometry VHV unfixed
+  decenter_end 504
+  from ref 135978 z 2001 to point 414 440.2
+  line 137386 z 2001 to point 877 440.2
+  line 137514 z 2001 to ref 128682
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+preferred_whz 2426 1360 1.1
+end
