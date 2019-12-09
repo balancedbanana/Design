@@ -1,0 +1,162 @@
+format 222
+
+classinstance 132138 class_ref 128170 // Communicator
+  name "com"   xyz 15 40.1 2000 life_line_z 2000
+classinstance 132266 class_ref 128554 // ClientMP
+  name "com.processor"   xyz 347.4 40.1 2000 life_line_z 2000
+classinstance 132394 class_ref 128298 // SSLSocket
+  name "com.socket"   xyz 175.6 93.8 2000 life_line_z 2000
+classinstance 134442 class_ref 128938 // Message
+  name ""   xyz 340.6 272.2 2000 life_line_z 2000
+classinstance 135338 class_ref 129066 // MsgX
+  name "msg"   mortal  xyz 710 275.9 2000 life_line_z 2000
+note 136746 "here the message gets processed"
+  xyzwh 491.5 493.1 2000 209 70
+durationcanvas 132522 classinstance_ref 132138 // com:Communicator
+  xyzwh 105 122 2010 11 587
+end
+durationcanvas 132906 classinstance_ref 132394 // com.socket:SSLSocket
+  xyzwh 286 159 2010 11 34
+end
+durationcanvas 133290 classinstance_ref 132394 // com.socket:SSLSocket
+  xyzwh 286 215 2010 11 44
+end
+durationcanvas 133802 classinstance_ref 132394 // com.socket:SSLSocket
+  xyzwh 286 281 2010 11 44
+end
+durationcanvas 134570 classinstance_ref 134442 // :Message
+  xyzwh 387 352 2010 11 46
+end
+durationcanvas 134954 classinstance_ref 132266 // com.processor:ClientMP
+  xyzwh 463 423 2010 11 201
+  overlappingdurationcanvas 138026
+    xyzwh 469 467 2020 11 121
+  end
+end
+durationcanvas 135466 classinstance_ref 135338 // msg:MsgX
+  xyzwh 760 354 2010 11 34
+end
+durationcanvas 136234 classinstance_ref 135338 // msg:MsgX
+  xyzwh 760 431 2010 11 177
+end
+durationcanvas 138154 classinstance_ref 135338 // msg:MsgX
+  xyzwh 760 659 2010 11 29
+end
+lostfoundmsgsupport 132650 xyz 16 124 2025
+lostfoundmsgsupport 137642 xyz 10 701 2025
+msg 132778 found_synchronous
+  from lostfoundmsgsupport_ref 132650
+  to durationcanvas_ref 132522
+  yz 122 2025 explicitmsg "listen()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 31 99
+msg 133034 synchronous
+  from durationcanvas_ref 132522
+  to durationcanvas_ref 132906
+  yz 158 2015 msg operation_ref 134826 // "listen(in port : ushort [1]) : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 129 135
+msg 133162 return
+  from durationcanvas_ref 132906
+  to durationcanvas_ref 132522
+  yz 184 3020 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 133418 synchronous
+  from durationcanvas_ref 132522
+  to durationcanvas_ref 133290
+  yz 216 3015 msg operation_ref 137130 // "getBufferSize() : uint"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 130 193
+msg 133674 return
+  from durationcanvas_ref 133290
+  to durationcanvas_ref 132522
+  yz 250 3010 explicitmsg "size"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 184 227
+msg 133930 synchronous
+  from durationcanvas_ref 132522
+  to durationcanvas_ref 133802
+  yz 282 3005 msg operation_ref 135082 // "read(in size : uint [1]) : const char *"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 155 259
+msg 134058 return
+  from durationcanvas_ref 133802
+  to durationcanvas_ref 132522
+  yz 316 2015 explicitmsg "rawmsg"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 164 293
+msg 134698 synchronous
+  from durationcanvas_ref 132522
+  to durationcanvas_ref 134570
+  yz 350 3010 msg operation_ref 137002 // "deserialize(in msg : const char * [1], in size : uint [1]) : std::shared_ptr<Message>"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 182 327
+msg 134826 return
+  from durationcanvas_ref 134570
+  to durationcanvas_ref 132522
+  yz 388 3005 explicitmsg "msg"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 220 365
+msg 135082 synchronous
+  from durationcanvas_ref 132522
+  to durationcanvas_ref 134954
+  yz 423 2015 msg operation_ref 135466 // "process(in msg : Message * [1]) : virtual void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 230 400
+msg 135594 synchronous
+  from durationcanvas_ref 134570
+  to durationcanvas_ref 135466
+  yz 353 2015 explicitmsg "<<create>>"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 402 330
+msg 135722 return
+  from durationcanvas_ref 135466
+  to durationcanvas_ref 134570
+  yz 377 2015 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 136362 synchronous
+  from durationcanvas_ref 134954
+  to durationcanvas_ref 136234
+  yz 431 3005 msg operation_ref 136490 // "getProcessed(in mp : MessageProcessor * [1]) : virtual void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 536 408
+msg 136618 synchronous
+  from durationcanvas_ref 136234
+  to durationcanvas_ref 138026
+  yz 467 2025 msg operation_ref 135722 // "processMsgX(in msg : MsgX * [1]) : virtual void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 552 446
+msg 137002 return
+  from durationcanvas_ref 138026
+  to durationcanvas_ref 136234
+  yz 579 2025 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 137130 return
+  from durationcanvas_ref 136234
+  to durationcanvas_ref 134954
+  yz 599 2015 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 137258 return
+  from durationcanvas_ref 134954
+  to durationcanvas_ref 132522
+  yz 615 2015 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 137770 lost_synchronous
+  from durationcanvas_ref 132522
+  to lostfoundmsgsupport_ref 137642
+  yz 699 2025 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 138282 synchronous
+  from durationcanvas_ref 132522
+  to durationcanvas_ref 138154
+  yz 658 2015 explicitmsg "<<delete>>"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 341 635
+msg 138410 return
+  from durationcanvas_ref 138154
+  to durationcanvas_ref 132522
+  yz 679 2015 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+line 138538 -_-_
+  from ref 136746 z 2021 to ref 138026
+end

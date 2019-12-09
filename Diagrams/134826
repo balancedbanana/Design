@@ -1,6 +1,6 @@
 format 222
 "balancedbanana" // balancedbanana
-  revision 1
+  revision 3
   modified_by 42 "Niklas"
   // class settings
   
@@ -31,4 +31,6 @@ format 222
    end
   
   package_ref 134698 // communication
+
+  package_ref 141354 // configfiles
 end
