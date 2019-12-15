@@ -1,7 +1,7 @@
 format 222
 "balancedbanana" // balancedbanana
-  revision 1
-  modified_by 42 "Niklas"
+  revision 2
+  modified_by 73 "Thomas"
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -31,4 +31,6 @@ format 222
    end
   
   package_ref 134698 // communication
+
+  package_ref 128073 // client
 end

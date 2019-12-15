@@ -1,0 +1,92 @@
+format 222
+
+classinstancecanvas 128073 classinstance_ref 128073 // main
+  xyz 13.298 4 2005 life_line_z 2000
+end
+classinstance 128329 class_ref 128201 // Task
+  name "task"   xyz 380.788 4.64884 2000 life_line_z 2000
+classinstance 128457 class_ref 128170 // Communicator
+  name ""   xyz 492.953 4 2000 life_line_z 2000
+classinstance 131913 class_ref 128073 // CommandLineProcessor
+  name ""   xyz 139 4 2000 life_line_z 2000
+durationcanvas 128585 classinstance_ref 128073 // main:main
+  xyzwh 56 85 2010 11 398
+end
+durationcanvas 131401 classinstance_ref 128457 // :Communicator
+  xyzwh 557 418 2010 11 51
+end
+durationcanvas 132041 classinstance_ref 131913 // :CommandLineProcessor
+  xyzwh 249 97 2010 11 277
+  overlappingdurationcanvas 132297
+    xyzwh 255 147 2020 11 47
+  end
+  overlappingdurationcanvas 132553
+    xyzwh 255 206 2020 11 48
+  end
+  overlappingdurationcanvas 132809
+    xyzwh 255 269 2020 11 55
+  end
+end
+durationcanvas 133449 classinstance_ref 128329 // task:Task
+  xyzwh 420 110 2010 11 26
+end
+msg 131529 synchronous
+  from durationcanvas_ref 128585
+  to durationcanvas_ref 131401
+  yz 418 2015 msg operation_ref 135210 // "notify(in address : std::string & [1], in msg : Message & [1]) : bool"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 274 396
+msg 131657 return
+  from durationcanvas_ref 131401
+  to durationcanvas_ref 128585
+  yz 450 2015 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 132169 synchronous
+  from durationcanvas_ref 128585
+  to durationcanvas_ref 132041
+  yz 97 2015 msg operation_ref 128073 // "process(in argv : char**, in argc : int*) : Task"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "argv, argc"
+  label_xy 81 75
+reflexivemsg 132425 synchronous
+  to durationcanvas_ref 132297
+  yz 147 2025 msg operation_ref 128201 // "preProcess(in argv : char**, in argc : int*, in task : Task*)"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "argv, argc, task"
+  label_xy 289 137
+reflexivemsg 132681 synchronous
+  to durationcanvas_ref 132553
+  yz 206 2025 msg operation_ref 128585 // "mainProcess(in argv : char**, in argc : int*, in task : Task*)"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "argv, argc, task"
+  label_xy 292 202
+reflexivemsg 132937 synchronous
+  to durationcanvas_ref 132809
+  yz 269 2025 msg operation_ref 128713 // "postProcess(in task : Task*)"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "task"
+  label_xy 290 266
+selfreflexivemsg 133065
+  to durationcanvas_ref 132297
+  yz 186 2030 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+selfreflexivemsg 133193
+  to durationcanvas_ref 132553
+  yz 246 2030 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+selfreflexivemsg 133321
+  to durationcanvas_ref 132809
+  yz 316 2030 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 133577 asynchronous
+  from durationcanvas_ref 132041
+  to durationcanvas_ref 133449
+  yz 110 2015 unspecifiedmsg
+  stereotype "<<create>>" xyz 288 88 3000
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 133705 return
+  from durationcanvas_ref 132041
+  to durationcanvas_ref 128585
+  yz 365 2015 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+end
