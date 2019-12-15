@@ -1,0 +1,12 @@
+format 222
+
+classcanvas 128121 class_ref 128249 // Container
+  classdiagramsettings member_max_width 0 end
+  xyz 423.2 276 2000
+end
+classcanvas 128377 class_ref 128121 // Docker
+  classdiagramsettings member_max_width 0 end
+  xyz 123 253.3 2000
+end
+preferred_whz 2426 1360 1.1
+end

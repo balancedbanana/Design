@@ -1,0 +1,16 @@
+format 222
+
+classcanvas 128121 class_ref 155257 // Worker
+  classdiagramsettings member_max_width 0 end
+  xyz 220 303 2000
+end
+classcanvas 128249 class_ref 128426 // MessageProcessor
+  classdiagramsettings member_max_width 0 end
+  xyz 204 125 2000
+end
+relationcanvas 128377 relation_ref 141561 // <generalisation>
+  from ref 128121 z 2001 to ref 128249
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+end

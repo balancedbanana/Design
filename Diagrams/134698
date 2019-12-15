@@ -1,7 +1,7 @@
 format 222
 "communication" // balancedbanana::communication
-  revision 1
-  modified_by 42 "Niklas"
+  revision 4
+  modified_by 121 "christopher"
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -30,6 +30,8 @@ format 222
   activitydiagramsettings
    end
   
+  package_ref 134905 // Authenticator
+
   classview 128170 "classes"
     
     classdiagramsettings member_max_width 0 end
@@ -106,11 +108,27 @@ ${inlines}
       end
 
       operation 135338 "listen"
-	public explicit_return_type "std::shared_ptr<Message>"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "callback" explicit_type "std::function<void(std::shared_ptr<Message>)>"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 155001 "send"
+	public explicit_return_type ""
+	nparams 1
+	  param in name "message" type class_ref 128938 // Message
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -159,12 +177,13 @@ ${inlines}
 
       operation 134826 "listen"
 	public explicit_return_type "void"
-	nparams 1
+	nparams 2
 	  param in name "port" explicit_type "ushort"
 	multiplicity "1"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+	  param in name "callback" explicit_type "std::function<void(std::shared_ptr<SSLSocket>)>"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -189,14 +208,15 @@ ${inlines}
 	
       end
 
-      operation 135082 "read"
+      operation 135082 "receive"
 	public explicit_return_type "const char *"
-	nparams 1
-	  param in name "size" explicit_type "uint"
+	nparams 2
+	  param in name "data" explicit_type "char*"
 	multiplicity "1"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+	  param in name "size" explicit_type "size_t"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -205,26 +225,15 @@ ${inlines}
 	
       end
 
-      operation 137130 "getBufferSize"
-	public explicit_return_type "uint"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 137258 "waitForReadyRead"
+      operation 141433 "listen"
 	public explicit_return_type "void"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+	nparams 2
+	  param in name "port" explicit_type "ushort"
+	multiplicity "1"
+	  param in name "callback" explicit_type "std::function<void()>"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -483,8 +492,8 @@ ${inlines}
 	MysqlColumn
       end
 
-      operation 136490 "getProcessed"
-	abstract cpp_virtual public explicit_return_type "virtual void"
+      operation 136490 "process"
+	abstract cpp_virtual public explicit_return_type "void"
 	nparams 1
 	  param in name "mp" explicit_type "MessageProcessor *"
 	multiplicity "1"
@@ -552,7 +561,7 @@ ${inlines}
 	  b parent class_ref 128938 // Message
       end
 
-      operation 136618 "getProcessed"
+      operation 136618 "process"
 	public explicit_return_type "virtual void"
 	nparams 1
 	  param in name "mp" explicit_type "MessageProcessor *"
@@ -642,7 +651,7 @@ ${inlines}
 	MysqlColumn
       end
 
-      operation 137386 "getProcessed"
+      operation 137386 "process"
 	public explicit_return_type "virtual void"
 	nparams 1
 	  param in name "mp" explicit_type "MessageProcessor *"
@@ -665,6 +674,85 @@ ${inlines}
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 154745 "SnapshotMessage"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 141305 // <generalisation>
+	relation 141305 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 141305 // <generalisation>
+	  b parent class_ref 128938 // Message
+      end
+
+      operation 155257 "process"
+	cpp_virtual public explicit_return_type "void"
+	nparams 1
+	  param in name "mp" explicit_type "MessageProcessor *"
+	multiplicity "1"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      attribute 141433 "jobid"
+	private explicit_type "ulong"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 141561 "stop"
+	private explicit_type "bool"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 155385 "SnapshotMessage"
+	stereotype "create"
+	public explicit_return_type ""
+	nparams 2
+	  param in name "tid" explicit_type "ulong"
+	  param in name "stop" explicit_type "bool"
+	cpp_decl "    ${comment}${inline}${typeprefix}${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${volatile}${throw} {
   ${body}}
 "
 	
@@ -699,6 +787,5 @@ ${inlines}
       classdiagramsettings draw_all_relations no hide_attributes no hide_operations no hide_getset_operations no hide_ports no show_members_full_definition yes show_members_visibility yes show_members_stereotype yes show_members_context uml show_members_multiplicity no show_members_initialization yes show_attribute_modifiers yes member_max_width 127 show_parameter_dir no show_parameter_name yes package_name_in_tab yes class_drawing_mode class drawing_language uml show_context_mode no auto_label_position yes show_relation_modifiers yes show_relation_visibility yes show_infonote no shadow yes show_stereotype_properties yes end
       size B-Landscape
     end
-
   end
 end

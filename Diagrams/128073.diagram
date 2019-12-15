@@ -64,4 +64,33 @@ relationcanvas 132553 relation_ref 129225 // <dependency>
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
+classinstance 128249 class_ref 128249 // Container
+  name "container"   xyz 336 27 2000 life_line_z 2000
+classinstancecanvas 128377 classinstance_ref 128121 // docker
+  xyz 161 4 2005 life_line_z 2000
+end
+durationcanvas 129017 classinstance_ref 128377 // docker:Docker
+  xyzwh 209 74 2010 11 59
+end
+durationcanvas 129401 classinstance_ref 128249 // container:Container
+  xyzwh 400 85 2010 11 31
+end
+lostfoundmsgsupport 129145 xyz 92 76 2015
+msg 129273 found_synchronous
+  from lostfoundmsgsupport_ref 129145
+  to durationcanvas_ref 129017
+  yz 74 2015 msg operation_ref 128121 // "Start(in userid : int, in task : Task) : Container"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 125 56
+msg 129529 synchronous
+  from durationcanvas_ref 129017
+  to durationcanvas_ref 129401
+  yz 86 2015 explicitmsg "<<create>>(id)"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 264 68
+msg 129657 return
+  from durationcanvas_ref 129401
+  to durationcanvas_ref 129017
+  yz 105 2020 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
 end

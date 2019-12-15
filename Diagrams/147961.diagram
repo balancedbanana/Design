@@ -1,0 +1,40 @@
+format 222
+
+classcanvas 128121 class_ref 148217 // SSHAuthenticator
+  classdiagramsettings member_max_width 0 end
+  xyz 324 577 2000
+end
+classcanvas 128249 class_ref 148089 // LDAPAuthenticator
+  classdiagramsettings member_max_width 0 end
+  xyz 638 583 2000
+end
+classcanvas 128377 class_ref 147961 // Authenticator
+  classdiagramsettings member_max_width 0 end
+  xyz 496 472 2000
+end
+classcanvas 129657 class_ref 154873 // AuthMessage
+  classdiagramsettings member_max_width 0 end
+  xyz 409 343 2000
+end
+classcanvas 129785 class_ref 128938 // Message
+  classdiagramsettings member_max_width 0 end
+  xyz 411 222 2000
+end
+relationcanvas 129145 relation_ref 134649 // <generalisation>
+  from ref 128121 z 2001 to point 376 504
+  line 129273 z 2001 to ref 128377
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129401 relation_ref 134777 // <generalisation>
+  from ref 128249 z 2001 to point 688 490
+  line 129529 z 2001 to ref 128377
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129913 relation_ref 141433 // <generalisation>
+  from ref 129657 z 2001 to ref 129785
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+end

@@ -1,0 +1,90 @@
+format 222
+
+classinstance 128249 class_ref 155257 // Worker
+  name ""   xyz 181 24 2000 life_line_z 2000
+classinstance 129913 class_ref 128249 // Container
+  name "con"   xyz 327 4 2000 life_line_z 2000
+classinstance 130297 class_ref 155385 // ProcStarter
+  name ""   xyz 460 4 2000 life_line_z 2000
+classinstance 130809 class_ref 155513 // Proc
+  name "proc"   xyz 540 4 2000 life_line_z 2000
+classinstance 131705 class_ref 128170 // Communicator
+  name ""   xyz 620 4 2000 life_line_z 2000
+durationcanvas 128377 classinstance_ref 128249 // :Worker
+  xyzwh 201 75 2010 11 97
+  overlappingdurationcanvas 129529
+    xyzwh 207 88 2020 11 25
+  end
+end
+durationcanvas 130041 classinstance_ref 129913 // con:Container
+  xyzwh 360 140 2010 11 143
+end
+durationcanvas 130425 classinstance_ref 130297 // :ProcStarter
+  xyzwh 489 148 2010 11 40
+end
+durationcanvas 130937 classinstance_ref 130809 // proc:Proc
+  xyzwh 563 205 2010 11 68
+  overlappingdurationcanvas 131321
+    xyzwh 569 226 2020 11 25
+  end
+end
+lostfoundmsgsupport 128761 xyz 7.5 79 2015
+msg 129145 found_synchronous
+  from lostfoundmsgsupport_ref 128761
+  to durationcanvas_ref 128377
+  yz 77 2015 msg operation_ref 156537 // "processSnapshot(in msg : Message)"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "msg"
+  label_xy 44.5 64
+reflexivemsg 129657 synchronous
+  to durationcanvas_ref 129529
+  yz 88 2025 msg operation_ref 156665 // "getContainerbyTaskID(in tid : ulong)"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "tid"
+  label_xy 239 86
+selfreflexivemsg 129785
+  to durationcanvas_ref 129529
+  yz 105 3005 explicitmsg "con"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 243 104
+msg 130169 synchronous
+  from durationcanvas_ref 128377
+  to durationcanvas_ref 130041
+  yz 140 2015 msg operation_ref 141689 // "Snapshot(in stop : bool = false)"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "stop"
+  label_xy 252 127
+msg 130553 synchronous
+  from durationcanvas_ref 130041
+  to durationcanvas_ref 130425
+  yz 149 2020 msg operation_ref 156793 // "run(in commandline : string)"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 419 139
+msg 130681 return
+  from durationcanvas_ref 130425
+  to durationcanvas_ref 130041
+  yz 177 2025 explicitmsg "proc"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 419 166
+msg 131065 synchronous
+  from durationcanvas_ref 130041
+  to durationcanvas_ref 130937
+  yz 205 2015 msg operation_ref 157049 // "readAllLines() : string"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 452 196
+msg 131193 return
+  from durationcanvas_ref 130937
+  to durationcanvas_ref 130041
+  yz 262 2015 explicitmsg "lines"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 474 255
+reflexivemsg 131449 asynchronous
+  to durationcanvas_ref 131321
+  yz 227 2025 msg operation_ref 156921 // "wait()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 600 225
+selfreflexivemsg 131577
+  to durationcanvas_ref 131321
+  yz 243 2030 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+end

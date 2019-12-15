@@ -1,0 +1,16 @@
+format 222
+
+classcanvas 128121 class_ref 128249 // Container
+  classdiagramsettings member_max_width 0 end
+  xyz 264.175 59.6321 2000
+end
+classcanvas 128249 class_ref 128121 // Docker
+  classdiagramsettings member_max_width 0 end
+  xyzwh 62.2123 36.2436 2000 101 77
+end
+relationcanvas 128377 relation_ref 128121 // <dependency>
+  from ref 128249 z 2001 stereotype "<<use>>" xyz 182 85.5 3000 to ref 128121
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+end

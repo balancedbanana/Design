@@ -1,0 +1,46 @@
+format 222
+
+classinstance 128121 class_ref 155001 // Scheduler
+  name ""   xyz 175 3.5 2000 life_line_z 2000
+classinstance 129785 class_ref 155129 // Worker
+  name "worker"   xyz 336.2 4.1 2000 life_line_z 2000
+durationcanvas 128249 classinstance_ref 128121 // :Scheduler
+  xyzwh 200 64.9 2010 11 96
+  overlappingdurationcanvas 128633
+    xyzwh 206 80.5 2020 11 35
+  end
+end
+durationcanvas 129913 classinstance_ref 129785 // worker:Worker
+  xyzwh 368 131.4 2010 11 25
+end
+lostfoundmsgsupport 128377 xyz 31 68 2015
+msg 128505 found_synchronous
+  from lostfoundmsgsupport_ref 128377
+  to durationcanvas_ref 128249
+  yz 66 2015 msg operation_ref 156153 // "onTaskMessage(in message : Message) : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "msg"
+  label_xy 67 53
+reflexivemsg 128761 synchronous
+  to durationcanvas_ref 128633
+  yz 80 2025 msg operation_ref 156281 // "getWorkerByTaskID(in tid : ulong) : Worker"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 229 73
+selfreflexivemsg 129657
+  to durationcanvas_ref 128633
+  yz 107 2025 explicitmsg "worker"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 230 105
+msg 130041 synchronous
+  from durationcanvas_ref 128249
+  to durationcanvas_ref 129913
+  yz 129 2015 msg operation_ref 156409 // "send(in msg : Message)"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "msg"
+  label_xy 266 118
+msg 130169 return
+  from durationcanvas_ref 129913
+  to durationcanvas_ref 128249
+  yz 150 2015 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+end
