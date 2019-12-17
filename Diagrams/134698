@@ -65,24 +65,24 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
-      classrelation 130090 // <aggregation>
+      classrelation 130090 // socket (<aggregation>)
 	relation 129578 o---
-	  a role_name "" private
+	  a role_name "socket" private
 	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
 "
-	    classrelation_ref 130090 // <aggregation>
+	    classrelation_ref 130090 // socket (<aggregation>)
 	  b role_name "" private
 	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 130218 // <aggregation>
       end
 
-      classrelation 130346 // <aggregation>
+      classrelation 130346 // processor (<aggregation>)
 	relation 129706 o---
-	  a role_name "" private
+	  a role_name "processor" private
 	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
 "
-	    classrelation_ref 130346 // <aggregation>
+	    classrelation_ref 130346 // processor (<aggregation>)
 	  b role_name "" private
 	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
 "
