@@ -37,6 +37,8 @@ format 222
   package_ref 128377 // worker
 
   package_ref 135033 // scheduler
+  
+  package_ref 141354 // configfiles
 
   classview 134777 "classes"
     
