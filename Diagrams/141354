@@ -118,6 +118,10 @@ ${items}};
 	mysql_decl ""
 	MysqlColumn
       end
+
+      classrelation 137130 // <aggregation>
+	relation_ref 136234 // <aggregation>
+      end
     end
 
     class 135722 "JobConfig"
@@ -195,18 +199,6 @@ ${inlines}
 
       attribute 149290 "email_"
 	private explicit_type "std::string"
-	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
-      attribute 149418 "priority_"
-	private type class_ref 142250 // Priority
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -650,6 +642,15 @@ ${inlines}
 	
       end
 
+      classrelation 137002 // priority_ (<aggregation>)
+	relation 136234 o---
+	  a role_name "priority_" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 137002 // priority_ (<aggregation>)
+	  b role_name "" private
+	    classrelation_ref 137130 // <aggregation>
+      end
     end
   end
 
