@@ -2,11 +2,11 @@ format 222
 
 classcanvas 137642 class_ref 135722 // JobConfig
   classdiagramsettings member_max_width 0 end
-  xyz 105.2 64.1 2000
+  xyz 107.8 65.7 2000
 end
 classcanvas 137898 class_ref 142250 // Priority
   classdiagramsettings member_max_width 0 end
-  xyz 999.5 87.1 2000
+  xyz 999.5 87.9 2000
 end
 preferred_whz 2426 1360 1.1
 end

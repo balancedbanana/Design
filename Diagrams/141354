@@ -133,8 +133,116 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
-      attribute 141610 "values"
-	private explicit_type "std:map<std::string, std::string>"
+      attribute 148650 "min_ram_"
+	private explicit_type "uint32_t"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 148778 "max_ram_"
+	private explicit_type "uint32_t"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 148906 "min_cpu_count_"
+	private explicit_type "uint32_t"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 149034 "max_cpu_count_"
+	private explicit_type "uint32_t"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 149162 "blocking_mode_"
+	private explicit_type "bool"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 149290 "email_"
+	private explicit_type "std::string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 149418 "priority_"
+	private type class_ref 142250 // Priority
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 149546 "image_path_"
+	private explicit_type "std::filesystem::path"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 149674 "specified_flags_"
+	private explicit_type "char *"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 149802 "flags_length"
+	class_attribute const_attribute private explicit_type "uint_32"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -321,7 +429,7 @@ ${inlines}
 	
       end
 
-      operation 145450 "get_min_ram"
+      operation 145450 "min_ram"
 	public explicit_return_type "uint32_t"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
@@ -335,7 +443,7 @@ ${inlines}
 	
       end
 
-      operation 145578 "get_max_ram"
+      operation 145578 "max_ram"
 	public explicit_return_type "uint32_t"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
@@ -349,7 +457,7 @@ ${inlines}
 	
       end
 
-      operation 145706 "get_min_cpu_count"
+      operation 145706 "min_cpu_count"
 	public explicit_return_type "uint32_t"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
@@ -363,7 +471,7 @@ ${inlines}
 	
       end
 
-      operation 145834 "get_max_cpu_count"
+      operation 145834 "max_cpu_count"
 	public explicit_return_type "uint32_t"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
@@ -377,7 +485,7 @@ ${inlines}
 	
       end
 
-      operation 145962 "get_blocking_mode"
+      operation 145962 "blocking_mode"
 	public explicit_return_type "bool"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
@@ -391,7 +499,7 @@ ${inlines}
 	
       end
 
-      operation 146090 "get_email"
+      operation 146090 "email"
 	public explicit_return_type "const std::string *"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
@@ -405,7 +513,7 @@ ${inlines}
 	
       end
 
-      operation 146218 "get_priority"
+      operation 146218 "priority"
 	public return_type class_ref 142250 // Priority
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
@@ -419,7 +527,7 @@ ${inlines}
 	
       end
 
-      operation 146346 "get_image_path"
+      operation 146346 "image_path"
 	public explicit_return_type "const std::filesystem::path *"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
