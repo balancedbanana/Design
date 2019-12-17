@@ -1,6 +1,6 @@
 format 222
 "scheduler" // balancedbanana::scheduler
-  revision 1
+  revision 2
   modified_by 121 "christopher"
   // class settings
   
@@ -92,6 +92,58 @@ ${inlines}
 	
 	
       end
+
+      operation 163833 "update"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      classrelation 148089 // worker (<aggregation>)
+	relation 148089 o---
+	  a role_name "worker" multiplicity "*" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type} *> ${name}${value};
+"
+	    classrelation_ref 148089 // worker (<aggregation>)
+	  b role_name "" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 148217 // <aggregation>
+      end
+
+      classrelation 148729 // <dependency>
+	relation 148473 -_->
+	  stereotype "use"
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 148729 // <dependency>
+	  b parent class_ref 162425 // DB
+      end
+
+      classrelation 148857 // <dependency>
+	relation 148601 -_->
+	  stereotype "use"
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 148857 // <dependency>
+	  b parent class_ref 128426 // MessageProcessor
+      end
+
+      classrelation 148985 // <dependency>
+	relation 148729 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 148985 // <dependency>
+	  b parent class_ref 155129 // Worker
+      end
     end
 
     class 155129 "Worker"
@@ -121,6 +173,217 @@ ${inlines}
 	
 	
       end
+
+      operation 163961 "getStatus"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      classrelation 148217 // <aggregation>
+	relation_ref 148089 // <aggregation>
+      end
+
+      classrelation 149113 // <dependency>
+	relation 148857 -_->
+	  stereotype "use"
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 149113 // <dependency>
+	  b parent class_ref 128426 // MessageProcessor
+      end
+    end
+
+    class 162041 "Queue"
+      abstract visibility public 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 163577 "addTask"
+	abstract cpp_virtual public explicit_return_type ""
+	nparams 1
+	  param in name "job" type class_ref 162169 // Job
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+      end
+
+      operation 163705 "getPos"
+	abstract cpp_virtual public explicit_return_type "ulong"
+	nparams 1
+	  param in name "id" explicit_type "ulong"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+      end
+
+      operation 164089 "getJob"
+	abstract cpp_virtual public return_type class_ref 162169 // Job
+	nparams 1
+	  param in name "config" type class_ref 135722 // JobConfig
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+      end
+
+      operation 164217 "update"
+	abstract cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 162169 "Job"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 162297 "BasicQueue"
+      visibility public 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "Basic FiFo Queue for testing purposes"
+      classrelation 148345 // <generalisation>
+	relation 148217 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 148345 // <generalisation>
+	  b parent class_ref 162041 // Queue
+      end
+
+      operation 164345 "addTask"
+	cpp_virtual public explicit_return_type ""
+	nparams 1
+	  param in name "job" type class_ref 162169 // Job
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 164473 "getPos"
+	cpp_virtual public explicit_return_type "ulong"
+	nparams 1
+	  param in name "id" explicit_type "ulong"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 164601 "getJob"
+	cpp_virtual public return_type class_ref 162169 // Job
+	nparams 1
+	  param in name "config" type class_ref 135722 // JobConfig
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 164729 "update"
+	cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+    end
+  end
+
+  classview 154873 "diagrams"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    classcompositediagramsettings end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    objectcompositediagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    classdiagram 161273 "class_diagramm"
+      classdiagramsettings draw_all_relations no member_max_width 0 end
+      size A4
     end
   end
 end

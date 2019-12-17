@@ -11,9 +11,9 @@ classinstance 130809 class_ref 155513 // Proc
 classinstance 131705 class_ref 128170 // Communicator
   name ""   xyz 620 4 2000 life_line_z 2000
 durationcanvas 128377 classinstance_ref 128249 // :Worker
-  xyzwh 201 75 2010 11 97
+  xyzwh 200 75 2010 11 97
   overlappingdurationcanvas 129529
-    xyzwh 207 88 2020 11 25
+    xyzwh 206 88 2020 11 25
   end
 end
 durationcanvas 130041 classinstance_ref 129913 // con:Container
@@ -28,14 +28,14 @@ durationcanvas 130937 classinstance_ref 130809 // proc:Proc
     xyzwh 569 226 2020 11 25
   end
 end
-lostfoundmsgsupport 128761 xyz 7.5 79 2015
+lostfoundmsgsupport 128761 xyz 7 79 2015
 msg 129145 found_synchronous
   from lostfoundmsgsupport_ref 128761
   to durationcanvas_ref 128377
   yz 77 2015 msg operation_ref 156537 // "processSnapshot(in msg : Message)"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
   args "msg"
-  label_xy 44.5 64
+  label_xy 44 64
 reflexivemsg 129657 synchronous
   to durationcanvas_ref 129529
   yz 88 2025 msg operation_ref 156665 // "getContainerbyTaskID(in tid : ulong)"

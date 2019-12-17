@@ -1,6 +1,6 @@
 format 222
 "balancedbanana" // balancedbanana
-  revision 3
+  revision 4
   modified_by 121 "christopher"
   // class settings
   
@@ -37,7 +37,7 @@ format 222
   package_ref 128377 // worker
 
   package_ref 135033 // scheduler
-  
+
   package_ref 141354 // configfiles
 
   classview 134777 "classes"
@@ -236,4 +236,6 @@ ${inlines}
       overlapping_bars size A4
     end
   end
+
+  package_ref 141561 // database
 end

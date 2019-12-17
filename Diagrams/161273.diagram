@@ -1,0 +1,52 @@
+format 222
+
+classcanvas 128121 class_ref 155001 // Scheduler
+  classdiagramsettings member_max_width 0 end
+  xyz 363 174 2000
+end
+classcanvas 128249 class_ref 155129 // Worker
+  classdiagramsettings member_max_width 0 end
+  xyz 390 390 2000
+end
+classcanvas 128505 class_ref 162041 // Queue
+  classdiagramsettings member_max_width 0 end
+  xyz 183 171 2000
+end
+classcanvas 128633 class_ref 162297 // BasicQueue
+  classdiagramsettings member_max_width 0 end
+  xyz 177 342 2000
+end
+classcanvas 128889 class_ref 162425 // DB
+  classdiagramsettings member_max_width 0 end
+  xyz 588 198 2000
+end
+classcanvas 129913 class_ref 128426 // MessageProcessor
+  classdiagramsettings member_max_width 0 end
+  xyz 573 338 2000
+end
+relationcanvas 128377 relation_ref 148089 // <aggregation>
+  from ref 128121 z 2001 to ref 128249
+  role_a_pos 431 372 3000 no_role_b
+  multiplicity_a_pos 407 372 3000 multiplicity_b_pos 403 256 3000
+end
+relationcanvas 128761 relation_ref 148217 // <generalisation>
+  from ref 128633 z 2001 to ref 128505
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129401 relation_ref 148473 // <dependency>
+  from ref 128121 z 2001 stereotype "<<use>>" xyz 510 214 3000 to ref 128889
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130041 relation_ref 148601 // <dependency>
+  from ref 128121 z 2001 stereotype "<<use>>" xyz 502 293 3000 to ref 129913
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130297 relation_ref 148857 // <dependency>
+  from ref 128249 z 2001 stereotype "<<use>>" xyz 492 401 3000 to ref 129913
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+end

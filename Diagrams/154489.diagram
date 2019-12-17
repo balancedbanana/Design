@@ -1,17 +1,17 @@
 format 222
 
 classinstance 128121 class_ref 155001 // Scheduler
-  name ""   xyz 175 3.5 2000 life_line_z 2000
+  name ""   xyz 175 4 2000 life_line_z 2000
 classinstance 129785 class_ref 155129 // Worker
   name "worker"   xyz 336.2 4.1 2000 life_line_z 2000
 durationcanvas 128249 classinstance_ref 128121 // :Scheduler
-  xyzwh 200 64.9 2010 11 96
+  xyzwh 201 64 2010 11 97
   overlappingdurationcanvas 128633
-    xyzwh 206 80.5 2020 11 35
+    xyzwh 207 80 2020 11 35
   end
 end
 durationcanvas 129913 classinstance_ref 129785 // worker:Worker
-  xyzwh 368 131.4 2010 11 25
+  xyzwh 371 129 2010 11 32
 end
 lostfoundmsgsupport 128377 xyz 31 68 2015
 msg 128505 found_synchronous
