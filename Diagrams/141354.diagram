@@ -2,25 +2,7 @@ format 222
 
 classcanvas 137642 class_ref 135722 // ConfigFile
   classdiagramsettings member_max_width 0 end
-  xyz 491.7 163.7 2000
-end
-classcanvas 137770 class_ref 135850 // map<std::string, std::string>
-  classdiagramsettings member_max_width 0 end
-  xyz 32.9 41.9 2000
-end
-classcanvas 137898 class_ref 135978 // path
-  classdiagramsettings member_max_width 0 end
-  xyz 46.2 183.8 2000
-end
-relationcanvas 138026 relation_ref 136234 // <aggregation>
-  from ref 137642 z 2001 to ref 137770
-  role_a_pos 244 61 3000 no_role_b
-  multiplicity_a_pos 246 105 3000 no_multiplicity_b
-end
-relationcanvas 138154 relation_ref 136362 // <aggregation>
-  from ref 137642 z 2001 to ref 137898
-  role_a_pos 212 201 3000 no_role_b
-  multiplicity_a_pos 213 245 3000 no_multiplicity_b
+  xyz 491.7 165.3 2000
 end
 preferred_whz 2426 1360 1.1
 end
