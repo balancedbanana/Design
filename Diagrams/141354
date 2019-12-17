@@ -50,6 +50,76 @@ format 222
     
     activitydiagramsettings
      end
+    class 142250 "Priority"
+      visibility public stereotype "enum"
+      cpp_decl "${comment}enum ${name} {
+${items}};
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}enum ${name}${implements} {
+${items};
+${members}}
+"
+      php_decl "${comment}${visibility}final class ${name} {
+${items}}
+"
+      python_2_2 python_decl "class ${name}:
+${docstring}${members}
+"
+      idl_decl "${comment}enum ${name} {
+${items}};
+"
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 148138 "low"
+	public type class_ref 142250 // Priority
+	init_value "1"
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 148266 "normal"
+	public type class_ref 142250 // Priority
+	init_value "2"
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 148394 "high"
+	public type class_ref 142250 // Priority
+	init_value "3"
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 148522 "emergency"
+	public type class_ref 142250 // Priority
+	init_value "4"
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
     class 135722 "JobConfig"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
@@ -123,12 +193,10 @@ ${inlines}
 	
       end
 
-      operation 144042 "set"
+      operation 144042 "set_min_ram"
 	public explicit_return_type ""
-	nparams 2
-	  param in name "key" explicit_type "std::string &"
-	multiplicity "1"
-	  param in name "value" explicit_type "std::string &"
+	nparams 1
+	  param in name "miB" explicit_type "uint32_t"
 	multiplicity "1"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
@@ -141,12 +209,10 @@ ${inlines}
 	
       end
 
-      operation 145066 "set"
+      operation 145066 "set_max_ram"
 	public explicit_return_type ""
-	nparams 2
-	  param in name "key" explicit_type "std::string &"
-	multiplicity "1"
-	  param in name "value" explicit_type "int8_t"
+	nparams 1
+	  param in name "miB" explicit_type "uint32_t"
 	multiplicity "1"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
@@ -159,12 +225,10 @@ ${inlines}
 	
       end
 
-      operation 144938 "set"
+      operation 144938 "set_min_cpu_count"
 	public explicit_return_type ""
-	nparams 2
-	  param in name "key" explicit_type "std::string &"
-	multiplicity "1"
-	  param in name "value" explicit_type "uint8_t"
+	nparams 1
+	  param in name "count" explicit_type "uint32_t"
 	multiplicity "1"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
@@ -177,12 +241,10 @@ ${inlines}
 	
       end
 
-      operation 144170 "set"
+      operation 144170 "set_max_cpu_count"
 	public explicit_return_type ""
-	nparams 2
-	  param in name "key" explicit_type "std::string &"
-	multiplicity "1"
-	  param in name "value" explicit_type "int32_t"
+	nparams 1
+	  param in name "count" explicit_type "uint32_t"
 	multiplicity "1"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
@@ -195,16 +257,14 @@ ${inlines}
 	
       end
 
-      operation 144298 "set"
+      operation 144298 "set_blocking_mode"
 	public explicit_return_type ""
-	nparams 2
-	  param in name "key" explicit_type "std::string &"
+	nparams 1
+	  param in name "block_client" explicit_type "bool"
 	multiplicity "1"
-	  param in name "value" explicit_type "uint32_t"
-	multiplicity "1"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -213,12 +273,10 @@ ${inlines}
 	
       end
 
-      operation 144682 "set"
+      operation 144682 "set_email"
 	public explicit_return_type ""
-	nparams 2
-	  param in name "key" explicit_type "std::string &"
-	multiplicity "1"
-	  param in name "value" explicit_type "int64_t"
+	nparams 1
+	  param in name "email" explicit_type "std::string &"
 	multiplicity "1"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
@@ -231,16 +289,14 @@ ${inlines}
 	
       end
 
-      operation 144810 "set"
+      operation 144810 "set_priority"
 	public explicit_return_type ""
-	nparams 2
-	  param in name "key" explicit_type "std::string &"
+	nparams 1
+	  param in name "priority" type class_ref 142250 // Priority
 	multiplicity "1"
-	  param in name "value" explicit_type "uint64_t"
-	multiplicity "1"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -249,48 +305,10 @@ ${inlines}
 	
       end
 
-      operation 144554 "set"
+      operation 144554 "set_image_path"
 	public explicit_return_type ""
-	nparams 2
-	  param in name "key" explicit_type "std::string &"
-	multiplicity "1"
-	  param in name "value" explicit_type "float"
-	multiplicity "1"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 144426 "set"
-	public explicit_return_type ""
-	nparams 2
-	  param in name "key" explicit_type "std::string &"
-	multiplicity "1"
-	  param in name "value" explicit_type "double"
-	multiplicity "1"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 145450 "GetString"
-	public explicit_return_type "bool"
-	nparams 2
-	  param in name "destination" explicit_type "std::string *"
-	multiplicity "1"
-	  param in name "key" explicit_type "std::string &"
+	nparams 1
+	  param in name "path" explicit_type "std::filesystem::path &"
 	multiplicity "1"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
@@ -303,13 +321,9 @@ ${inlines}
 	
       end
 
-      operation 145578 "GetChar"
-	public explicit_return_type "bool"
-	nparams 2
-	  param in name "destination" explicit_type "int8_t *"
-	multiplicity "1"
-	  param in name "key" explicit_type "std::string &"
-	multiplicity "1"
+      operation 145450 "get_min_ram"
+	public explicit_return_type "uint32_t"
+	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
@@ -321,13 +335,9 @@ ${inlines}
 	
       end
 
-      operation 145706 "GetUChar"
-	public explicit_return_type "bool"
-	nparams 2
-	  param in name "destination" explicit_type "uint8_t *"
-	multiplicity "1"
-	  param in name "key" explicit_type "std::string &"
-	multiplicity "1"
+      operation 145578 "get_max_ram"
+	public explicit_return_type "uint32_t"
+	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
@@ -339,13 +349,9 @@ ${inlines}
 	
       end
 
-      operation 145834 "GetInt"
-	public explicit_return_type "bool"
-	nparams 2
-	  param in name "destination" explicit_type "int32_t *"
-	multiplicity "1"
-	  param in name "key" explicit_type "std::string &"
-	multiplicity "1"
+      operation 145706 "get_min_cpu_count"
+	public explicit_return_type "uint32_t"
+	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
@@ -357,13 +363,9 @@ ${inlines}
 	
       end
 
-      operation 145962 "GetUInt"
-	public explicit_return_type "bool"
-	nparams 2
-	  param in name "destination" explicit_type "uint32_t *"
-	multiplicity "1"
-	  param in name "key" explicit_type "std::string &"
-	multiplicity "1"
+      operation 145834 "get_max_cpu_count"
+	public explicit_return_type "uint32_t"
+	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
@@ -375,13 +377,9 @@ ${inlines}
 	
       end
 
-      operation 146090 "GetLongInt"
+      operation 145962 "get_blocking_mode"
 	public explicit_return_type "bool"
-	nparams 2
-	  param in name "destination" explicit_type "int64_t *"
-	multiplicity "1"
-	  param in name "key" explicit_type "std::string &"
-	multiplicity "1"
+	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
@@ -393,13 +391,9 @@ ${inlines}
 	
       end
 
-      operation 146218 "GetULongInt"
-	public explicit_return_type "bool"
-	nparams 2
-	  param in name "destination" explicit_type "uint64_t *"
-	multiplicity "1"
-	  param in name "key" explicit_type "std::string &"
-	multiplicity "1"
+      operation 146090 "get_email"
+	public explicit_return_type "const std::string *"
+	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
@@ -411,13 +405,9 @@ ${inlines}
 	
       end
 
-      operation 146346 "GetFloat"
-	public explicit_return_type "bool"
-	nparams 2
-	  param in name "destination" explicit_type "float *"
-	multiplicity "1"
-	  param in name "key" explicit_type "std::string &"
-	multiplicity "1"
+      operation 146218 "get_priority"
+	public return_type class_ref 142250 // Priority
+	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
@@ -429,13 +419,9 @@ ${inlines}
 	
       end
 
-      operation 146474 "GetDouble"
-	public explicit_return_type "bool"
-	nparams 2
-	  param in name "destination" explicit_type "double *"
-	multiplicity "1"
-	  param in name "key" explicit_type "std::string &"
-	multiplicity "1"
+      operation 146346 "get_image_path"
+	public explicit_return_type "const std::filesystem::path *"
+	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
@@ -495,10 +481,12 @@ ${inlines}
 
       operation 146730 "Save"
 	public explicit_return_type "bool"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+	nparams 1
+	  param in name "path" explicit_type "std::filesystem::path &"
+	multiplicity "1"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -509,10 +497,11 @@ ${inlines}
 
       operation 146858 "Load"
 	public explicit_return_type "bool"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+	nparams 1
+	  param in name "path" explicit_type "std::filesystem::path &"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -540,7 +529,7 @@ ${inlines}
       operation 147882 "Merge"
 	public explicit_return_type ""
 	nparams 1
-	  param in name "config_file" explicit_type "ConfigFile &"
+	  param in name "config" explicit_type "JobConfig &"
 	multiplicity "1"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
@@ -553,24 +542,6 @@ ${inlines}
 	
       end
 
-      operation 148010 "Mask"
-	public explicit_return_type "bool"
-	nparams 2
-	  param in name "keys" explicit_type "std::vector<std::string> &"
-	multiplicity "1"
-	  param in name "missing_keys" explicit_type "std::vector<std::string> *"
-	multiplicity "1"
-	    defaultvalue "nullptr"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
     end
   end
 
