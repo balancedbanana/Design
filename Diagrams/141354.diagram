@@ -2,15 +2,15 @@ format 222
 
 classcanvas 137642 class_ref 135722 // JobConfig
   classdiagramsettings member_max_width 0 end
-  xyz 137.3 7.2 2000
+  xyz 135.7 33.5 2000
 end
 classcanvas 137898 class_ref 142250 // Priority
   classdiagramsettings member_max_width 0 end
-  xyz 925 481.6 2000
+  xyz 925.4 481.8 2000
 end
-relationcanvas 138026 relation_ref 136234 // <aggregation>
+relationcanvas 138154 relation_ref 142762 // <dependency>
   from ref 137642 z 2001 to ref 137898
-  role_a_pos 841 532 3000 no_role_b
+  no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
 preferred_whz 2426 1360 1.1

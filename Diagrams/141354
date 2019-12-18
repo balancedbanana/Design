@@ -1,6 +1,6 @@
 format 222
 "configfiles" // balancedbanana::configfiles
-  revision 8
+  revision 9
   modified_by 42 "Niklas"
   // class settings
   
@@ -119,9 +119,6 @@ ${items}};
 	MysqlColumn
       end
 
-      classrelation 137130 // <aggregation>
-	relation_ref 136234 // <aggregation>
-      end
     end
 
     class 135722 "JobConfig"
@@ -138,7 +135,7 @@ ${inlines}
       mysql_decl ""
       
       attribute 148650 "min_ram_"
-	private explicit_type "uint32_t"
+	private explicit_type "std::optional<uint32_t>"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -150,7 +147,7 @@ ${inlines}
       end
 
       attribute 148778 "max_ram_"
-	private explicit_type "uint32_t"
+	private explicit_type "std::optional<uint32_t>"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -162,7 +159,7 @@ ${inlines}
       end
 
       attribute 148906 "min_cpu_count_"
-	private explicit_type "uint32_t"
+	private explicit_type "std::optional<uint32_t>"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -174,7 +171,7 @@ ${inlines}
       end
 
       attribute 149034 "max_cpu_count_"
-	private explicit_type "uint32_t"
+	private explicit_type "std::optional<uint32_t>"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -186,7 +183,7 @@ ${inlines}
       end
 
       attribute 149162 "blocking_mode_"
-	private explicit_type "bool"
+	private explicit_type "std::optional<bool>"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -209,18 +206,8 @@ ${inlines}
 	MysqlColumn
       end
 
-      classrelation 137002 // priority_ (<aggregation>)
-	relation 136234 o---
-	  a role_name "priority_" private
-	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 137002 // priority_ (<aggregation>)
-	  b role_name "" private
-	    classrelation_ref 137130 // <aggregation>
-      end
-
-      attribute 149546 "image_path_"
-	private explicit_type "std::filesystem::path"
+      attribute 156330 "priority_"
+	private explicit_type "std::optional<Priority>"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -231,20 +218,8 @@ ${inlines}
 	MysqlColumn
       end
 
-      attribute 149674 "specified_flags_"
-	private explicit_type "char *"
-	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
-      attribute 149802 "flags_length"
-	class_attribute const_attribute private explicit_type "uint_32"
+      attribute 149546 "image_"
+	private explicit_type "std::string"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -258,7 +233,7 @@ ${inlines}
       operation 147114 "Deserialize"
 	class_operation public explicit_return_type ""
 	nparams 2
-	  param in name "destination" explicit_type "ConfigFile *"
+	  param in name "destination" explicit_type "JobConfig *"
 	multiplicity "1"
 	  param in name "input" explicit_type "std::string &"
 	multiplicity "1"
@@ -279,22 +254,6 @@ ${inlines}
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 154538 "JobConfig"
-	public explicit_return_type ""
-	nparams 1
-	  param in name "map" explicit_type "std::map<std::string, std::string> &"
-	multiplicity "1"
-	cpp_decl "    ${comment}${inline}${typeprefix}${name}${(}const ${t0} & ${p0}${v0}${)}${volatile}${throw};
-"
-	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}const ${t0} & ${p0}${)}${volatile}${throw} {
   ${body}}
 "
 	
@@ -415,10 +374,10 @@ ${inlines}
 	
       end
 
-      operation 144554 "set_image_path"
+      operation 144554 "set_image"
 	public explicit_return_type ""
 	nparams 1
-	  param in name "path" explicit_type "std::filesystem::path &"
+	  param in name "path" explicit_type "std::string &"
 	multiplicity "1"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
@@ -529,8 +488,8 @@ ${inlines}
 	
       end
 
-      operation 146346 "image_path"
-	public explicit_return_type "const std::filesystem::path *"
+      operation 146346 "image"
+	public explicit_return_type "const std::string *"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
@@ -641,7 +600,7 @@ ${inlines}
 	
       end
 
-      operation 161834 "ContainsImagePath"
+      operation 161834 "ContainsImage"
 	public explicit_return_type "bool"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
@@ -703,7 +662,7 @@ ${inlines}
       operation 146986 "Serialize"
 	public explicit_return_type ""
 	nparams 1
-	  param in name "destination" explicit_type "std::string *"
+	  param in name "destination" explicit_type "std::stringstream &"
 	multiplicity "1"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
@@ -732,6 +691,13 @@ ${inlines}
 	
       end
 
+      classrelation 143658 // <dependency>
+	relation 142762 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 143658 // <dependency>
+	  b parent class_ref 142250 // Priority
+      end
     end
   end
 
