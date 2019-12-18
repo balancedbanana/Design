@@ -230,7 +230,7 @@ ${inlines}
       end
 
       operation 147114 "Deserialize"
-	class_operation public explicit_return_type ""
+	class_operation public explicit_return_type "void"
 	nparams 2
 	  param in name "destination" explicit_type "JobConfig *"
 	multiplicity "1"
@@ -262,7 +262,7 @@ ${inlines}
       end
 
       operation 144042 "set_min_ram"
-	public explicit_return_type ""
+	public explicit_return_type "void"
 	nparams 1
 	  param in name "miB" explicit_type "uint32_t"
 	multiplicity "1"
@@ -278,7 +278,7 @@ ${inlines}
       end
 
       operation 145066 "set_max_ram"
-	public explicit_return_type ""
+	public explicit_return_type "void"
 	nparams 1
 	  param in name "miB" explicit_type "uint32_t"
 	multiplicity "1"
@@ -294,7 +294,7 @@ ${inlines}
       end
 
       operation 144938 "set_min_cpu_count"
-	public explicit_return_type ""
+	public explicit_return_type "void"
 	nparams 1
 	  param in name "count" explicit_type "uint32_t"
 	multiplicity "1"
@@ -310,7 +310,7 @@ ${inlines}
       end
 
       operation 144170 "set_max_cpu_count"
-	public explicit_return_type ""
+	public explicit_return_type "void"
 	nparams 1
 	  param in name "count" explicit_type "uint32_t"
 	multiplicity "1"
@@ -326,7 +326,7 @@ ${inlines}
       end
 
       operation 144298 "set_blocking_mode"
-	public explicit_return_type ""
+	public explicit_return_type "void"
 	nparams 1
 	  param in name "block_client" explicit_type "bool"
 	multiplicity "1"
@@ -342,7 +342,7 @@ ${inlines}
       end
 
       operation 144682 "set_email"
-	public explicit_return_type ""
+	public explicit_return_type "void"
 	nparams 1
 	  param in name "email" explicit_type "std::string &"
 	multiplicity "1"
@@ -358,7 +358,7 @@ ${inlines}
       end
 
       operation 144810 "set_priority"
-	public explicit_return_type ""
+	public explicit_return_type "void"
 	nparams 1
 	  param in name "priority" type class_ref 142250 // Priority
 	multiplicity "1"
@@ -374,7 +374,7 @@ ${inlines}
       end
 
       operation 144554 "set_image"
-	public explicit_return_type ""
+	public explicit_return_type "void"
 	nparams 1
 	  param in name "path" explicit_type "std::string &"
 	multiplicity "1"
@@ -614,7 +614,7 @@ ${inlines}
       end
 
       operation 146602 "Clear"
-	public explicit_return_type ""
+	public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -659,7 +659,7 @@ ${inlines}
       end
 
       operation 146986 "Serialize"
-	public explicit_return_type ""
+	cpp_virtual public explicit_return_type "void"
 	nparams 1
 	  param in name "destination" explicit_type "std::stringstream &"
 	multiplicity "1"
@@ -675,7 +675,7 @@ ${inlines}
       end
 
       operation 147882 "Merge"
-	public explicit_return_type ""
+	public explicit_return_type "void"
 	nparams 1
 	  param in name "config" explicit_type "JobConfig &"
 	multiplicity "1"
@@ -753,7 +753,7 @@ ${inlines}
       end
 
       operation 168490 "Set"
-	public explicit_return_type ""
+	public explicit_return_type "void"
 	nparams 2
 	  param in name "key" explicit_type "std::string &"
 	multiplicity "1"
@@ -787,7 +787,7 @@ ${inlines}
       end
 
       operation 168746 "Clear"
-	public explicit_return_type ""
+	public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "

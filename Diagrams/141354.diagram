@@ -2,19 +2,19 @@ format 222
 
 classcanvas 137642 class_ref 135722 // JobConfig
   classdiagramsettings member_max_width 0 end
-  xyz 135.6 33.9 2000
+  xyz 129.4 30.4 2000
 end
 classcanvas 137898 class_ref 142250 // Priority
   classdiagramsettings member_max_width 0 end
-  xyz 727.7 908.2 2000
+  xyz 913.3 880.2 2000
 end
 classcanvas 138282 class_ref 148778 // SchedulerConfig
   classdiagramsettings member_max_width 0 end
-  xyz 805.1 130.9 2000
+  xyz 879.2 100.5 2000
 end
 note 138410 "empty strings are invalid values,
 so contains will return false but their keys are written down when saved"
-  xyzwh 1073 439 2000 345 125
+  xyzwh 1073 439.2 2000 345 125
 relationcanvas 138154 relation_ref 142762 // <dependency>
   from ref 137642 z 2001 to ref 137898
   no_role_a no_role_b
