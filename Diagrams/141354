@@ -1,7 +1,7 @@
 format 222
 "configfiles" // balancedbanana::configfiles
-  revision 11
-  modified_by 121 "christopher"
+  revision 12
+  modified_by 73 "Thomas"
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -848,6 +848,7 @@ ${inlines}
 	
       end
     end
+
   end
 
   classview 141482 "diagrams"

@@ -1,0 +1,208 @@
+format 222
+
+classinstance 128073 class_ref 155257 // Worker
+  name ""   xyz 157 4 2005 life_line_z 2000
+classinstance 128585 class_ref 128810 // WorkerMP
+  name "msgProcessor"   xyz 360 70 2005 life_line_z 2000
+classinstance 129737 class_ref 128170 // Communicator
+  name ""   xyz 648 130 2005 life_line_z 2000
+classinstance 130889 class_ref 148778 // SchedulerConfig
+  name ""   xyz 825 352 2005 life_line_z 2000
+classinstance 132809 class_ref 148425 // HardwareDetailMessage
+  name "hwMsg"   xyz 1038 923 2005 life_line_masked life_line_z 2000
+classinstancecanvas 136265 classinstance_ref 134729 // tasks
+  xyz 1029 1246 2005 life_line_z 2000
+end
+note 137033 "Sind beliebig viele Aufgaben"
+  xyzwh 1223 1303 2000 269 43
+durationcanvas 128201 classinstance_ref 128073 // :Worker
+  xyzwh 191 61 2010 11 1403
+  overlappingdurationcanvas 130505
+    xyzwh 197 853 2020 11 37
+  end
+  overlappingdurationcanvas 133833
+    xyzwh 197 1220 2020 11 86
+  end
+end
+durationcanvas 130121 classinstance_ref 129737 // :Communicator
+  xyzwh 713 200 2010 11 43
+end
+durationcanvas 131273 classinstance_ref 130889 // :SchedulerConfig
+  xyzwh 900 420 2010 11 63
+end
+durationcanvas 131657 classinstance_ref 130889 // :SchedulerConfig
+  xyzwh 900 601 2010 11 71
+end
+durationcanvas 132041 classinstance_ref 129737 // :Communicator
+  xyzwh 713 698 2010 11 50
+end
+durationcanvas 132425 classinstance_ref 129737 // :Communicator
+  xyzwh 713 975 2010 11 67
+end
+durationcanvas 133449 classinstance_ref 130889 // :SchedulerConfig
+  xyzwh 900 1140 2010 11 53
+end
+durationcanvas 136649 classinstance_ref 136265 // tasks:Container
+  xyzwh 1095 1345 2010 11 54
+end
+lostfoundmsgsupport 128329 xyz 57 63 2015
+lostfoundmsgsupport 129225 xyz 351 76 2020
+lostfoundmsgsupport 129865 xyz 639 135 2015
+lostfoundmsgsupport 131017 xyz 816 358 2015
+lostfoundmsgsupport 133193 xyz 1032 927 2015
+lostfoundmsgsupport 136393 xyz 1021 1256 2025
+lostfoundmsgsupport 138057 xyz 40 1450 2015
+msg 128457 found_synchronous
+  from lostfoundmsgsupport_ref 128329
+  to durationcanvas_ref 128201
+  yz 61 2015 msg operation_ref 135625 // "initialize() : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 87 42
+msg 129353 lost_asynchronous
+  from durationcanvas_ref 128201
+  to lostfoundmsgsupport_ref 129225
+  yz 74 2020 unspecifiedmsg
+  stereotype "<<create>>" xyz 236 58 3000
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 129993 lost_synchronous
+  from durationcanvas_ref 128201
+  to lostfoundmsgsupport_ref 129865
+  yz 133 2015 unspecifiedmsg
+  stereotype "<<create>>" xyz 297 117 3000
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 130249 synchronous
+  from durationcanvas_ref 128201
+  to durationcanvas_ref 130121
+  yz 200 2015 msg operation_ref 135338 // "listen(in callback : std::function<void(std::shared_ptr<Message>)>) : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "msgProcessor.processMsg"
+  label_xy 285 178
+msg 130377 return
+  from durationcanvas_ref 130121
+  to durationcanvas_ref 128201
+  yz 226 2020 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+reflexivemsg 130633 synchronous
+  to durationcanvas_ref 130505
+  yz 853 2025 msg operation_ref 135753 // "getHardwareDetails() : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 227 841
+selfreflexivemsg 130761
+  to durationcanvas_ref 130505
+  yz 882 2025 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 131145 lost_synchronous
+  from durationcanvas_ref 128201
+  to lostfoundmsgsupport_ref 131017
+  yz 356 2015 unspecifiedmsg
+  stereotype "<<create>>" xyz 433 341 3000
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 131401 synchronous
+  from durationcanvas_ref 128201
+  to durationcanvas_ref 131273
+  yz 420 2015 msg operation_ref 169002 // "Load(in path : std::filesystem::path & [1]) : bool"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "CONFIG_FILE_PATH"
+  label_xy 394 398
+msg 131529 return
+  from durationcanvas_ref 131273
+  to durationcanvas_ref 128201
+  yz 466 2015 explicitmsg "true"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 506 444
+msg 131785 synchronous
+  from durationcanvas_ref 128201
+  to durationcanvas_ref 131657
+  yz 601 2015 msg operation_ref 168618 // "Get(in key : std::string & [1]) : const std::string *"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "ServerAdress"
+  label_xy 441 579
+msg 131913 return
+  from durationcanvas_ref 131657
+  to durationcanvas_ref 128201
+  yz 655 2015 explicitmsg "adressOfLastKnownServer"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 406 633
+msg 132169 synchronous
+  from durationcanvas_ref 128201
+  to durationcanvas_ref 132041
+  yz 698 2015 msg operation_ref 135210 // "notify(in address : std::string & [1], in msg : Message & [1]) : bool"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "adressOfLastKnownServer, RegistrationMessage"
+  label_xy 205 678
+msg 132297 return
+  from durationcanvas_ref 132041
+  to durationcanvas_ref 128201
+  yz 731 2015 explicitmsg "true"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 441 709
+msg 132553 synchronous
+  from durationcanvas_ref 128201
+  to durationcanvas_ref 132425
+  yz 975 2015 msg operation_ref 155001 // "send(in message : Message)"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "hwMsg"
+  label_xy 326 953
+msg 132681 return
+  from durationcanvas_ref 132425
+  to durationcanvas_ref 128201
+  yz 1025 2015 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 133321 lost_synchronous
+  from durationcanvas_ref 128201
+  to lostfoundmsgsupport_ref 133193
+  yz 925 2015 explicitmsg "HardwareDetailMessage(in coreCount : int, in ramSize : int, in osIdentifier : std::string*)"
+  stereotype "<<create>>" xyz 569 934 3000
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "coreCount, ramSize, osIdentifier"
+  label_xy 369 903
+msg 133577 synchronous
+  from durationcanvas_ref 128201
+  to durationcanvas_ref 133449
+  yz 1140 2015 msg operation_ref 168618 // "Get(in key : std::string & [1]) : const std::string *"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "taskList"
+  label_xy 497 1118
+msg 133705 return
+  from durationcanvas_ref 133449
+  to durationcanvas_ref 128201
+  yz 1177 2015 explicitmsg "filePathToTaskList"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 473 1155
+reflexivemsg 133961 synchronous
+  to durationcanvas_ref 133833
+  yz 1220 2025 msg operation_ref 142665 // "readInTaskList(in pathToTaskList : std::string *) : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "filePathToTaskList"
+  label_xy 231 1210
+selfreflexivemsg 134089
+  to durationcanvas_ref 133833
+  yz 1298 2025 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 136521 lost_synchronous
+  from durationcanvas_ref 133833
+  to lostfoundmsgsupport_ref 136393
+  yz 1254 2025 unspecifiedmsg
+  stereotype "<<create>>" xyz 566 1262 3000
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 136777 synchronous
+  from durationcanvas_ref 128201
+  to durationcanvas_ref 136649
+  yz 1345 2015 msg operation_ref 141817 // "Resume()"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 606 1323
+msg 136905 return
+  from durationcanvas_ref 136649
+  to durationcanvas_ref 128201
+  yz 1388 2015 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 138185 lost_asynchronous
+  from durationcanvas_ref 128201
+  to lostfoundmsgsupport_ref 138057
+  yz 1450 2015 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+line 137673 -_-_
+  from ref 137033 z 2006 to ref 136265
+line 137929 -_-_
+  from ref 137033 z 2011 to ref 136649
+end

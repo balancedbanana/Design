@@ -1,7 +1,7 @@
 format 222
 "worker" // balancedbanana::worker
-  revision 4
-  modified_by 121 "christopher"
+  revision 6
+  modified_by 73 "Thomas"
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -288,6 +288,57 @@ ${inlines}
 	
 	
       end
+
+      operation 135625 "initialize"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Ermittelt HW Details
+Erschafft min einen Verbindungsempfänger (MsgProcessor + Communicator)
+initialisiert Aufgabenverarbeitung
+liest hinterlegte Daten ein (vorheriger Server, unterbrochene Aufgaben)
+setzt unterbrochene Aufgaben fort
+meldet sich bei Server an, falls möglich, ansonsten: wartet auf Anstoß eines Servers"
+      end
+
+      operation 135753 "getHardwareDetails"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Ermittelt CPU Kern Anzahl, RAM, Betriebssystem"
+      end
+
+      operation 142665 "readInTaskList"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "pathToTaskList" explicit_type "std::string *"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Liest Einträge aus einer Datei und interpretiert diese als Aufgaben (DockerImmages oder so)"
+      end
     end
   end
 
@@ -314,6 +365,27 @@ ${inlines}
     classdiagram 154745 "class_dia"
       classdiagramsettings member_max_width 0 end
       size A4
+    end
+
+    sequencediagram 141129 "StartUpSequence"
+      sequencediagramsettings end
+      overlapping_bars size 40000x40000
+    end
+
+    classinstance 134601 "tasks"
+      type class_ref 128249 // Container
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 134729 "tasks"
+      type class_ref 128249 // Container
+      attributes
+        end
+      relations
+        end
     end
   end
 end
