@@ -1,6 +1,6 @@
 format 222
 "configfiles" // balancedbanana::configfiles
-  revision 13
+  revision 14
   modified_by 42 "Niklas"
   // class settings
   
@@ -230,7 +230,7 @@ ${inlines}
       end
 
       attribute 169386 "environment_"
-	private explicit_type "std::vector<std::string>"
+	private explicit_type "std::optional<std::vector<std::string>>"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -288,7 +288,7 @@ ${inlines}
       operation 144042 "set_min_ram"
 	public explicit_return_type "void"
 	nparams 1
-	  param in name "miB" explicit_type "uint32_t"
+	  param in name "miB" explicit_type "std::optional<uint32_t>"
 	multiplicity "1"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
@@ -304,7 +304,7 @@ ${inlines}
       operation 145066 "set_max_ram"
 	public explicit_return_type "void"
 	nparams 1
-	  param in name "miB" explicit_type "uint32_t"
+	  param in name "miB" explicit_type "std::optional<uint32_t>"
 	multiplicity "1"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
@@ -320,7 +320,7 @@ ${inlines}
       operation 144938 "set_min_cpu_count"
 	public explicit_return_type "void"
 	nparams 1
-	  param in name "count" explicit_type "uint32_t"
+	  param in name "count" explicit_type "std::optional<uint32_t>"
 	multiplicity "1"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
@@ -336,7 +336,7 @@ ${inlines}
       operation 144170 "set_max_cpu_count"
 	public explicit_return_type "void"
 	nparams 1
-	  param in name "count" explicit_type "uint32_t"
+	  param in name "count" explicit_type "std::optional<uint32_t>"
 	multiplicity "1"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
@@ -352,11 +352,11 @@ ${inlines}
       operation 144298 "set_blocking_mode"
 	public explicit_return_type "void"
 	nparams 1
-	  param in name "block_client" explicit_type "bool"
+	  param in name "block_client" explicit_type "std::optional<bool>"
 	multiplicity "1"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -384,11 +384,11 @@ ${inlines}
       operation 144810 "set_priority"
 	public explicit_return_type "void"
 	nparams 1
-	  param in name "priority" type class_ref 142250 // Priority
+	  param in name "priority" explicit_type "std::optional<Priority>"
 	multiplicity "1"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -416,7 +416,7 @@ ${inlines}
       operation 175786 "set_environment"
 	public explicit_return_type "void"
 	nparams 1
-	  param in name "environment" explicit_type "std::vector<std::string> &"
+	  param in name "environment" explicit_type "std::optional<std::vector<std::string>> &"
 	multiplicity "1"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
@@ -446,7 +446,7 @@ ${inlines}
       end
 
       operation 145450 "min_ram"
-	public explicit_return_type "uint32_t"
+	public explicit_return_type "std::optional<uint32_t>"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
@@ -460,7 +460,7 @@ ${inlines}
       end
 
       operation 145578 "max_ram"
-	public explicit_return_type "uint32_t"
+	public explicit_return_type "std::optional<uint32_t>"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
@@ -474,7 +474,7 @@ ${inlines}
       end
 
       operation 145706 "min_cpu_count"
-	public explicit_return_type "uint32_t"
+	public explicit_return_type "std::optional<uint32_t>"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
@@ -488,7 +488,7 @@ ${inlines}
       end
 
       operation 145834 "max_cpu_count"
-	public explicit_return_type "uint32_t"
+	public explicit_return_type "std::optional<uint32_t>"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
@@ -502,7 +502,7 @@ ${inlines}
       end
 
       operation 145962 "blocking_mode"
-	public explicit_return_type "bool"
+	public explicit_return_type "std::optional<bool>"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
@@ -516,7 +516,7 @@ ${inlines}
       end
 
       operation 146090 "email"
-	public explicit_return_type "const std::string *"
+	public explicit_return_type "std::string &"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
@@ -530,7 +530,7 @@ ${inlines}
       end
 
       operation 146218 "priority"
-	public return_type class_ref 142250 // Priority
+	public explicit_return_type "std::optional<Priority>"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
@@ -544,7 +544,7 @@ ${inlines}
       end
 
       operation 146346 "image"
-	public explicit_return_type "const std::string *"
+	public explicit_return_type "std::string &"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
