@@ -27,31 +27,31 @@ end
 relationcanvas 131017 relation_ref 128713 // <unidirectional association>
   geometry VH
   decenter_begin 48
-  from ref 128073 z 2001 to point 31 212
+  from ref 128073 z 2001 to point 20 203
   line 131273 z 2001 to ref 128585
-  role_a_pos 55 185 3000 no_role_b
-  multiplicity_a_pos 161 225 3000 no_multiplicity_b
+  role_a_pos 109 188 3000 no_role_b
+  multiplicity_a_pos 166 211 3000 no_multiplicity_b
 end
 relationcanvas 131401 relation_ref 128841 // <unidirectional association>
   geometry VH
   decenter_begin 46
-  from ref 128073 z 2001 to point 30 286
+  from ref 128073 z 2001 to point 20 277
   line 131657 z 2001 to ref 128713
-  role_a_pos 44 259 3000 no_role_b
-  multiplicity_a_pos 162 299 3000 no_multiplicity_b
+  role_a_pos 102 262 3000 no_role_b
+  multiplicity_a_pos 167 285 3000 no_multiplicity_b
 end
 relationcanvas 131785 relation_ref 128969 // <unidirectional association>
   geometry VH
   decenter_begin 43
-  from ref 128073 z 2001 to point 29 359
+  from ref 128073 z 2001 to point 19 351
   line 132041 z 2001 to ref 128841
-  role_a_pos 48 332 3000 no_role_b
-  multiplicity_a_pos 163 372 3000 no_multiplicity_b
+  role_a_pos 106 336 3000 no_role_b
+  multiplicity_a_pos 168 359 3000 no_multiplicity_b
 end
 relationcanvas 132169 relation_ref 129097 // <dependency>
   geometry VH
   decenter_end 268
-  from ref 128201 z 2001 to point 374 539
+  from ref 128201 z 2001 to point 293 491
   line 132425 z 2001 to ref 128457
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
@@ -59,38 +59,9 @@ end
 relationcanvas 132553 relation_ref 129225 // <dependency>
   geometry VH
   decenter_begin 43
-  from ref 128073 z 2001 to point 29 448
+  from ref 128073 z 2001 to point 19 442
   line 132809 z 2001 to ref 128201
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
-classinstance 128249 class_ref 128249 // Container
-  name "container"   xyz 336 27 2000 life_line_z 2000
-classinstancecanvas 128377 classinstance_ref 128121 // docker
-  xyz 161 4 2005 life_line_z 2000
-end
-durationcanvas 129017 classinstance_ref 128377 // docker:Docker
-  xyzwh 209 74 2010 11 59
-end
-durationcanvas 129401 classinstance_ref 128249 // container:Container
-  xyzwh 400 85 2010 11 31
-end
-lostfoundmsgsupport 129145 xyz 92 76 2015
-msg 129273 found_synchronous
-  from lostfoundmsgsupport_ref 129145
-  to durationcanvas_ref 129017
-  yz 74 2015 msg operation_ref 128121 // "Start(in userid : int, in task : Task) : Container"
-  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
-  label_xy 125 56
-msg 129529 synchronous
-  from durationcanvas_ref 129017
-  to durationcanvas_ref 129401
-  yz 86 2015 explicitmsg "<<create>>(id)"
-  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
-  label_xy 264 68
-msg 129657 return
-  from durationcanvas_ref 129401
-  to durationcanvas_ref 129017
-  yz 105 2020 unspecifiedmsg
-  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
 end

@@ -1,6 +1,6 @@
 format 222
 "balancedbanana" // balancedbanana
-  revision 5
+  revision 6
   modified_by 121 "christopher"
   // class settings
   
@@ -235,6 +235,7 @@ ${inlines}
       sequencediagramsettings end
       overlapping_bars size A4
     end
+
   end
 
   package_ref 141561 // database
