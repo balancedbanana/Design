@@ -1,55 +1,86 @@
 format 222
 
+classcanvas 128073 class_ref 155081 // EventDispatcher
+  classdiagramsettings member_max_width 0 end
+  xyz 116 503 2000
+end
 classcanvas 128121 class_ref 155001 // Scheduler
   classdiagramsettings member_max_width 0 end
-  xyz 363.294 174.433 2000
+  xyz 312.294 68.433 2000
+end
+classcanvas 128201 class_ref 154953 // Timer
+  classdiagramsettings member_max_width 0 end
+  xyz 120 649 2000
 end
 classcanvas 128249 class_ref 155129 // Worker
   classdiagramsettings member_max_width 0 end
-  xyz 390.797 389.269 2000
+  xyz 339.797 283.269 2000
+end
+classcanvas 128329 class_ref 155209 // Event
+  classdiagramsettings member_max_width 0 end
+  xyz 493 541 2000
+end
+classcanvas 128457 class_ref 135369 // Communicator
+  classdiagramsettings member_max_width 0 end
+  xyz 267 662 2000
 end
 classcanvas 128505 class_ref 162041 // Queue
   classdiagramsettings member_max_width 0 end
-  xyz 183.713 171.33 2000
+  xyz 132.713 65.33 2000
 end
 classcanvas 128633 class_ref 162297 // BasicQueue
   classdiagramsettings member_max_width 0 end
-  xyz 177.862 342.436 2000
+  xyz 126.862 236.436 2000
 end
 classcanvas 128889 class_ref 162425 // DB
   classdiagramsettings member_max_width 0 end
-  xyz 588.727 198.29 2000
+  xyz 537.727 92.29 2000
 end
 classcanvas 129913 class_ref 128426 // MessageProcessor
   classdiagramsettings member_max_width 0 end
-  xyz 573.584 338.579 2000
+  xyz 522.584 232.579 2000
 end
 classcanvas 130425 class_ref 162169 // Job
   classdiagramsettings member_max_width 0 end
-  xyz 98 410 2000
+  xyz 47 304 2000
 end
 relationcanvas 128377 relation_ref 148089 // <aggregation>
   from ref 128121 z 2001 to ref 128249
-  role_a_pos 427 374 3000 no_role_b
-  multiplicity_a_pos 411 374 3000 multiplicity_b_pos 408 254 3000
+  role_a_pos 376 268 3000 no_role_b
+  multiplicity_a_pos 360 268 3000 multiplicity_b_pos 357 148 3000
+end
+relationcanvas 128585 relation_ref 149321 // <dependency>
+  from ref 128073 z 2001 to ref 128201
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 128713 relation_ref 149449 // <dependency>
+  from ref 128073 z 2001 to ref 128329
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 128761 relation_ref 148217 // <generalisation>
   from ref 128633 z 2001 to ref 128505
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
+relationcanvas 128841 relation_ref 149577 // <dependency>
+  from ref 128073 z 2001 to ref 128457
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
 relationcanvas 129401 relation_ref 148473 // <dependency>
-  from ref 128121 z 2001 stereotype "<<use>>" xyz 510 214 3000 to ref 128889
+  from ref 128121 z 2001 stereotype "<<use>>" xyz 459 108 3000 to ref 128889
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 130041 relation_ref 148601 // <dependency>
-  from ref 128121 z 2001 stereotype "<<use>>" xyz 502 293 3000 to ref 129913
+  from ref 128121 z 2001 stereotype "<<use>>" xyz 451 187 3000 to ref 129913
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 130297 relation_ref 148857 // <dependency>
-  from ref 128249 z 2001 stereotype "<<use>>" xyz 492 405.5 3000 to ref 129913
+  from ref 128249 z 2001 stereotype "<<use>>" xyz 441 299 3000 to ref 129913
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
