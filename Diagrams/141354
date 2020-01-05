@@ -71,6 +71,7 @@ ${items}};
       explicit_switch_type ""
       mysql_decl ""
       
+      comment "The priorities are used by the scheduler to sort jobs by their specified priority."
       attribute 148138 "low"
 	public type class_ref 142250 // Priority
 	init_value "1"
@@ -81,6 +82,7 @@ ${items}};
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
+	comment "This priority can be used for jobs that are less important than those with the standard priority."
       end
 
       attribute 148266 "normal"
@@ -93,6 +95,7 @@ ${items}};
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
+	comment "This priority can be used for most jobs that should be scheduled and should not take too much time."
       end
 
       attribute 148394 "high"
@@ -105,6 +108,7 @@ ${items}};
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
+	comment "This priority can be used for Jobs that are important to finish quickly and are favoured by the scheduler."
       end
 
       attribute 148522 "emergency"
@@ -117,6 +121,7 @@ ${items}};
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
+	comment "This priority can be used for the most important jobs that have to be started instantly. The scheduler might even cancel a running job to let the ones with this priority take it's place."
       end
     end
 
@@ -133,6 +138,7 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
+      comment "This class contains all necessary information that are needed by the scheduler and the worker to successfully execute a job."
       attribute 148650 "min_ram_"
 	private explicit_type "std::optional<uint32_t>"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
@@ -143,6 +149,7 @@ ${inlines}
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
+	comment "This attribute specifies how much RAM jobs with this configuration need at least in order to finish successfully."
       end
 
       attribute 148778 "max_ram_"
@@ -155,6 +162,7 @@ ${inlines}
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
+	comment "This attribute describes how much RAM jobs with this configuration need at most in order to finish successfully."
       end
 
       attribute 148906 "min_cpu_count_"
@@ -167,6 +175,7 @@ ${inlines}
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
+	comment "This attribute specifies how much CPU cores jobs with this configuration need at least in order to successfully finish."
       end
 
       attribute 149034 "max_cpu_count_"
@@ -179,6 +188,7 @@ ${inlines}
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
+	comment "This attribute specifies the maximum amount of CPU cores that the should be dedicated to jobs with this configuration"
       end
 
       attribute 149162 "blocking_mode_"
@@ -191,6 +201,7 @@ ${inlines}
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
+	comment "This attribute specifies whether the client should wait for the job to finish after sending it to the scheduler before terminating or not."
       end
 
       attribute 149290 "email_"
@@ -203,6 +214,7 @@ ${inlines}
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
+	comment "This attribute specifies an email address to which the scheduler sends a notification when the job is finished. An empty string is interpreted as not specified."
       end
 
       attribute 156330 "priority_"
@@ -215,6 +227,7 @@ ${inlines}
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
+	comment "This attribute specifies the priority of the job in the queue of the scheduler."
       end
 
       attribute 149546 "image_"
