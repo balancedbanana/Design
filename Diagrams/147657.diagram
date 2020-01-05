@@ -1,0 +1,21 @@
+format 222
+
+classinstance 128073 class_ref 155001 // Scheduler
+  name ""   xyz 184 4 2005 life_line_z 2000
+durationcanvas 128201 classinstance_ref 128073 // :Scheduler
+  xyzwh 230 81 2010 11 658
+end
+lostfoundmsgsupport 128329 xyz 48 83 2015
+lostfoundmsgsupport 128713 xyz 13 716 2015
+msg 128457 found_synchronous
+  from lostfoundmsgsupport_ref 128329
+  to durationcanvas_ref 128201
+  yz 81 2015 msg operation_ref 156105 // "initialize() : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 105 59
+msg 128841 lost_asynchronous
+  from durationcanvas_ref 128201
+  to lostfoundmsgsupport_ref 128713
+  yz 715 2015 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+end

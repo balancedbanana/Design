@@ -1,6 +1,6 @@
 format 222
 "scheduler" // balancedbanana::scheduler
-  revision 4
+  revision 5
   modified_by 73 "Thomas"
   // class settings
   
@@ -218,7 +218,6 @@ ${inlines}
 	    classrelation_ref 149833 // <dependency>
 	  b parent class_ref 155209 // Event
       end
-
     end
 
     class 154953 "Timer"
@@ -367,6 +366,29 @@ ${inlines}
 	    cpp default "#include in source"
 	    classrelation_ref 148985 // <dependency>
 	  b parent class_ref 155129 // Worker
+      end
+
+      operation 156105 "initialize"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Lädt existierende oder erstellt neue Datenbank
+Liest Liste aller Arbeiter ein, falls vorhanden
+Erschafft Verbindungsempfänger für Clients und Arbeiter (min 2)
+Liest Aufgabenliste aus DB aus
+Liest vorhandene oder erstellt fehlende Konfigurationsdatei
+Startet HTTP und SMTP Server
+Frägt Status der Arbeiter ab (sollen fertige Aufgaben zurückmelden)
+Startet Bearbeitung der Warteschlange (startet den Timer)
+Sendet Nachricht an alle Arbeiter (ich bin hier nachricht)"
       end
     end
 
@@ -622,6 +644,11 @@ ${inlines}
     classdiagram 161273 "class_diagramm"
       classdiagramsettings draw_all_relations no member_max_width 0 end
       size A4
+    end
+
+    sequencediagram 147657 "Startup Sequence"
+      sequencediagramsettings end
+      overlapping_bars size 40000x40000
     end
   end
 end
