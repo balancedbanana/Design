@@ -2,21 +2,21 @@ format 222
 
 classcanvas 137642 class_ref 135722 // JobConfig
   classdiagramsettings member_max_width 0 end
-  xyz 57.2 23.2 2000
+  xyz 56.7 24 2000
 end
 classcanvas 137898 class_ref 142250 // Priority
   classdiagramsettings member_max_width 0 end
-  xyz 671.1 376.8 2000
+  xyz 671.2 376.1 2000
 end
 classcanvas 138282 class_ref 148778 // SchedulerConfig
   classdiagramsettings member_max_width 0 end
-  xyz 678.4 73.2 2000
+  xyz 678.3 73 2000
 end
 note 138410 "empty strings are invalid values,
 so contains will return false but their keys are written down when saved"
-  xyzwh 1026.2 128.2 2000 139 103
+  xyzwh 1026.7 128.1 2000 139 103
 note 138666 "empty strings for properties like \"email\" or \"priority\" are interpreted as not specified"
-  xyzwh 480 132 2000 115 88
+  xyzwh 480.7 131.5 2000 115 88
 relationcanvas 138154 relation_ref 142762 // <dependency>
   from ref 137642 z 2001 to ref 137898
   no_role_a no_role_b
