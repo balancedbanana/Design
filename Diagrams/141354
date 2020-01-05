@@ -253,6 +253,18 @@ ${inlines}
 	MysqlColumn
       end
 
+      attribute 176042 "current_working_dir_"
+	private explicit_type "std::optional<std::filesystem::path>"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
       operation 147498 "JobConfig"
 	public explicit_return_type ""
 	nparams 0
@@ -458,6 +470,22 @@ ${inlines}
 	
       end
 
+      operation 182698 "set_current_working_dir"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "cwd" explicit_type "std::optional<std::filesystem::path> &"
+	multiplicity "1"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
       operation 145450 "min_ram"
 	public explicit_return_type "std::optional<uint32_t>"
 	nparams 0
@@ -586,6 +614,21 @@ ${inlines}
 
       operation 176170 "interruptible"
 	public explicit_return_type "std::optional<bool>"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 182826 "current_working_dir"
+	public explicit_return_type "std::optional<std::filesystem::path> &"
+	multiplicity "1"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
