@@ -1,6 +1,6 @@
 format 222
 "commandLineProcessing" // balancedbanana::client::commandLineProcessing
-  revision 2
+  revision 3
   modified_by 73 "Thomas"
   // class settings
   
@@ -209,6 +209,21 @@ arg: Argument, dessen Wert betrachtet werden soll"
 	  a public
 	    classrelation_ref 129609 // <dependency>
 	  b parent class_ref 128329 // Argument
+      end
+
+      operation 163017 "serielize"
+	public explicit_return_type "char**"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Wandelt den Task in ein byte Array zum Übermitteln um"
       end
     end
 

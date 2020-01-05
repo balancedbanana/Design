@@ -1,7 +1,7 @@
 format 222
 "client" // balancedbanana::client
-  revision 3
-  modified_by 121 "christopher"
+  revision 4
+  modified_by 73 "Thomas"
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -29,7 +29,7 @@ format 222
   
   activitydiagramsettings
    end
-
+  
   package_ref 128201 // commandLineProcessing
 
   classview 147657 "diagrams"
@@ -59,7 +59,7 @@ format 222
 
     sequencediagram 134601 "createTask"
       sequencediagramsettings end
-      overlapping_bars size A4
+      overlapping_bars size 4000x4000
     end
 
     class 135241 "main"
@@ -131,6 +131,37 @@ ${inlines}
 	
 	
 	
+      end
+    end
+
+    class 168649 "Client"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 162633 "main"
+	public explicit_return_type "int"
+	nparams 2
+	  param in name "argv" explicit_type "char**"
+	  param in name "argc" explicit_type "int*"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "main method"
       end
     end
   end

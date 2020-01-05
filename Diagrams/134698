@@ -1,6 +1,6 @@
 format 222
 "communication" // balancedbanana::communication
-  revision 6
+  revision 7
   modified_by 73 "Thomas"
   // class settings
   
@@ -417,6 +417,21 @@ ${inlines}
 	nparams 1
 	  param in name "msg" explicit_type "MsgY *"
 	multiplicity "1"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 163145 "processTaskMessage"
+	public explicit_return_type "virtual void"
+	nparams 1
+	  param in name "msg" type class_ref 168905 // TaskMessage
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
@@ -876,6 +891,66 @@ ${inlines}
 	
 	
 	
+      end
+    end
+
+    class 168905 "TaskMessage"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "Nachticht mit allen Hardware Angaben (CPU RAM OS)"
+      operation 162761 "process"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "msgProcessor" explicit_type "MessageProcessor *  [balancedbanana::communication]"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 162889 "TaskMessage"
+	stereotype "constructor"
+	public explicit_return_type ""
+	nparams 1
+	  param in name "task" type class_ref 128201 // Task
+	cpp_decl "    ${comment}${inline}${typeprefix}${name}${(}const ${t0} & ${p0}${v0}, ${t1} ${p1}${v1}, const ${t2} & ${p2}${v2}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}const ${t0} & ${p0}, ${t1} ${p1}, const ${t2} & ${p2}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      attribute 158537 "task"
+	private type class_ref 128201 // Task
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Informationen des zu übermittelnden Tasks
+"
       end
     end
   end
