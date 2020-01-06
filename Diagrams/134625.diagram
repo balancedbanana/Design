@@ -1,0 +1,39 @@
+format 222
+
+classcanvas 128097 class_ref 141921 // Worker
+  classdiagramsettings member_max_width 0 end
+  xyz 65 428 2000
+end
+classcanvas 128353 class_ref 142049 // Worker_status
+  classdiagramsettings member_max_width 0 end
+  xyz 62 102 2000
+end
+classcanvas 128609 class_ref 142177 // Job
+  classdiagramsettings member_max_width 0 end
+  xyz 559 436 2000
+end
+classcanvas 128737 class_ref 142305 // Job_status
+  classdiagramsettings member_max_width 0 end
+  xyz 583 77 2000
+end
+classcanvas 128993 class_ref 142433 // Schedule
+  classdiagramsettings member_max_width 0 end
+  xyz 303 266 2000
+end
+note 129377 "Using JOINs data from these tables can be combined"
+  xyzwh 266 398 2000 199 123
+relationcanvas 128481 relation_ref 136033 // <association>
+  from ref 128353 z 2001 to ref 128097
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 128865 relation_ref 136161 // <association>
+  from ref 128737 z 2001 to ref 128609
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+line 129121 -_-_
+  from ref 128993 z 2001 to ref 128609
+line 129249 -_-_
+  from ref 128993 z 2001 to ref 128097
+end
