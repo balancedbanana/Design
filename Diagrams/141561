@@ -112,15 +112,13 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
 
       operation 128225 "addWorker"
 	public explicit_return_type "bool"
-	nparams 5
+	nparams 3
 	  param in name "id" explicit_type "int"
 	  param in name "address" explicit_type "char*"
-	  param in name "space" explicit_type "int"
-	  param in name "ram" explicit_type "int"
-	  param in name "cores" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, const ${t1} & ${p1}${v1}, ${t2} ${p2}${v2}, ${t3} ${p3}${v3}, ${t4} ${p4}${v4}${)}${const}${volatile}${throw}${abstract};
+	  param in name "specs" explicit_type "specs"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}, const ${t3} & ${p3}${v3}, ${t4} ${p4}${v4}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, const ${t1} & ${p1}, ${t2} ${p2}, ${t3} ${p3}, ${t4} ${p4}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}, const ${t3} & ${p3}, ${t4} ${p4}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -148,15 +146,13 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
 
       operation 128481 "giveWorkerJob"
 	public explicit_return_type "bool"
-	nparams 5
+	nparams 3
 	  param in name "worker_id" explicit_type "int"
 	  param in name "job_id" explicit_type "int"
-	  param in name "space" explicit_type "int"
-	  param in name "ram" explicit_type "int"
-	  param in name "cores" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}, ${t2} ${p2}${v2}, ${t3} ${p3}${v3}, ${t4} ${p4}${v4}${)}${const}${volatile}${throw}${abstract};
+	  param in name "specs" explicit_type "specs"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}, const ${t2} & ${p2}${v2}, const ${t3} & ${p3}${v3}, ${t4} ${p4}${v4}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}, ${t4} ${p4}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}, const ${t2} & ${p2}, const ${t3} & ${p3}, ${t4} ${p4}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -165,7 +161,7 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
 	
       end
 
-      operation 128609 "freeWorker"
+      operation 128609 "pauseWorker"
 	public explicit_return_type "bool"
 	nparams 1
 	  param in name "id" explicit_type "int"
@@ -178,7 +174,7 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
 	
 	
 	
-	comment "This method frees the whole Worker"
+	comment "Pauses a worker."
       end
 
       operation 128737 "freeWorker"
@@ -254,10 +250,18 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
 	    classrelation_ref 128097 // <realization>
 	  b parent class_ref 134753 // job_details
       end
+
+      classrelation 128225 // <realization>
+	relation 128225 -_-|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 128225 // <realization>
+	  b parent class_ref 134881 // specs
+      end
     end
 
     class 134753 "job_details"
-      visibility private stereotype "struct"
+      visibility public stereotype "struct"
       cpp_decl "${comment}${template}struct ${name}${inherit} {
 ${members}};
 ${inlines}
@@ -271,8 +275,9 @@ ${members}};
       explicit_switch_type ""
       mysql_decl ""
       
+      comment "This is a struct that includes all relevant information about a Job."
       attribute 134753 "config"
-	private type class_ref 135722 // JobConfig
+	public type class_ref 135722 // JobConfig
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -284,7 +289,7 @@ ${members}};
       end
 
       attribute 134881 "start_time"
-	private explicit_type "char*"
+	public explicit_type "char*"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -296,7 +301,7 @@ ${members}};
       end
 
       attribute 135009 "finish_time"
-	private explicit_type "char*"
+	public explicit_type "char*"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -308,7 +313,7 @@ ${members}};
       end
 
       attribute 135137 "pause_time"
-	private explicit_type "char*"
+	public explicit_type "char*"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -320,7 +325,7 @@ ${members}};
       end
 
       attribute 135265 "user_id"
-	private explicit_type "int"
+	public explicit_type "int"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -332,7 +337,7 @@ ${members}};
       end
 
       attribute 135393 "status_id"
-	private explicit_type "int"
+	public explicit_type "int"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -344,7 +349,7 @@ ${members}};
       end
 
       attribute 135521 "schedule_time"
-	private explicit_type "char*"
+	public explicit_type "char*"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -353,6 +358,75 @@ ${members}};
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
+      end
+    end
+
+    class 134881 "specs"
+      visibility public stereotype "struct"
+      cpp_decl "${comment}${template}struct ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl "${comment}struct ${name} {
+${members}};
+"
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "Specifications (hardware) of a worker"
+      attribute 135649 "space"
+	public explicit_type "int"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Drive space"
+      end
+
+      attribute 135777 "ram"
+	public explicit_type "int"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Random Access Memory"
+      end
+
+      attribute 135905 "cores"
+	public explicit_type "int"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "CPU cores"
+      end
+
+      attribute 136033 "gpu"
+	public explicit_type "char*"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "The name and details of the GPU"
       end
     end
   end
@@ -377,9 +451,9 @@ ${members}};
     
     activitydiagramsettings
      end
-    classdiagram 128097 "database_diag"
+    classdiagram 128097 "database_class_diag"
       classdiagramsettings member_max_width 0 end
-      size A4
+      size A0
     end
   end
 end
