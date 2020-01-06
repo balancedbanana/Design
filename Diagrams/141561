@@ -112,13 +112,11 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
 
       operation 128225 "addWorker"
 	public explicit_return_type "bool"
-	nparams 3
-	  param in name "id" explicit_type "int"
-	  param in name "address" explicit_type "char*"
-	  param in name "specs" explicit_type "specs"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}, const ${t3} & ${p3}${v3}, ${t4} ${p4}${v4}${)}${const}${volatile}${throw}${abstract};
+	nparams 1
+	  param in name "info" type class_ref 135137 // worker_details
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}, const ${t3} & ${p3}${v3}, ${t4} ${p4}${v4}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}, const ${t3} & ${p3}, ${t4} ${p4}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}, const ${t3} & ${p3}, ${t4} ${p4}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -144,12 +142,11 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
 	comment "Removes a worker."
       end
 
-      operation 128481 "giveWorkerJob"
+      operation 128481 "scheduleJob"
 	public explicit_return_type "bool"
-	nparams 3
+	nparams 2
 	  param in name "worker_id" explicit_type "int"
 	  param in name "job_id" explicit_type "int"
-	  param in name "specs" explicit_type "specs"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}, const ${t2} & ${p2}${v2}, const ${t3} & ${p3}${v3}, ${t4} ${p4}${v4}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}, const ${t2} & ${p2}, const ${t3} & ${p3}, ${t4} ${p4}${)}${const}${volatile}${throw}${staticnl}{
@@ -159,6 +156,7 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
 	
 	
 	
+	comment "Specs are assumed to be the whole worker's specs."
       end
 
       operation 128609 "pauseWorker"
@@ -179,14 +177,11 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
 
       operation 128737 "freeWorker"
 	public explicit_return_type "bool"
-	nparams 4
+	nparams 1
 	  param in name "id" explicit_type "int"
-	  param in name "space" explicit_type "int"
-	  param in name "ram" explicit_type "int"
-	  param in name "cores" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}, ${t2} ${p2}${v2}, ${t3} ${p3}${v3}${)}${const}${volatile}${throw}${abstract};
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}, ${t2} ${p2}${v2}, const ${t3} & ${p3}${v3}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, const ${t3} & ${p3}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -197,12 +192,9 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
 
       operation 128865 "addJob"
 	public explicit_return_type "bool"
-	nparams 5
-	  param in name "start_time" explicit_type "char*"
-	  param in name "pause_time" explicit_type "char*"
+	nparams 2
+	  param in name "time" type class_ref 135009 // time
 	  param in name "config" type class_ref 135722 // JobConfig
-	  param in name "schedule_time" explicit_type "char*"
-	  param in name "finish_time" explicit_type "char*"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}, const ${t3} & ${p3}${v3}, const ${t4} & ${p4}${v4}, const ${t5} & ${p5}${v5}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}, const ${t3} & ${p3}, const ${t4} & ${p4}, const ${t5} & ${p5}${)}${const}${volatile}${throw}${staticnl}{
@@ -257,6 +249,117 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
 	    cpp default "${type}"
 	    classrelation_ref 128225 // <realization>
 	  b parent class_ref 134881 // specs
+      end
+
+      classrelation 128353 // <dependency>
+	relation 128353 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 128353 // <dependency>
+	  b parent class_ref 135009 // time
+      end
+
+      classrelation 128481 // <dependency>
+	relation 128481 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 128481 // <dependency>
+	  b parent class_ref 134753 // job_details
+      end
+
+      classrelation 128609 // <dependency>
+	relation 128609 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 128609 // <dependency>
+	  b parent class_ref 134881 // specs
+      end
+
+      operation 129249 "getJobStatus"
+	public explicit_return_type "int"
+	nparams 1
+	  param in name "job_id" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Returns the job status id"
+      end
+
+      operation 129377 "getWorkerStatus"
+	public explicit_return_type "int"
+	nparams 1
+	  param in name "worker_id" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 129505 "getAllWorkers"
+	public explicit_return_type "worker_details*"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Get all workers."
+      end
+
+      classrelation 128737 // <dependency>
+	relation 128737 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 128737 // <dependency>
+	  b parent class_ref 135137 // worker_details
+      end
+
+      operation 129633 "getWorker"
+	public return_type class_ref 135137 // worker_details
+	nparams 1
+	  param in name "worker_id" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 129761 "scheduleJob"
+	public explicit_return_type "bool"
+	nparams 3
+	  param in name "worker_id" explicit_type "id"
+	  param in name "job_id" explicit_type "id"
+	  param in name "specs" type class_ref 134881 // specs
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "This is when the resources of a worker are partitioned for a job."
       end
     end
 
@@ -358,6 +461,19 @@ ${members}};
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
+      end
+
+      attribute 136673 "id"
+	public explicit_type "int"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "The id of the Job."
       end
     end
 
@@ -484,6 +600,108 @@ ${members}};
 	comment "The finish time of a job."
       end
     end
+
+    class 135137 "worker_details"
+      visibility public stereotype "struct"
+      cpp_decl "${comment}${template}struct ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl "${comment}struct ${name} {
+${members}};
+"
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "Encapsulates all details required to create Worker object."
+      attribute 136545 "id"
+	public explicit_type "int"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "The id of the Worker."
+      end
+
+      attribute 136801 "specs"
+	public type class_ref 134881 // specs
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "The specs of the worker."
+      end
+
+      attribute 136929 "address"
+	public explicit_type "char*"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 135265 "Factory"
+      visibility public 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "Factory method pattern. This class creates objects using given data."
+      operation 129889 "createJob"
+	public return_type class_ref 162169 // Job
+	nparams 1
+	  param in name "info" type class_ref 134753 // job_details
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Creates a Job object using the info argument."
+      end
+
+      operation 130017 "createWorker"
+	public return_type class_ref 135137 // worker_details
+	nparams 1
+	  param in name "info" type class_ref 135137 // worker_details
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Creates a Worker object using the info argument."
+      end
+    end
   end
 
   classview 128097 "diagrams"
@@ -507,7 +725,7 @@ ${members}};
     activitydiagramsettings
      end
     classdiagram 128097 "database_class_diag"
-      classdiagramsettings member_max_width 0 end
+      classdiagramsettings draw_all_relations no member_max_width 0 end
       size A0
     end
   end

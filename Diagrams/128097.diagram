@@ -2,27 +2,45 @@ format 222
 
 classcanvas 128097 class_ref 128097 // Gateway
   classdiagramsettings member_max_width 0 end
-  xyzwh 92.7 435.9 2000 717 250
+  xyzwh 70.7 544 2000 717 299
 end
 classcanvas 128481 class_ref 134753 // job_details
   classdiagramsettings member_max_width 0 end
-  xyzwh 9.1 782.8 2000 161 181
+  xyzwh 22.5 877.3 2000 161 199
 end
 classcanvas 128865 class_ref 134881 // specs
   classdiagramsettings member_max_width 0 end
-  xyz 39.8 201.9 2000
+  xyz 686.5 929.5 2000
 end
 classcanvas 129249 class_ref 135009 // time
   classdiagramsettings member_max_width 0 end
-  xyz 411.7 843.1 2000
+  xyz 301.5 955.4 2000
 end
-relationcanvas 128737 relation_ref 128097 // <realization>
+classcanvas 131297 class_ref 135137 // worker_details
+  classdiagramsettings member_max_width 0 end
+  xyz 457.1 964.7 2000
+end
+classcanvas 131553 class_ref 135265 // Factory
+  classdiagramsettings member_max_width 0 end
+  xyzwh 975.8 640.9 2000 459 141
+end
+relationcanvas 130913 relation_ref 128353 // <dependency>
+  from ref 128097 z 2001 to ref 129249
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 131041 relation_ref 128481 // <dependency>
   from ref 128097 z 2001 to ref 128481
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
-relationcanvas 128993 relation_ref 128225 // <realization>
+relationcanvas 131169 relation_ref 128609 // <dependency>
   from ref 128097 z 2001 to ref 128865
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 131425 relation_ref 128737 // <dependency>
+  from ref 128097 z 2001 to ref 131297
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
