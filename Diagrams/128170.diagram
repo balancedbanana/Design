@@ -2,69 +2,69 @@ format 222
 
 classcanvas 128042 class_ref 128170 // Communicator
   classdiagramsettings member_max_width 0 end
-  xyz 1306.29 792.758 2000
+  xyz 1306.59 792.758 2000
 end
 note 128121 "Woher soll diese statische methode wisen welche Messages es überhaupt gibt, eher den Messageproccesor übergeben"
-  xyzwh 1303.85 1097.39 2000 221 74
+  xyzwh 1303.15 1096.69 2000 221 74
 classcanvas 128170 class_ref 128298 // SSLSocket
   classdiagramsettings member_max_width 0 end
-  xyz 1261.75 617.606 2000
+  xyz 1261.15 617.606 2000
 end
 classcanvas 128505 class_ref 154745 // SnapshotMessage
   classdiagramsettings member_max_width 0 end
-  xyz 1983.81 1191.56 2006
+  xyz 1983.11 1191.86 2006
 end
 classcanvas 128682 class_ref 128426 // MessageProcessor
   classdiagramsettings member_max_width 0 end
-  xyz 1785.45 825.998 2000
+  xyz 1785.75 825.998 2000
 end
 classcanvas 128810 class_ref 128554 // ClientMP
   classdiagramsettings member_max_width 0 end
-  xyz 1814.8 990.149 2000
+  xyz 1814.1 990.449 2000
 end
 classcanvas 129066 class_ref 128810 // WorkerMP
   classdiagramsettings member_max_width 0 end
-  xyz 2068.12 980.349 2000
+  xyz 2068.82 980.649 2000
 end
 classcanvas 129145 class_ref 168905 // TaskMessage
   classdiagramsettings member_max_width 0 end
-  xyz 1338.72 1338.08 2000
+  xyz 1338.02 1338.38 2000
 end
 classcanvas 129273 class_ref 148425 // HardwareDetailMessage
   classdiagramsettings member_max_width 0 end
-  xyz 1895.5 1307.35 2000
+  xyz 1895.2 1307.05 2000
 end
 classcanvas 129401 class_ref 141897 // RegistrationMessage
   classdiagramsettings member_max_width 0 end
-  xyz 1303.68 1420.2 2005
+  xyz 1303.98 1420.5 2005
 end
 classcanvas 129962 class_ref 128938 // Message
   classdiagramsettings member_max_width 0 end
-  xyz 1566.93 1098.64 2000
+  xyz 1566.23 1098.64 2000
 end
 classcanvas 130090 class_ref 129066 // MsgX
   classdiagramsettings member_max_width 0 end
-  xyz 1352.16 1238.01 2000
+  xyz 1352.86 1238.01 2000
 end
 classcanvas 130218 class_ref 129194 // MsgY
   classdiagramsettings member_max_width 0 end
-  xyz 1622.56 1252.19 2000
+  xyz 1622.26 1252.89 2000
 end
 classcanvas 130937 class_ref 154873 // AuthMessage
   classdiagramsettings member_max_width 0 end
-  xyz 1822.5 1451.86 2000
+  xyz 1822.2 1451.16 2000
 end
 classcanvas 131065 class_ref 128457 // PreProcessor
   classdiagramsettings hide_attributes no hide_operations no show_members_full_definition yes show_members_visibility yes show_members_stereotype yes show_members_multiplicity yes show_members_initialization yes show_attribute_modifiers yes member_max_width 0 show_parameter_dir no show_parameter_name yes class_drawing_mode class end
-  xyz 2736 704.063 2000
+  xyz 2736.3 704.763 2000
 end
 classcanvas 131193 class_ref 128713 // PostProcessor
   classdiagramsettings hide_attributes no hide_operations no show_members_full_definition yes show_members_visibility yes show_members_stereotype yes show_members_multiplicity yes show_members_initialization yes show_attribute_modifiers yes member_max_width 0 show_parameter_dir no show_parameter_name yes class_drawing_mode class end
-  xyz 2738.36 850.085 2000
+  xyz 2738.36 850.385 2000
 end
 classcanvas 131321 class_ref 128201 // Task
   classdiagramsettings hide_attributes no hide_operations no show_members_full_definition yes show_members_visibility yes show_members_stereotype yes show_members_multiplicity yes show_members_initialization yes show_attribute_modifiers yes member_max_width 0 show_parameter_dir no show_parameter_name yes class_drawing_mode class end
-  xyz 2737.43 925.968 2000
+  xyz 2737.13 925.268 2000
 end
 classcanvas 131449 class_ref 128585 // MainProcessor
   classdiagramsettings hide_attributes no hide_operations no show_members_full_definition yes show_members_visibility yes show_members_stereotype yes show_members_multiplicity yes show_members_initialization yes show_attribute_modifiers yes member_max_width 0 show_parameter_dir no show_parameter_name yes class_drawing_mode class end
@@ -72,11 +72,11 @@ classcanvas 131449 class_ref 128585 // MainProcessor
 end
 classcanvas 131577 class_ref 128329 // Argument
   classdiagramsettings member_max_width 0 end
-  xyz 3003.49 923.435 2000
+  xyz 3003.49 923.635 2000
 end
 classcanvas 131705 class_ref 128073 // CommandLineProcessor
   classdiagramsettings hide_attributes no hide_operations no show_members_full_definition yes show_members_visibility yes show_members_stereotype yes show_members_multiplicity yes show_members_initialization yes show_attribute_modifiers yes member_max_width 0 show_parameter_dir no show_parameter_name yes class_drawing_mode class end
-  xyz 2561.96 605.068 2000
+  xyz 2561.56 605.068 2000
 end
 classcanvas 133113 class_ref 128426 // MessageProcessor
   classdiagramsettings member_max_width 0 end
@@ -84,19 +84,19 @@ classcanvas 133113 class_ref 128426 // MessageProcessor
 end
 classcanvas 133241 class_ref 155257 // Worker
   classdiagramsettings member_max_width 0 end
-  xyz 2380.6 1185.61 2000
+  xyz 2380 1185.41 2000
 end
 classcanvas 133369 class_ref 155337 // EventHandler
   classdiagramsettings member_max_width 0 end
-  xyz 2814.99 1383.53 2000
+  xyz 2814.79 1383.13 2000
 end
 classcanvas 133497 class_ref 128249 // Container
   classdiagramsettings member_max_width 0 end
-  xyz 2688.75 1296.3 2006
+  xyz 2688.75 1296.9 2006
 end
 classcanvas 133625 class_ref 162121 // Event
   classdiagramsettings member_max_width 0 end
-  xyz 2863.99 1458.99 2000
+  xyz 2863.99 1458.39 2000
 end
 classcanvas 133753 class_ref 128121 // Docker
   classdiagramsettings member_max_width 0 end
@@ -104,55 +104,55 @@ classcanvas 133753 class_ref 128121 // Docker
 end
 classcanvas 133881 class_ref 155385 // ProcStarter
   classdiagramsettings member_max_width 0 end
-  xyz 2638.85 1463.48 2000
+  xyz 2638.85 1463.08 2000
 end
 classcanvas 134009 class_ref 155513 // Proc
   classdiagramsettings member_max_width 0 end
-  xyz 2674.91 1542.45 2000
+  xyz 2674.51 1542.65 2000
 end
 classcanvas 135978 class_ref 128682 // SchedulerMP
   classdiagramsettings member_max_width 0 end
-  xyz 1335.37 949.998 2000
+  xyz 1335.37 949.698 2000
 end
 classcanvas 137593 class_ref 148089 // LDAPAuthenticator
   classdiagramsettings member_max_width 0 end
-  xyz 2164.15 754.82 2000
+  xyz 2164.45 754.52 2000
 end
 classcanvas 137721 class_ref 147961 // Authenticator
   classdiagramsettings member_max_width 0 end
-  xyz 1883.46 625.94 2000
+  xyz 1883.46 625.24 2000
 end
 classcanvas 137849 class_ref 148217 // SSHAuthenticator
   classdiagramsettings member_max_width 0 end
-  xyz 1874.57 750.37 2000
+  xyz 1874.87 750.67 2000
 end
 classcanvas 140281 class_ref 162425 // DB
   classdiagramsettings member_max_width 0 end
-  xyzwh 2427.63 1436.02 2000 150 106
+  xyzwh 2427.83 1435.82 2000 150 106
 end
 classcanvas 140409 class_ref 155209 // Event
   classdiagramsettings member_max_width 0 end
-  xyz 2362.46 2006.02 2000
+  xyz 2362.06 2006.22 2000
 end
 classcanvas 140537 class_ref 154953 // Timer
   classdiagramsettings member_max_width 0 end
-  xyz 2016.08 2046.84 2000
+  xyz 2016.28 2046.44 2000
 end
 classcanvas 140665 class_ref 162297 // BasicQueue
   classdiagramsettings member_max_width 0 end
-  xyz 2042.85 1789.73 2000
+  xyz 2042.45 1789.13 2000
 end
 classcanvas 140793 class_ref 155129 // Worker
   classdiagramsettings member_max_width 0 end
-  xyz 2579.12 1839.36 2000
+  xyz 2579.42 1839.06 2000
 end
 classcanvas 140921 class_ref 128426 // MessageProcessor
   classdiagramsettings member_max_width 0 end
-  xyz 3110.98 1699.43 2000
+  xyz 3110.78 1699.83 2000
 end
 classcanvas 141049 class_ref 162169 // Job
   classdiagramsettings member_max_width 0 end
-  xyzwh 1885.98 1589.64 2000 58 50
+  xyzwh 1886.38 1590.04 2000 58 50
 end
 classcanvas 141177 class_ref 155081 // EventDispatcher
   classdiagramsettings member_max_width 0 end
@@ -160,26 +160,26 @@ classcanvas 141177 class_ref 155081 // EventDispatcher
 end
 classcanvas 141305 class_ref 155001 // Scheduler
   classdiagramsettings member_max_width 0 end
-  xyz 2515.01 1673.84 2000
+  xyz 2515.21 1673.64 2000
 end
 classcanvas 141433 class_ref 162041 // Queue
   classdiagramsettings member_max_width 0 end
-  xyz 2036.42 1652.01 2000
+  xyz 2036.42 1652.71 2000
 end
 classcanvas 142585 class_ref 142250 // Priority
   classdiagramsettings member_max_width 0 end
-  xyz 1681.3 1996.43 2000
+  xyz 1681.1 1996.43 2000
 end
 classcanvas 142713 class_ref 148778 // SchedulerConfig
   classdiagramsettings member_max_width 0 end
-  xyz 1553.03 1538.04 2000
+  xyz 1553.03 1538.84 2000
 end
 note 142841 "empty strings are invalid values,
 so contains will return false but their keys are written down when saved"
-  xyzwh 1558.91 1750.42 2000 345 125
+  xyzwh 1558.91 1750.62 2000 345 125
 classcanvas 142969 class_ref 135722 // JobConfig
   classdiagramsettings member_max_width 0 end
-  xyz 1179.31 1524.46 2000
+  xyz 1134.81 1545.36 2000
 end
 relationcanvas 128633 relation_ref 141305 // <generalisation>
   from ref 128505 z 2007 to ref 129962
@@ -190,8 +190,8 @@ relationcanvas 129578 relation_ref 128810 // <generalisation>
   geometry VHV unfixed
   decenter_begin 488
   decenter_end 504
-  from ref 129066 z 2001 to point 2172 931.4
-  line 137130 z 2001 to point 1922 931.4
+  from ref 129066 z 2001 to point 2172 931.9
+  line 137130 z 2001 to point 1922 931.9
   line 137258 z 2001 to ref 128682
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
@@ -205,7 +205,7 @@ relationcanvas 129834 relation_ref 129066 // <generalisation>
 end
 relationcanvas 130346 relation_ref 129194 // <generalisation>
   geometry VHV unfixed
-  from ref 130090 z 2001 to point 1475.6 1208
+  from ref 130090 z 2001 to point 1475.1 1208
   line 136362 z 2001 to point 1738 1208
   line 136490 z 2001 to ref 129962
   no_role_a no_role_b
@@ -220,7 +220,7 @@ relationcanvas 130730 relation_ref 129578 // <aggregation>
   decenter_begin 490
   decenter_end 486
   from ref 128042 z 2001 to ref 128170
-  role_a_pos 1489 732 3000 no_role_b
+  role_a_pos 1479 729 3000 no_role_b
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 130858 relation_ref 129706 // <aggregation>
@@ -237,10 +237,10 @@ end
 relationcanvas 132089 relation_ref 128841 // <unidirectional association>
   geometry VH
   decenter_begin 46
-  from ref 131705 z 2001 to point 2579 786
+  from ref 131705 z 2001 to point 2579 797
   line 132217 z 2001 to ref 131449
-  role_a_pos 2643 782 3000 no_role_b
-  multiplicity_a_pos 2710 806 3000 no_multiplicity_b
+  role_a_pos 2653 782 3000 no_role_b
+  multiplicity_a_pos 2722 805 3000 no_multiplicity_b
 end
 relationcanvas 132345 relation_ref 129225 // <dependency>
   geometry VH
@@ -253,18 +253,18 @@ end
 relationcanvas 132601 relation_ref 128969 // <unidirectional association>
   geometry VH
   decenter_begin 43
-  from ref 131705 z 2001 to point 2578 863
+  from ref 131705 z 2001 to point 2578 870
   line 132729 z 2001 to ref 131193
-  role_a_pos 2644 856 3000 no_role_b
-  multiplicity_a_pos 2710 880 3000 no_multiplicity_b
+  role_a_pos 2655 855 3000 no_role_b
+  multiplicity_a_pos 2721 878 3000 no_multiplicity_b
 end
 relationcanvas 132857 relation_ref 128713 // <unidirectional association>
   geometry VH
   decenter_begin 48
   from ref 131705 z 2001 to point 2580 713
   line 132985 z 2001 to ref 131065
-  role_a_pos 2649 710 3000 no_role_b
-  multiplicity_a_pos 2708 734 3000 no_multiplicity_b
+  role_a_pos 2658 709 3000 no_role_b
+  multiplicity_a_pos 2719 732 3000 no_multiplicity_b
 end
 relationcanvas 134137 relation_ref 149833 // <dependency>
   from ref 133369 z 2001 to ref 133753
@@ -272,13 +272,13 @@ relationcanvas 134137 relation_ref 149833 // <dependency>
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 134265 relation_ref 128121 // <dependency>
-  from ref 133753 z 2007 stereotype "<<use>>" xyz 2731 1224.5 2007 to ref 133497
+  from ref 133753 z 2007 stereotype "<<use>>" xyz 2731 1224 2007 to ref 133497
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 134393 relation_ref 149961 // <dependency>
   geometry VHr
-  from ref 133369 z 2001 to point 2550 1402
+  from ref 133369 z 2001 to point 2551.9 1403.5
   line 134521 z 2001 to ref 133241
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
@@ -314,14 +314,14 @@ relationcanvas 138233 relation_ref 134777 // <generalisation>
 end
 relationcanvas 141561 relation_ref 148857 // <dependency>
   decenter_end 508
-  from ref 140793 z 2001 stereotype "<<use>>" xyz 2801.5 1808 3000 to ref 140921
+  from ref 140793 z 2001 stereotype "<<use>>" xyz 2801 1808 3000 to ref 140921
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 141689 relation_ref 148089 // <aggregation>
   decenter_end 383
   from ref 141305 z 2001 to ref 140793
-  role_a_pos 2710 1816 3000 no_role_b
+  role_a_pos 2701 1821 3000 no_role_b
   multiplicity_a_pos 2666 1816 3000 multiplicity_b_pos 2686 1772 3000
 end
 relationcanvas 141817 relation_ref 149449 // <dependency>
@@ -330,7 +330,7 @@ relationcanvas 141817 relation_ref 149449 // <dependency>
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 141945 relation_ref 148601 // <dependency>
-  from ref 141305 z 2001 stereotype "<<use>>" xyz 2989.5 1730.5 3000 to ref 140921
+  from ref 141305 z 2001 stereotype "<<use>>" xyz 2989 1730 3000 to ref 140921
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
@@ -340,7 +340,7 @@ relationcanvas 142073 relation_ref 148217 // <generalisation>
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 142201 relation_ref 148473 // <dependency>
-  from ref 141305 z 2001 stereotype "<<use>>" xyz 2595.5 1640 3000 to ref 140281
+  from ref 141305 z 2001 stereotype "<<use>>" xyz 2595 1640 3000 to ref 140281
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end
