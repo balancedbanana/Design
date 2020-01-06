@@ -78,7 +78,7 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
-      comment "Gateway class that does the SQL queries and connects to the database"
+      comment "Connects to the database and executes the SQL queries."
       attribute 128097 "db"
 	private explicit_type "QSqlDatabase"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
@@ -190,7 +190,7 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
 	
       end
 
-      operation 128993 "getAllJobs"
+      operation 128993 "getJobs"
 	public explicit_return_type "job_details*"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
@@ -290,7 +290,7 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
 	
       end
 
-      operation 129505 "getAllWorkers"
+      operation 129505 "getWorkers"
 	public explicit_return_type "worker_details*"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
@@ -302,7 +302,7 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
 	
 	
 	
-	comment "Get all workers."
+	comment "Get all workers irrespective of their status"
       end
 
       classrelation 128737 // <dependency>
@@ -359,6 +359,37 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
 	
 	
 	comment "This gets all the workers and their partitions."
+      end
+
+      operation 132065 "getWorkers"
+	public explicit_return_type "Worker*"
+	nparams 1
+	  param in name "status" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Get all workers with a certain status."
+      end
+
+      operation 132449 "getJobs"
+	public explicit_return_type "Job*"
+	nparams 1
+	  param in name "status" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
       end
     end
 
@@ -699,6 +730,7 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
+      comment "This is the interface that the rest of the program uses to query the database."
       operation 130273 "addWorker"
 	public explicit_return_type "bool"
 	nparams 1
@@ -775,7 +807,7 @@ ${inlines}
 	
       end
 
-      operation 131041 "getAllJobs"
+      operation 131041 "getJobs"
 	public explicit_return_type "Job*"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
@@ -831,6 +863,140 @@ ${inlines}
 	  b parent class_ref 128097 // Gateway
       end
 
+      operation 131169 "getJob"
+	public return_type class_ref 162169 // Job
+	nparams 1
+	  param in name "job_id" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 131297 "getJobStatus"
+	public explicit_return_type "int"
+	nparams 1
+	  param in name "job_id" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 131425 "getWorkerStatus"
+	public explicit_return_type "int"
+	nparams 1
+	  param in name "worker_id" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 131553 "getWorkers"
+	public explicit_return_type "Worker*"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 131681 "getWorker"
+	public return_type class_ref 155129 // Worker
+	nparams 1
+	  param in name "worker_id" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 131809 "scheduleJob"
+	public explicit_return_type "bool"
+	nparams 3
+	  param in name "worker_id" explicit_type "int"
+	  param in name "job_id" explicit_type "int"
+	  param in name "specs" type class_ref 134881 // specs
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}, const ${t2} & ${p2}${v2}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}, const ${t2} & ${p2}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 131937 "getAllWorkerPartitions"
+	public explicit_return_type "Worker*"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 132193 "getWorkers"
+	public explicit_return_type "Worker*"
+	nparams 1
+	  param in name "status" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 132321 "getJobs"
+	public explicit_return_type "Job*"
+	nparams 1
+	  param in name "status" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
     end
   end
 
