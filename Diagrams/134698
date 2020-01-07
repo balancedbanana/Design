@@ -1,6 +1,6 @@
 format 222
 "communication" // balancedbanana::communication
-  revision 10
+  revision 11
   modified_by 121 "christopher"
   // class settings
   
@@ -87,24 +87,6 @@ ${inlines}
 	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 130474 // <aggregation>
-      end
-
-      operation 135210 "notify"
-	public explicit_return_type "bool"
-	nparams 2
-	  param in name "address" explicit_type "std::string &"
-	multiplicity "1"
-	  param in name "msg" explicit_type "Message &"
-	multiplicity "1"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
       end
 
       operation 135338 "listen"

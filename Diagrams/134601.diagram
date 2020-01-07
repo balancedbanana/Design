@@ -22,45 +22,45 @@ classinstance 139209 class_ref 162041 // Queue
   name ""   xyz 1909 4 2005 life_line_z 2000
 note 139593 "Task wird aus der Message bezogen"
   xyzwh 1725 338 2000 207 69
-note 140233 "taskID wird vom Scheduler vergeben und bis an den Client zurückgegeben"
+note 140233 "taskID wird vom Scheduler vergeben und bis an den Client zurï¿½ckgegeben"
   xyzwh 1274 550 2000 257 93
 note 140745 "Ausgabe der taskID"
   xyzwh 62 606 2000 195 41
 durationcanvas 134217 classinstance_ref 134089 // :Client
-  xyzwh 199 59 2010 11 536
+  xyzwh 191 59 2010 11 536
 end
 durationcanvas 135113 classinstance_ref 131913 // :CommandLineProcessor
-  xyzwh 384 81 2010 11 207
+  xyzwh 334 81 2010 11 207
   overlappingdurationcanvas 135625
-    xyzwh 390 118 2020 11 25
+    xyzwh 340 118 2020 11 25
   end
   overlappingdurationcanvas 136265
-    xyzwh 390 174 2020 11 35
+    xyzwh 340 174 2020 11 35
   end
   overlappingdurationcanvas 136521
-    xyzwh 390 232 2020 11 25
+    xyzwh 340 232 2020 11 25
   end
 end
 durationcanvas 135369 classinstance_ref 128329 // task:Task
-  xyzwh 708 94 2010 11 26
+  xyzwh 691 94 2010 11 26
 end
 durationcanvas 137161 classinstance_ref 136905 // msg:TaskMessage
-  xyzwh 868 303 2010 11 25
+  xyzwh 831 303 2010 11 25
 end
 durationcanvas 137417 classinstance_ref 137033 // clientComm:Communicator
-  xyzwh 1020 357 2010 11 197
+  xyzwh 968 357 2010 11 197
 end
 durationcanvas 138185 classinstance_ref 137673 // serverComm:Communicator
-  xyzwh 1225 382 2010 11 150
+  xyzwh 1172 382 2010 11 150
 end
 durationcanvas 138569 classinstance_ref 138441 // :SchedulerMP
-  xyzwh 1496 405 2010 11 113
+  xyzwh 1469 405 2010 11 113
 end
 durationcanvas 138953 classinstance_ref 138825 // :Scheduler
-  xyzwh 1713 425 2010 11 76
+  xyzwh 1693 425 2010 11 76
 end
 durationcanvas 139337 classinstance_ref 139209 // :Queue
-  xyzwh 1941 441 2010 11 34
+  xyzwh 1928 441 2010 11 34
 end
 lostfoundmsgsupport 134345 xyz 17 61 2015
 lostfoundmsgsupport 140489 xyz 13 564 2015
@@ -122,9 +122,9 @@ msg 137289 asynchronous
 msg 137545 synchronous
   from durationcanvas_ref 134217
   to durationcanvas_ref 137417
-  yz 357 2015 msg operation_ref 135210 // "notify(in address : std::string & [1], in msg : Message & [1]) : bool"
+  yz 357 2015 msg operation_ref 155001 // "send(in message : Message)"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
-  args "schedulerAdress, msg"
+  args "msg"
   label_xy 502 335
 msg 138313 synchronous
   from durationcanvas_ref 137417

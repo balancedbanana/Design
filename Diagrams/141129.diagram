@@ -16,34 +16,34 @@ end
 note 137033 "Sind beliebig viele Aufgaben"
   xyzwh 1223 1303 2000 269 43
 durationcanvas 128201 classinstance_ref 128073 // :Worker
-  xyzwh 191 61 2010 11 1403
+  xyzwh 176 61 2010 11 1403
   overlappingdurationcanvas 130505
-    xyzwh 197 853 2020 11 37
+    xyzwh 182 853 2020 11 37
   end
   overlappingdurationcanvas 133833
-    xyzwh 197 1220 2020 11 86
+    xyzwh 182 1220 2020 11 86
   end
 end
 durationcanvas 130121 classinstance_ref 129737 // :Communicator
-  xyzwh 713 200 2010 11 43
+  xyzwh 684 200 2010 11 43
 end
 durationcanvas 131273 classinstance_ref 130889 // :SchedulerConfig
-  xyzwh 900 420 2010 11 63
+  xyzwh 866 420 2010 11 63
 end
 durationcanvas 131657 classinstance_ref 130889 // :SchedulerConfig
-  xyzwh 900 601 2010 11 71
+  xyzwh 866 601 2010 11 71
 end
 durationcanvas 132041 classinstance_ref 129737 // :Communicator
-  xyzwh 713 698 2010 11 50
+  xyzwh 684 698 2010 11 50
 end
 durationcanvas 132425 classinstance_ref 129737 // :Communicator
-  xyzwh 713 975 2010 11 67
+  xyzwh 684 975 2010 11 67
 end
 durationcanvas 133449 classinstance_ref 130889 // :SchedulerConfig
-  xyzwh 900 1140 2010 11 53
+  xyzwh 866 1140 2010 11 53
 end
 durationcanvas 136649 classinstance_ref 136265 // tasks:Container
-  xyzwh 1095 1345 2010 11 54
+  xyzwh 1066 1345 2010 11 54
 end
 lostfoundmsgsupport 128329 xyz 57 63 2015
 lostfoundmsgsupport 129225 xyz 351 76 2020
@@ -100,7 +100,7 @@ msg 131145 lost_synchronous
 msg 131401 synchronous
   from durationcanvas_ref 128201
   to durationcanvas_ref 131273
-  yz 420 2015 msg operation_ref 169002 // "Load(in path : std::filesystem::path & [1]) : bool"
+  yz 420 2015 msg operation_ref 169002 // "SchedulerConfig(in path : std::filesystem::path & [1])"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
   args "CONFIG_FILE_PATH"
   label_xy 394 398
@@ -113,7 +113,7 @@ msg 131529 return
 msg 131785 synchronous
   from durationcanvas_ref 128201
   to durationcanvas_ref 131657
-  yz 601 2015 msg operation_ref 168618 // "Get(in key : std::string & [1]) : const std::string *"
+  yz 601 2015 msg operation_ref 168618 // "Get(in key : std::string & [1]) : std::string &"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
   args "ServerAdress"
   label_xy 441 579
@@ -126,9 +126,9 @@ msg 131913 return
 msg 132169 synchronous
   from durationcanvas_ref 128201
   to durationcanvas_ref 132041
-  yz 698 2015 msg operation_ref 135210 // "notify(in address : std::string & [1], in msg : Message & [1]) : bool"
+  yz 698 2015 msg operation_ref 155001 // "send(in message : Message)"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
-  args "adressOfLastKnownServer, RegistrationMessage"
+  args "RegistrationMessage"
   label_xy 205 678
 msg 132297 return
   from durationcanvas_ref 132041
@@ -159,7 +159,7 @@ msg 133321 lost_synchronous
 msg 133577 synchronous
   from durationcanvas_ref 128201
   to durationcanvas_ref 133449
-  yz 1140 2015 msg operation_ref 168618 // "Get(in key : std::string & [1]) : const std::string *"
+  yz 1140 2015 msg operation_ref 168618 // "Get(in key : std::string & [1]) : std::string &"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
   args "taskList"
   label_xy 497 1118
