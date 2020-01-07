@@ -1,6 +1,6 @@
 format 222
 "database" // balancedbanana::database
-  revision 5
+  revision 6
   modified_by 121 "christopher"
   // class settings
   
@@ -808,7 +808,7 @@ ${inlines}
       end
 
       operation 131041 "getJobs"
-	public explicit_return_type "std::shared_ptr<Job>"
+	public explicit_return_type "std::vector<std::shared_ptr<Job>>"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -909,7 +909,7 @@ ${inlines}
       end
 
       operation 131553 "getWorkers"
-	public explicit_return_type "std::shared_ptr<Worker>"
+	public explicit_return_type "std::vector<std::shared_ptr<Worker>>"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -955,7 +955,7 @@ ${inlines}
       end
 
       operation 131937 "getAllWorkerPartitions"
-	public explicit_return_type "std::shared_ptr<Worker>"
+	public explicit_return_type "std::vector<std::shared_ptr<Worker>>"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -969,7 +969,7 @@ ${inlines}
       end
 
       operation 132193 "getWorkers"
-	public explicit_return_type "std::shared_ptr<Worker>"
+	public explicit_return_type "std::vector<std::shared_ptr<Worker>>"
 	nparams 1
 	  param in name "status" explicit_type "int"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
@@ -984,7 +984,7 @@ ${inlines}
       end
 
       operation 132321 "getJobs"
-	public explicit_return_type "std::shared_ptr<Job>"
+	public explicit_return_type "std::vector<std::shared_ptr<Job>>"
 	nparams 1
 	  param in name "status" explicit_type "int"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
