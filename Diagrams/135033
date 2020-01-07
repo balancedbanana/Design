@@ -166,7 +166,7 @@ ${inlines}
 	public explicit_return_type "void"
 	nparams 3
 	  param in name "eventType" type class_ref 155209 // Event
-	  param in name "worker" explicit_type "std::string*"
+	  param in name "worker" explicit_type "std::string"
 	  param in name "taskID" explicit_type "int"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}, ${t2} ${p2}${v2}${)}${const}${volatile}${throw}${abstract};
 "
@@ -246,7 +246,7 @@ ${inlines}
 	
 	
 	
-	comment "Blockiert den Aufrufer für eine Anzahl an Sekunden
+	comment "Blockiert den Aufrufer fï¿½r eine Anzahl an Sekunden
 
 s: Anzahl der zu wartenden Sekunden"
       end
@@ -265,11 +265,11 @@ s: Anzahl der zu wartenden Sekunden"
 	
 	
 	
-	comment "Wartet s Sekunden und führt dann die Funktion func aus.
+	comment "Wartet s Sekunden und fï¿½hrt dann die Funktion func aus.
 Der Aufrufer wird nicht blockiert
 
 s: Anzahl der zu wartenden Sekunden
-func: Die auszuführende Funktion"
+func: Die auszufï¿½hrende Funktion"
       end
     end
 
@@ -380,13 +380,13 @@ ${inlines}
 	
 	
 	
-	comment "Lädt existierende oder erstellt neue Datenbank
+	comment "Lï¿½dt existierende oder erstellt neue Datenbank
 Liest Liste aller Arbeiter ein, falls vorhanden
-Erschafft Verbindungsempfänger für Clients und Arbeiter (min 2)
+Erschafft Verbindungsempfï¿½nger fï¿½r Clients und Arbeiter (min 2)
 Liest Aufgabenliste aus DB aus
 Liest vorhandene oder erstellt fehlende Konfigurationsdatei
 Startet HTTP und SMTP Server
-Frägt Status der Arbeiter ab (sollen fertige Aufgaben zurückmelden)
+Frï¿½gt Status der Arbeiter ab (sollen fertige Aufgaben zurï¿½ckmelden)
 Startet Bearbeitung der Warteschlange (startet den Timer)
 Sendet Nachricht an alle Arbeiter (ich bin hier nachricht)"
       end

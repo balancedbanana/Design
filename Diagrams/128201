@@ -60,7 +60,7 @@ format 222
       explicit_switch_type ""
       mysql_decl ""
       
-      comment "Hauptverarbeitungseinheit für Eingaben auf der Befehlszeile.
+      comment "Hauptverarbeitungseinheit fï¿½r Eingaben auf der Befehlszeile.
 Nimmt die Argumente der Befehlszeile entgegen und konstruiert eine Aufgabe."
       operation 128073 "process"
 	public return_type class_ref 128201 // Task
@@ -74,12 +74,12 @@ Nimmt die Argumente der Befehlszeile entgegen und konstruiert eine Aufgabe."
 	
 	comment "Verarbeitet Argumente der Befehlszeile.
 Weist jedem Argument zuerst den auf der Befehlszeile spezifizierten Wert, dann den vom Benutzer in einer Konfigurationsdatei hinterlegten Wert zu.
-Argumente, die nicht auf der Befehlszeile oder in der Konfigurationsdatei vorhanden sind, werden von dem Server mit Standardwerten verfollständigt.
+Argumente, die nicht auf der Befehlszeile oder in der Konfigurationsdatei vorhanden sind, werden von dem Server mit Standardwerten verfollstï¿½ndigt.
 
 argv: Array der Bezeichner sowie Werte der Argumente
-argc: Anzahl der Einträge in argv
+argc: Anzahl der Eintrï¿½ge in argv
 
-return: Einen Task, in dem die Argumente mit zugehörigen Werten abgelegt sind."
+return: Einen Task, in dem die Argumente mit zugehï¿½rigen Werten abgelegt sind."
       end
 
       operation 128201 "preProcess"
@@ -87,18 +87,18 @@ return: Einen Task, in dem die Argumente mit zugehörigen Werten abgelegt sind."
 	nparams 3
 	  param in name "argv" explicit_type "char**"
 	  param in name "argc" explicit_type "int*"
-	  param in name "task" explicit_type "Task*"
+	  param in name "task" explicit_type "std::shared_ptr<Task>"
 	
 	
 	
 	
 	
-	comment "Baut aus den übergebenen Argumenten einen Task auf.
-Hierbei werden komplexe Argumente von den eigentlichen Argumenten getrennt (z.B. wird der Aufgaben Startbefehl von den Argumenten unseres Programms abgetrennt, damit dies nicht zu Problemen in späteren Verarbeitungsschritten führt).
+	comment "Baut aus den ï¿½bergebenen Argumenten einen Task auf.
+Hierbei werden komplexe Argumente von den eigentlichen Argumenten getrennt (z.B. wird der Aufgaben Startbefehl von den Argumenten unseres Programms abgetrennt, damit dies nicht zu Problemen in spï¿½teren Verarbeitungsschritten fï¿½hrt).
 
 argv: Array der Bezeichner und Werte der Argumente
-argc: Anzahl der Einträge in argv
-task: Leere Instanz einer Aufgabe, die mit den komplexen Argumenten befüllt wird."
+argc: Anzahl der Eintrï¿½ge in argv
+task: Leere Instanz einer Aufgabe, die mit den komplexen Argumenten befï¿½llt wird."
       end
 
       operation 128585 "mainProcess"
@@ -106,7 +106,7 @@ task: Leere Instanz einer Aufgabe, die mit den komplexen Argumenten befüllt wird
 	nparams 3
 	  param in name "argv" explicit_type "char**"
 	  param in name "argc" explicit_type "int*"
-	  param in name "task" explicit_type "Task*"
+	  param in name "task" explicit_type "std::shared_ptr<Task>"
 	
 	
 	
@@ -115,20 +115,20 @@ task: Leere Instanz einer Aufgabe, die mit den komplexen Argumenten befüllt wird
 	comment "Wertet die Argumente der Befehlszeile aus und speichert sie in einer Aufgabe.
 
 argv: Array der Bezeichner und Werte der Argumente
-argc: Anzahl der Einträge in argv
+argc: Anzahl der Eintrï¿½ge in argv
 task: Datenheltestruktur, in die mithilfe einer setValue Operation die Werte den Argumenten zugewiesen werden"
       end
 
       operation 128713 "postProcess"
 	private explicit_return_type ""
 	nparams 1
-	  param in name "task" explicit_type "Task*"
+	  param in name "task" explicit_type "std::shared_ptr<Task>"
 	
 	
 	
 	
 	
-	comment "Ergänzt Argumente mit Werten aus der Konfigurationsdatei des Benutzers.
+	comment "Ergï¿½nzt Argumente mit Werten aus der Konfigurationsdatei des Benutzers.
 Macht bei Bedarf erkenntlich, dass ein Argument keinen Wert erhalten hat.
 
 task: Die Aufgabe, in der die auf der Befehlszeile angegebenen Argumente bereits abgelegt sind und die nun um die Argumente in der Konfigurationsdatei erweitert werden."
@@ -212,7 +212,7 @@ arg: Argument, dessen Wert betrachtet werden soll"
       end
 
       operation 163017 "serialize"
-	public explicit_return_type "char**"
+	public explicit_return_type "std::string"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -223,7 +223,7 @@ arg: Argument, dessen Wert betrachtet werden soll"
 	
 	
 	
-	comment "Wandelt den Task in ein byte Array zum Übermitteln um"
+	comment "Wandelt den Task in ein byte Array zum ï¿½bermitteln um"
       end
     end
 
@@ -259,7 +259,7 @@ Die Liste variiert je nach Anwendung. Hier: Client"
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
-	comment "Die Priorität nach der die Aufgabe in der Warteschlange verarbeitet werden soll
+	comment "Die Prioritï¿½t nach der die Aufgabe in der Warteschlange verarbeitet werden soll
 "
       end
 
@@ -272,7 +272,7 @@ Die Liste variiert je nach Anwendung. Hier: Client"
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
-	comment "Mindestanzahl der benötigten CPU Kerne für diese Aufgabe"
+	comment "Mindestanzahl der benï¿½tigten CPU Kerne fï¿½r diese Aufgabe"
       end
 
       attribute 128329 "MaxCPUCount"
@@ -284,8 +284,8 @@ Die Liste variiert je nach Anwendung. Hier: Client"
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
-	comment "Größte Anzahl an CPU Kernen, die diese Aufgabe verwenden kann.
-Die Aufgabe kann womöglich auch mit weniger auskommen, wird aber nie mehr als diese Anzahl benötigen"
+	comment "Grï¿½ï¿½te Anzahl an CPU Kernen, die diese Aufgabe verwenden kann.
+Die Aufgabe kann womï¿½glich auch mit weniger auskommen, wird aber nie mehr als diese Anzahl benï¿½tigen"
       end
 
       attribute 128457 "MinRAM"
@@ -310,7 +310,7 @@ Die Aufgabe kann womöglich auch mit weniger auskommen, wird aber nie mehr als di
 	mysql_decl ""
 	MysqlColumn
 	comment "Maximale Menge Arbeitsspeicher, der von dieser Aufgabe verwendet wird.
-Die Aufgabe kann womöglich auch mit weniger auskommen, wird aber nie mehr als diese Menge benötigen"
+Die Aufgabe kann womï¿½glich auch mit weniger auskommen, wird aber nie mehr als diese Menge benï¿½tigen"
       end
 
       attribute 128713 "Blocking"
@@ -334,7 +334,7 @@ Die Aufgabe kann womöglich auch mit weniger auskommen, wird aber nie mehr als di
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
-	comment "Gibt die EMail Adresse an, an die Abschlussinformationen der Aufgabe übermittelt werden soll
+	comment "Gibt die EMail Adresse an, an die Abschlussinformationen der Aufgabe ï¿½bermittelt werden soll
 "
       end
 
@@ -347,7 +347,7 @@ Die Aufgabe kann womöglich auch mit weniger auskommen, wird aber nie mehr als di
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
-	comment "Gibt das Standardimage für Docker an, welches für diese Aufgabe verwendet werden soll"
+	comment "Gibt das Standardimage fï¿½r Docker an, welches fï¿½r diese Aufgabe verwendet werden soll"
       end
 
       attribute 129097 "TaskStartCommand"
@@ -360,7 +360,7 @@ Die Aufgabe kann womöglich auch mit weniger auskommen, wird aber nie mehr als di
 	mysql_decl ""
 	MysqlColumn
 	comment "Statbefehl dieser Aufgabe.
-Dieser Befehl wird auf dem Arbeiter ausgeführt, um die Aufgabe zu starten"
+Dieser Befehl wird auf dem Arbeiter ausgefï¿½hrt, um die Aufgabe zu starten"
       end
 
       attribute 129225 "addImage"
@@ -372,7 +372,7 @@ Dieser Befehl wird auf dem Arbeiter ausgeführt, um die Aufgabe zu starten"
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
-	comment "Pfad zu neuem Docker Image, welches für den Benutzer als Standardimage zur Verfügung stehen soll"
+	comment "Pfad zu neuem Docker Image, welches fï¿½r den Benutzer als Standardimage zur Verfï¿½gung stehen soll"
       end
 
       attribute 129353 "removeImage"
@@ -384,7 +384,7 @@ Dieser Befehl wird auf dem Arbeiter ausgeführt, um die Aufgabe zu starten"
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
-	comment "Entfernt eines der Standard Dockerimages die dem Nutzer zur Verfügung stehen"
+	comment "Entfernt eines der Standard Dockerimages die dem Nutzer zur Verfï¿½gung stehen"
       end
 
       attribute 129481 "StatusRequest"
@@ -396,7 +396,7 @@ Dieser Befehl wird auf dem Arbeiter ausgeführt, um die Aufgabe zu starten"
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
-	comment "Gibt die AugabenID an, deren Ausführungsstatus ermittelt werden soll"
+	comment "Gibt die AugabenID an, deren Ausfï¿½hrungsstatus ermittelt werden soll"
       end
 
       attribute 129609 "TailRequest"
@@ -469,7 +469,7 @@ Dieser Befehl wird auf dem Arbeiter ausgeführt, um die Aufgabe zu starten"
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
-	comment "Gibt die AufgabenID an, die auf den Stand der letzten Verfügbaren Sicherung zurückgesetzt werden soll"
+	comment "Gibt die AufgabenID an, die auf den Stand der letzten Verfï¿½gbaren Sicherung zurï¿½ckgesetzt werden soll"
       end
     end
 
@@ -488,19 +488,19 @@ Dieser Befehl wird auf dem Arbeiter ausgeführt, um die Aufgabe zu starten"
 	nparams 3
 	  param in name "argv" explicit_type "char**"
 	  param in name "argc" explicit_type "int*"
-	  param in name "task" explicit_type "Task*"
+	  param in name "task" explicit_type "std::shared_ptr<Task>"
 	
 	
 	
 	
 	
-	comment "Übernimmt die Vorbereitung der Befehlszeilenargumente.
+	comment "ï¿½bernimmt die Vorbereitung der Befehlszeilenargumente.
 
 Liefert: argv ist frei von problematischen Argumenten, argc entsprechend angepasst
 
 argv: Befehlszeilenargumente (Bezeichner und Werte)
-argc: Größe von argv
-task: hier die komplexen Argumente einfügen"
+argc: Grï¿½ï¿½e von argv
+task: hier die komplexen Argumente einfï¿½gen"
       end
     end
 
@@ -519,21 +519,21 @@ task: hier die komplexen Argumente einfügen"
 	nparams 3
 	  param in name "argv" explicit_type "char**"
 	  param in name "argc" explicit_type "int*"
-	  param in name "task" explicit_type "Task*"
+	  param in name "task" explicit_type "std::shared_ptr<Task>"
 	
 	
 	
 	
 	
-	comment "Übernimmt die Hauptverarbeitung der Befehlszeilenargumente
+	comment "ï¿½bernimmt die Hauptverarbeitung der Befehlszeilenargumente
 
 Geht davon aus, dass kein Eintrag in argv unverarbeitbar ist
 
-Liefert eine 1:1 Übersetzung von argv nach task
+Liefert eine 1:1 ï¿½bersetzung von argv nach task
 
 argv: Befehlszeilenargumente (Bezeichner und Werte)
-argc: Größe von argv
-task: hier die Argumente mit Werten einfügen"
+argc: Grï¿½ï¿½e von argv
+task: hier die Argumente mit Werten einfï¿½gen"
       end
     end
 
@@ -550,18 +550,18 @@ task: hier die Argumente mit Werten einfügen"
       operation 129097 "postProcess"
 	abstract cpp_virtual public explicit_return_type ""
 	nparams 1
-	  param in name "task" explicit_type "Task*"
+	  param in name "task" explicit_type "std::shared_ptr<Task>"
 	
 	
 	
 	
 	
-	comment "Übernimmt die Nachbereitung einer Aufgabe mithilfe einer Konfigurationsdatei
+	comment "ï¿½bernimmt die Nachbereitung einer Aufgabe mithilfe einer Konfigurationsdatei
 
 Geht davon aus, dass in task alle auf der Befehlszeile vorhandenen Argumente eingetragen sind.
 Erwartet die Konfigurationsdatei in festem Format an fester Stelle
 
-Liefert: fehlende Einträge in task sind mit Werten aus der Konfigurationsdatei aufgefüllt"
+Liefert: fehlende Eintrï¿½ge in task sind mit Werten aus der Konfigurationsdatei aufgefï¿½llt"
       end
     end
   end

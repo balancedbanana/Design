@@ -1,6 +1,6 @@
 format 222
 "communication" // balancedbanana::communication
-  revision 11
+  revision 12
   modified_by 121 "christopher"
   // class settings
   
@@ -257,7 +257,7 @@ ${inlines}
       operation 135466 "process"
 	public explicit_return_type "virtual void"
 	nparams 1
-	  param in name "msg" explicit_type "Message *"
+	  param in name "msg" explicit_type "std::shared_ptr<Message>"
 	multiplicity "1"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
@@ -273,7 +273,7 @@ ${inlines}
       operation 135722 "processMsgX"
 	public explicit_return_type "virtual void"
 	nparams 1
-	  param in name "msg" explicit_type "MsgX *"
+	  param in name "msg" explicit_type "std::shared_ptr<MsgX>"
 	multiplicity "1"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
@@ -289,7 +289,7 @@ ${inlines}
       operation 135850 "processMsgY"
 	public explicit_return_type "virtual void"
 	nparams 1
-	  param in name "msg" explicit_type "MsgY *"
+	  param in name "msg" explicit_type "std::shared_ptr<MsgY>"
 	multiplicity "1"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
@@ -305,7 +305,7 @@ ${inlines}
       operation 135594 "handleInvalidMessage"
 	private explicit_return_type "virtual void"
 	nparams 1
-	  param in name "msg" explicit_type "Message *"
+	  param in name "msg" explicit_type "std::shared_ptr<Message>"
 	multiplicity "1"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
@@ -343,7 +343,7 @@ ${inlines}
       operation 135978 "processMsgX"
 	public explicit_return_type "virtual void"
 	nparams 1
-	  param in name "msg" explicit_type "MsgX *"
+	  param in name "msg" explicit_type "std::shared_ptr<MsgX>"
 	multiplicity "1"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
@@ -381,7 +381,7 @@ ${inlines}
       operation 136106 "processMsgX"
 	public explicit_return_type "virtual void"
 	nparams 1
-	  param in name "msg" explicit_type "MsgX *"
+	  param in name "msg" explicit_type "std::shared_ptr<MsgX>"
 	multiplicity "1"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
@@ -397,7 +397,7 @@ ${inlines}
       operation 136234 "processMsgY"
 	public explicit_return_type "virtual void"
 	nparams 1
-	  param in name "msg" explicit_type "MsgY *"
+	  param in name "msg" explicit_type "std::shared_ptr<MsgY>"
 	multiplicity "1"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
@@ -450,7 +450,7 @@ ${inlines}
       operation 136362 "processMsgY"
 	public explicit_return_type "virtual void"
 	nparams 1
-	  param in name "msg" explicit_type "MsgY *"
+	  param in name "msg" explicit_type "std::shared_ptr<MsgY>"
 	multiplicity "1"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
@@ -492,7 +492,7 @@ ${inlines}
       operation 136490 "process"
 	abstract cpp_virtual public explicit_return_type "void"
 	nparams 1
-	  param in name "mp" explicit_type "MessageProcessor *"
+	  param in name "mp" explicit_type "std::shared_ptr<MessageProcessor>"
 	multiplicity "1"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
@@ -503,10 +503,8 @@ ${inlines}
       end
 
       operation 136746 "serialize"
-	cpp_virtual public explicit_return_type "virtual void"
-	nparams 1
-	  param in name "dest" explicit_type "std::string *"
-	multiplicity "1"
+	cpp_virtual public explicit_return_type "std::string"
+	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
@@ -528,149 +526,6 @@ ${inlines}
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, ${t1} ${p1}${v1}, ${t2} ${p2}${v2}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-    end
-
-    class 129066 "MsgX"
-      visibility public 
-      cpp_decl "${comment}${template}class ${name}${inherit} {
-${members}};
-${inlines}
-"
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      mysql_decl ""
-      
-      classrelation 129706 // <generalisation>
-	relation 129194 ---|>
-	  a public
-	    cpp default "${type}"
-	    classrelation_ref 129706 // <generalisation>
-	  b parent class_ref 128938 // Message
-      end
-
-      operation 136618 "process"
-	public explicit_return_type "virtual void"
-	nparams 1
-	  param in name "mp" explicit_type "MessageProcessor *"
-	multiplicity "1"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 136874 "serialize"
-	public explicit_return_type "virtual void"
-	nparams 1
-	  param in name "dest" explicit_type "std::string *"
-	multiplicity "1"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      attribute 134826 "data1"
-	private explicit_type "int"
-	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
-      attribute 134954 "data2"
-	private explicit_type "std::string"
-	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-    end
-
-    class 129194 "MsgY"
-      visibility public 
-      cpp_decl "${comment}${template}class ${name}${inherit} {
-${members}};
-${inlines}
-"
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      mysql_decl ""
-      
-      classrelation 129834 // <generalisation>
-	relation 129322 ---|>
-	  a public
-	    cpp default "${type}"
-	    classrelation_ref 129834 // <generalisation>
-	  b parent class_ref 128938 // Message
-      end
-
-      attribute 135082 "data3"
-	private explicit_type "double"
-	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
-      operation 137386 "process"
-	public explicit_return_type "virtual void"
-	nparams 1
-	  param in name "mp" explicit_type "MessageProcessor *"
-	multiplicity "1"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 137514 "serialize"
-	public explicit_return_type "virtual void"
-	nparams 1
-	  param in name "dest" explicit_type "std::string *"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -704,7 +559,7 @@ ${inlines}
       operation 155257 "process"
 	cpp_virtual public explicit_return_type "void"
 	nparams 1
-	  param in name "mp" explicit_type "MessageProcessor *"
+	  param in name "mp" explicit_type "std::shared_ptr<MessageProcessor>"
 	multiplicity "1"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
@@ -772,7 +627,7 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
-      comment "Benachrichtigt den Server über die Existenz dieses Arbeiters"
+      comment "Benachrichtigt den Server ï¿½ber die Existenz dieses Arbeiters"
       operation 142281 "process"
 	public explicit_return_type "void"
 	nparams 1
@@ -841,7 +696,7 @@ ${inlines}
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
-	comment "Größe des verfügbaren Arbeitsspeichers"
+	comment "Grï¿½ï¿½e des verfï¿½gbaren Arbeitsspeichers"
       end
 
       attribute 137033 "osIdentifier"
@@ -863,7 +718,7 @@ ${inlines}
 	nparams 3
 	  param in name "coreCount" explicit_type "int"
 	  param in name "ramSize" explicit_type "int"
-	  param in name "osIdentifier" explicit_type "std::string *"
+	  param in name "osIdentifier" explicit_type "std::string"
 	cpp_decl "    ${comment}${inline}${typeprefix}${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}, const ${t2} & ${p2}${v2}${)}${volatile}${throw};
 "
 	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}, const ${t2} & ${p2}${)}${volatile}${throw} {
@@ -931,7 +786,7 @@ ${inlines}
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
-	comment "Informationen des zu übermittelnden Tasks
+	comment "Informationen des zu ï¿½bermittelnden Tasks
 "
       end
     end

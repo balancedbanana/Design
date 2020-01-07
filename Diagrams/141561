@@ -1,7 +1,7 @@
 format 222
 "database" // balancedbanana::database
-  revision 4
-  modified_by 97 "rakoo"
+  revision 5
+  modified_by 121 "christopher"
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -191,7 +191,7 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
       end
 
       operation 128993 "getJobs"
-	public explicit_return_type "job_details*"
+	public explicit_return_type "std::vector<std::shared_ptr<job_details>>"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -291,7 +291,7 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
       end
 
       operation 129505 "getWorkers"
-	public explicit_return_type "worker_details*"
+	public explicit_return_type "std::vector<std::shared_ptr<worker_details>>"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -347,7 +347,7 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
       end
 
       operation 130145 "getAllWorkerPartitions"
-	public explicit_return_type "worker_details *"
+	public explicit_return_type "std::vector<std::shared_ptr<worker_details>>"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -362,7 +362,7 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
       end
 
       operation 132065 "getWorkers"
-	public explicit_return_type "Worker*"
+	public explicit_return_type "std::vector<std::shared_ptr<Worker>>"
 	nparams 1
 	  param in name "status" explicit_type "int"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
@@ -378,7 +378,7 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
       end
 
       operation 132449 "getJobs"
-	public explicit_return_type "Job*"
+	public explicit_return_type "std::vector<std::shared_ptr<Job>>"
 	nparams 1
 	  param in name "status" explicit_type "int"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
@@ -535,7 +535,7 @@ ${members}};
       end
 
       attribute 136033 "gpu"
-	public explicit_type "char*"
+	public explicit_type "std::string"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -564,7 +564,7 @@ ${members}};
       mysql_decl ""
       
       attribute 136161 "start"
-	public explicit_type "char*"
+	public explicit_type "std::string"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -577,7 +577,7 @@ ${members}};
       end
 
       attribute 136289 "pause"
-	public explicit_type "char*"
+	public explicit_type "std::string"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -590,7 +590,7 @@ ${members}};
       end
 
       attribute 136417 "finish"
-	public explicit_type "char*"
+	public explicit_type "std::string"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -646,7 +646,7 @@ ${members}};
       end
 
       attribute 136929 "address"
-	public explicit_type "char*"
+	public explicit_type "std::string"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -808,7 +808,7 @@ ${inlines}
       end
 
       operation 131041 "getJobs"
-	public explicit_return_type "Job*"
+	public explicit_return_type "std::shared_ptr<Job>"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -909,7 +909,7 @@ ${inlines}
       end
 
       operation 131553 "getWorkers"
-	public explicit_return_type "Worker*"
+	public explicit_return_type "std::shared_ptr<Worker>"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -955,7 +955,7 @@ ${inlines}
       end
 
       operation 131937 "getAllWorkerPartitions"
-	public explicit_return_type "Worker*"
+	public explicit_return_type "std::shared_ptr<Worker>"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -969,7 +969,7 @@ ${inlines}
       end
 
       operation 132193 "getWorkers"
-	public explicit_return_type "Worker*"
+	public explicit_return_type "std::shared_ptr<Worker>"
 	nparams 1
 	  param in name "status" explicit_type "int"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
@@ -984,7 +984,7 @@ ${inlines}
       end
 
       operation 132321 "getJobs"
-	public explicit_return_type "Job*"
+	public explicit_return_type "std::shared_ptr<Job>"
 	nparams 1
 	  param in name "status" explicit_type "int"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};

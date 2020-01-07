@@ -208,7 +208,7 @@ ${inlines}
       operation 155897 "process"
 	cpp_virtual public explicit_return_type "void"
 	nparams 1
-	  param in name "mp" explicit_type "MessageProcessor *"
+	  param in name "mp" explicit_type "std::shared_ptr<MessageProcessor>"
 	multiplicity "1"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
