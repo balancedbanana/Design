@@ -18,7 +18,7 @@
     "ulong" "unsigned long" "long" "unsigned long" "${type}" "${type} &" "${type} &" "${type}"
     "float" "float" "float" "float" "${type}" "${type} &" "${type} &" "${type}"
     "double" "double" "double" "double" "${type}" "${type} &" "${type} &" "${type}"
-    "string" "string" "String" "string" "${type}" "${type} &" "${type} &" "${type}"
+    "string" "string" "std::string" "string" "${type}" "${type} &" "${type} &" "${type}"
   
   relations_stereotypes 5 // uml cpp java pythonidl
     "sequence" "vector" "Vector" "list" "sequence"

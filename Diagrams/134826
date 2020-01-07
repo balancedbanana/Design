@@ -192,7 +192,7 @@ ${inlines}
       operation 177785 "listen"
 	public explicit_return_type ""
 	nparams 3
-	  param in name "ip" explicit_type "String"
+	  param in name "ip" explicit_type "std::string"
 	  param in name "port" explicit_type "short"
 	  param in name "callback" explicit_type "std::function<void()>"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, ${t1} ${p1}${v1}, const ${t2} & ${p2}${v2}${)}${const}${volatile}${throw}${abstract};
@@ -209,8 +209,8 @@ ${inlines}
       operation 178041 "useSLL"
 	public explicit_return_type ""
 	nparams 2
-	  param in name "privatekeypath" explicit_type "String"
-	  param in name "certchainpath" explicit_type "String"
+	  param in name "privatekeypath" explicit_type "std::string"
+	  param in name "certchainpath" explicit_type "std::string"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
@@ -239,9 +239,9 @@ ${inlines}
       operation 177913 "sendMail"
 	public explicit_return_type ""
 	nparams 3
-	  param in name "mail" explicit_type "String"
-	  param in name "subject" explicit_type "String"
-	  param in name "content" explicit_type "String"
+	  param in name "mail" explicit_type "std::string"
+	  param in name "subject" explicit_type "std::string"
+	  param in name "content" explicit_type "std::string"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}${)}${const}${volatile}${throw}${staticnl}{

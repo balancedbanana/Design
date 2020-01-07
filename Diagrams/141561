@@ -1089,7 +1089,7 @@ ${inlines}
       end
 
       attribute 143969 "address"
-	private explicit_type "String"
+	private explicit_type "std::string"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
