@@ -1,6 +1,6 @@
 format 222
 "balancedbanana" // balancedbanana
-  revision 9
+  revision 10
   modified_by 121 "christopher"
   // class settings
   
@@ -286,7 +286,7 @@ ${inlines}
     end
 
     classinstance 134649 "c"
-      type class_ref 147833 // client
+      type class_ref 168649 // Client
       attributes
         end
       relations
