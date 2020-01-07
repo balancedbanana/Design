@@ -1,6 +1,6 @@
 format 222
 "communication" // balancedbanana::communication
-  revision 12
+  revision 13
   modified_by 121 "christopher"
   // class settings
   
@@ -357,7 +357,7 @@ ${inlines}
       end
     end
 
-    class 128682 "SchedulerMP"
+    class 128682 "SchedulerClientMP"
       visibility public 
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
@@ -423,6 +423,75 @@ ${inlines}
 	
 	
 	
+      end
+    end
+
+    class 175609 "SchedulerWorkerMP"
+      visibility public 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 184569 "processMsgX"
+	public explicit_return_type "virtual void"
+	nparams 1
+	  param in name "msg" explicit_type "std::shared_ptr<MsgX>"
+	multiplicity "1"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 184697 "processMsgY"
+	public explicit_return_type "virtual void"
+	nparams 1
+	  param in name "msg" explicit_type "std::shared_ptr<MsgY>"
+	multiplicity "1"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 184825 "processTaskMessage"
+	public explicit_return_type "virtual void"
+	nparams 1
+	  param in name "msg" type class_ref 168905 // TaskMessage
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      classrelation 156153 // <generalisation>
+	relation 155897 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 156153 // <generalisation>
+	  b parent class_ref 128426 // MessageProcessor
       end
     end
 
@@ -642,6 +711,14 @@ ${inlines}
 	
 	
       end
+
+      classrelation 156025 // <generalisation>
+	relation 155769 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 156025 // <generalisation>
+	  b parent class_ref 128938 // Message
+      end
     end
 
     class 148425 "HardwareDetailMessage"
@@ -729,6 +806,14 @@ ${inlines}
 	
 	
       end
+
+      classrelation 155769 // <generalisation>
+	relation 155513 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 155769 // <generalisation>
+	  b parent class_ref 128938 // Message
+      end
     end
 
     class 168905 "TaskMessage"
@@ -788,6 +873,14 @@ ${inlines}
 	MysqlColumn
 	comment "Informationen des zu �bermittelnden Tasks
 "
+      end
+
+      classrelation 155897 // <generalisation>
+	relation 155641 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 155897 // <generalisation>
+	  b parent class_ref 128938 // Message
       end
     end
   end
