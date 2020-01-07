@@ -1,6 +1,6 @@
 format 222
 "configfiles" // balancedbanana::configfiles
-  revision 14
+  revision 15
   modified_by 42 "Niklas"
   // class settings
   
@@ -240,6 +240,7 @@ ${inlines}
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
+	comment "This attribute specifies the docker image that should be used to execute the job."
       end
 
       attribute 169386 "environment_"
@@ -252,6 +253,7 @@ ${inlines}
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
+	comment "This vector contains environment variables that should be used to execute the job."
       end
 
       attribute 169514 "interruptible_"
@@ -264,6 +266,7 @@ ${inlines}
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
+	comment "This attribute specifies whether the job may be paused by the scheduler."
       end
 
       attribute 176042 "current_working_dir_"
@@ -276,6 +279,7 @@ ${inlines}
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
+	comment "This attribute specifies the current working directory from which the job is executed."
       end
 
       operation 147498 "JobConfig"
@@ -290,6 +294,7 @@ ${inlines}
 	
 	
 	
+	comment "This constructor creates an empty JobConfig."
       end
 
       operation 147114 "JobConfig"
@@ -306,6 +311,7 @@ ${inlines}
 	
 	
 	
+	comment "This constructor creates a JobConfig from a serialized stringstream"
       end
 
       operation 146858 "JobConfig"
@@ -321,6 +327,7 @@ ${inlines}
 	
 	
 	
+	comment "This constructor creates a JobConfig from a saved file."
       end
 
       operation 144042 "set_min_ram"
@@ -337,6 +344,7 @@ ${inlines}
 	
 	
 	
+	comment "Setter for the min_ram_ attribute."
       end
 
       operation 145066 "set_max_ram"
@@ -353,6 +361,7 @@ ${inlines}
 	
 	
 	
+	comment "Setter for the max_ram_ attribute."
       end
 
       operation 144938 "set_min_cpu_count"
@@ -369,6 +378,7 @@ ${inlines}
 	
 	
 	
+	comment "Setter for the min_cpu_count_ attribute."
       end
 
       operation 144170 "set_max_cpu_count"
@@ -385,6 +395,7 @@ ${inlines}
 	
 	
 	
+	comment "Setter for the max_cpu_count_ attribute."
       end
 
       operation 144298 "set_blocking_mode"
@@ -401,6 +412,7 @@ ${inlines}
 	
 	
 	
+	comment "Setter for the blocking_mode_ attribute."
       end
 
       operation 144682 "set_email"
@@ -417,6 +429,7 @@ ${inlines}
 	
 	
 	
+	comment "Setter for the email_ attribute."
       end
 
       operation 144810 "set_priority"
@@ -433,6 +446,7 @@ ${inlines}
 	
 	
 	
+	comment "Setter for the priority_ attribute."
       end
 
       operation 144554 "set_image"
@@ -449,6 +463,7 @@ ${inlines}
 	
 	
 	
+	comment "Setter for the image_ attribute."
       end
 
       operation 175786 "set_environment"
@@ -465,6 +480,7 @@ ${inlines}
 	
 	
 	
+	comment "Setter for the environment_ attribute."
       end
 
       operation 175914 "set_interruptible"
@@ -481,6 +497,7 @@ ${inlines}
 	
 	
 	
+	comment "Setter for the interruptible_ attribute."
       end
 
       operation 182698 "set_current_working_dir"
@@ -497,6 +514,7 @@ ${inlines}
 	
 	
 	
+	comment "Setter for the current_working_dir_ attribute."
       end
 
       operation 145450 "min_ram"
@@ -511,6 +529,7 @@ ${inlines}
 	
 	
 	
+	comment "Getter for the min_ram_ attribute."
       end
 
       operation 145578 "max_ram"
@@ -525,6 +544,7 @@ ${inlines}
 	
 	
 	
+	comment "Getter for the max_ram_ attribute."
       end
 
       operation 145706 "min_cpu_count"
@@ -539,6 +559,7 @@ ${inlines}
 	
 	
 	
+	comment "Getter for the min_cpu_count_ attribute."
       end
 
       operation 145834 "max_cpu_count"
@@ -553,6 +574,7 @@ ${inlines}
 	
 	
 	
+	comment "Getter for the max_cpu_count_ attribute."
       end
 
       operation 145962 "blocking_mode"
@@ -567,6 +589,7 @@ ${inlines}
 	
 	
 	
+	comment "Getter for the blocking_mode_ attribute."
       end
 
       operation 146090 "email"
@@ -581,6 +604,7 @@ ${inlines}
 	
 	
 	
+	comment "Getter for the email_ attribute."
       end
 
       operation 146218 "priority"
@@ -595,6 +619,7 @@ ${inlines}
 	
 	
 	
+	comment "Getter for the priority_ attribute."
       end
 
       operation 146346 "image"
@@ -609,6 +634,7 @@ ${inlines}
 	
 	
 	
+	comment "Getter for the image_ attribute."
       end
 
       operation 176042 "environment"
@@ -623,6 +649,7 @@ ${inlines}
 	
 	
 	
+	comment "Getter for the environment_ attribute."
       end
 
       operation 176170 "interruptible"
@@ -637,6 +664,7 @@ ${inlines}
 	
 	
 	
+	comment "Getter for the interruptible_ attribute."
       end
 
       operation 182826 "current_working_dir"
@@ -652,6 +680,7 @@ ${inlines}
 	
 	
 	
+	comment "Getter for the current_working_dir_ attribute."
       end
 
       operation 146730 "Save"
@@ -668,6 +697,7 @@ ${inlines}
 	
 	
 	
+	comment "This method serializes the JobConfig and saves it in a file with the specified path."
       end
 
       operation 146986 "Serialize"
@@ -684,6 +714,7 @@ ${inlines}
 	
 	
 	
+	comment "This method serializes the JobConfig into a string and pushes it into the passed stream."
       end
 
       operation 147882 "Merge"
@@ -700,6 +731,7 @@ ${inlines}
 	
 	
 	
+	comment "This method merges the content of the passed JobConfig into this JobConfig. Attributes that are contained in both files are not overwritten."
       end
 
       classrelation 143658 // <dependency>
@@ -724,7 +756,8 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
-      attribute 162858 "values"
+      comment "This class contains policies for the scheduler as key-value pairs."
+      attribute 162858 "values_"
 	private explicit_type "std::map<std::string, std::string>"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
@@ -734,6 +767,7 @@ ${inlines}
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
+	comment "This attribute contains all the policies for the scheduler."
       end
 
       operation 168362 "SchedulerConfig"
@@ -748,6 +782,24 @@ ${inlines}
 	
 	
 	
+	comment "This constructor creates an empty SchedulerConfig."
+      end
+
+      operation 169002 "SchedulerConfig"
+	public explicit_return_type ""
+	nparams 1
+	  param in name "path" explicit_type "std::filesystem::path &"
+	multiplicity "1"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "This constructor loads a SchedulerConfig from a file."
       end
 
       operation 169258 "count"
@@ -762,6 +814,7 @@ ${inlines}
 	
 	
 	
+	comment "This method returns the amount of key-value pairs in the SchedulerConfig."
       end
 
       operation 168490 "Set"
@@ -780,10 +833,11 @@ ${inlines}
 	
 	
 	
+	comment "This method adds policy with a specified key to the SchedulerConfig."
       end
 
       operation 168618 "Get"
-	public explicit_return_type "const std::string *"
+	public explicit_return_type "std::string &"
 	nparams 1
 	  param in name "key" explicit_type "std::string &"
 	multiplicity "1"
@@ -796,6 +850,7 @@ ${inlines}
 	
 	
 	
+	comment "This method returns the policy associated with the specified key. If the SchedulerConfig does not contain such a policy, an empty string is returned."
       end
 
       operation 168746 "Clear"
@@ -810,6 +865,7 @@ ${inlines}
 	
 	
 	
+	comment "This method clears out the SchedulerConfig."
       end
 
       operation 168874 "Save"
@@ -826,22 +882,7 @@ ${inlines}
 	
 	
 	
-      end
-
-      operation 169002 "Load"
-	public explicit_return_type "bool"
-	nparams 1
-	  param in name "path" explicit_type "std::filesystem::path &"
-	multiplicity "1"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
+	comment "This method serializes the SchedulerConfig and saves it to the specified file."
       end
 
       operation 169130 "Contains"
@@ -858,6 +899,7 @@ ${inlines}
 	
 	
 	
+	comment "This method returns true when the SchedulerCOnfig contains a policy associated with the specified key, otherwise it returns false."
       end
     end
   end
