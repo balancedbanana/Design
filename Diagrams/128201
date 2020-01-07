@@ -1,7 +1,7 @@
 format 222
 "commandLineProcessing" // balancedbanana::client::commandLineProcessing
-  revision 3
-  modified_by 73 "Thomas"
+  revision 4
+  modified_by 121 "christopher"
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -211,7 +211,7 @@ arg: Argument, dessen Wert betrachtet werden soll"
 	  b parent class_ref 128329 // Argument
       end
 
-      operation 163017 "serielize"
+      operation 163017 "serialize"
 	public explicit_return_type "char**"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
@@ -338,7 +338,7 @@ Die Aufgabe kann womöglich auch mit weniger auskommen, wird aber nie mehr als di
 "
       end
 
-      attribute 128969 "Immage"
+      attribute 128969 "Image"
 	public type class_ref 128329 // Argument
 	cpp_decl ""
 	java_decl ""
