@@ -2,7 +2,7 @@ format 222
 
 classcanvas 128097 class_ref 128097 // Gateway
   classdiagramsettings member_max_width 0 end
-  xyzwh 831.9 424 2000 717 335
+  xyzwh 806.9 427 2000 717 335
 end
 classcanvas 128481 class_ref 134753 // job_details
   classdiagramsettings member_max_width 0 end
