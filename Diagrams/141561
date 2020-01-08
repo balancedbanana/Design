@@ -1,6 +1,6 @@
 format 222
 "database" // balancedbanana::database
-  revision 10
+  revision 11
   modified_by 97 "rakoo"
   // class settings
   
@@ -278,19 +278,19 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
 	  b parent class_ref 135137 // worker_details
       end
 
-      classrelation 143329 // <realization>
-	relation 143073 -_-|>
+      classrelation 143329 // <dependency>
+	relation 143073 -_->
 	  a public
-	    cpp default "${type}"
-	    classrelation_ref 143329 // <realization>
+	    cpp default "#include in source"
+	    classrelation_ref 143329 // <dependency>
 	  b parent class_ref 148961 // user_details
       end
 
-      classrelation 144353 // <realization>
-	relation 144097 -_-|>
+      classrelation 144353 // <dependency>
+	relation 144097 -_->
 	  a public
-	    cpp default "${type}"
-	    classrelation_ref 144353 // <realization>
+	    cpp default "#include in source"
+	    classrelation_ref 144353 // <dependency>
 	  b parent class_ref 149089 // job_result
       end
 
@@ -701,11 +701,11 @@ ${inlines}
 	  b parent class_ref 134753 // job_details
       end
 
-      classrelation 143457 // <realization>
-	relation 143201 -_-|>
+      classrelation 143457 // <dependency>
+	relation 143201 -_->
 	  a public
-	    cpp default "${type}"
-	    classrelation_ref 143457 // <realization>
+	    cpp default "#include in source"
+	    classrelation_ref 143457 // <dependency>
 	  b parent class_ref 148961 // user_details
       end
 
@@ -724,12 +724,20 @@ ${inlines}
 	
       end
 
-      classrelation 144225 // <realization>
-	relation 143969 -_-|>
+      classrelation 144225 // <dependency>
+	relation 143969 -_->
 	  a public
-	    cpp default "${type}"
-	    classrelation_ref 144225 // <realization>
+	    cpp default "#include in source"
+	    classrelation_ref 144225 // <dependency>
 	  b parent class_ref 149089 // job_result
+      end
+
+      classrelation 157537 // <dependency>
+	relation 157281 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 157537 // <dependency>
+	  b parent class_ref 134753 // job_details
       end
     end
 
@@ -859,11 +867,12 @@ ${members}};
 	MysqlColumn
       end
 
-      classrelation 144097 // <generalisation>
-	relation 143841 ---|>
-	  a public
-	    cpp default "${type}"
-	    classrelation_ref 144097 // <generalisation>
+      classrelation 144097 // <unidirectional association>
+	relation 143841 --->
+	  a role_name "" public
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 144097 // <unidirectional association>
 	  b parent class_ref 134881 // specs
       end
     end
@@ -978,11 +987,12 @@ ${members}};
 	MysqlColumn
       end
 
-      classrelation 143073 // <generalisation>
-	relation 142817 ---|>
-	  a public
-	    cpp default "${type}"
-	    classrelation_ref 143073 // <generalisation>
+      classrelation 143073 // <unidirectional association>
+	relation 142817 --->
+	  a role_name "" public
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 143073 // <unidirectional association>
 	  b parent class_ref 134881 // specs
       end
 
@@ -1061,19 +1071,19 @@ ${inlines}
 	comment "Creates a User object."
       end
 
-      classrelation 143585 // <realization>
-	relation 143329 -_-|>
+      classrelation 143585 // <dependency>
+	relation 143329 -_->
 	  a public
-	    cpp default "${type}"
-	    classrelation_ref 143585 // <realization>
+	    cpp default "#include in source"
+	    classrelation_ref 143585 // <dependency>
 	  b parent class_ref 135137 // worker_details
       end
 
-      classrelation 143713 // <realization>
-	relation 143457 -_-|>
+      classrelation 143713 // <dependency>
+	relation 143457 -_->
 	  a public
-	    cpp default "${type}"
-	    classrelation_ref 143713 // <realization>
+	    cpp default "#include in source"
+	    classrelation_ref 143713 // <dependency>
 	  b parent class_ref 148961 // user_details
       end
 
@@ -1091,6 +1101,14 @@ ${inlines}
 	    cpp default "#include in source"
 	    classrelation_ref 143969 // <dependency>
 	  b parent class_ref 134881 // specs
+      end
+
+      classrelation 157409 // <dependency>
+	relation 157153 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 157409 // <dependency>
+	  b parent class_ref 135137 // worker_details
       end
     end
 
