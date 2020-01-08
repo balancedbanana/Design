@@ -1,7 +1,7 @@
 format 222
 "scheduler" // balancedbanana::scheduler
-  revision 7
-  modified_by 42 "Niklas"
+  revision 8
+  modified_by 97 "rakoo"
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -353,7 +353,6 @@ ${inlines}
 
       classrelation 148857 // <dependency>
 	relation 148601 -_->
-	  stereotype "use"
 	  a public
 	    cpp default "#include in source"
 	    classrelation_ref 148857 // <dependency>
@@ -389,6 +388,14 @@ Startet HTTP und SMTP Server
 Fr�gt Status der Arbeiter ab (sollen fertige Aufgaben zur�ckmelden)
 Startet Bearbeitung der Warteschlange (startet den Timer)
 Sendet Nachricht an alle Arbeiter (ich bin hier nachricht)"
+      end
+
+      classrelation 150881 // <dependency>
+	relation 150625 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 150881 // <dependency>
+	  b parent class_ref 135393 // Repository
       end
     end
 
@@ -440,7 +447,6 @@ ${inlines}
 
       classrelation 149113 // <dependency>
 	relation 148857 -_->
-	  stereotype "use"
 	  a public
 	    cpp default "#include in source"
 	    classrelation_ref 149113 // <dependency>
@@ -741,7 +747,7 @@ ${inlines}
      end
     classdiagram 161273 "class_diagramm"
       classdiagramsettings draw_all_relations no member_max_width 0 end
-      size B
+      size A1
     end
 
     sequencediagram 147657 "Startup Sequence"
