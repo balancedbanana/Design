@@ -1,6 +1,6 @@
 format 222
 "configfiles" // balancedbanana::configfiles
-  revision 15
+  revision 16
   modified_by 42 "Niklas"
   // class settings
   
@@ -740,6 +740,10 @@ ${inlines}
 	    cpp default "#include in source"
 	    classrelation_ref 143658 // <dependency>
 	  b parent class_ref 142250 // Priority
+      end
+
+      classrelation 150314 // <aggregation>
+	relation_ref 149290 // <aggregation>
       end
     end
 

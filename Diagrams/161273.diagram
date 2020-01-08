@@ -32,6 +32,10 @@ classcanvas 128329 class_ref 155209 // Event
   classdiagramsettings member_max_width 0 end
   xyz 1154 954 2000
 end
+classcanvas 128426 class_ref 135722 // JobConfig
+  classdiagramsettings hide_attributes yes hide_operations yes member_max_width 0 end
+  xyz 1096 762 2006
+end
 classcanvas 128505 class_ref 162041 // Queue
   classdiagramsettings member_max_width 0 end
   xyz 36 911 2000
@@ -46,7 +50,7 @@ classcanvas 129913 class_ref 128426 // MessageProcessor
 end
 classcanvas 130425 class_ref 162169 // Job
   classdiagramsettings member_max_width 0 end
-  xyz 40.5 1320.5 2000
+  xyz 1035.5 546.5 2000
 end
 relationcanvas 128353 relation_ref 150625 // <dependency>
   from ref 128121 z 3006 to ref 128097
@@ -60,9 +64,19 @@ relationcanvas 128377 relation_ref 148089 // <aggregation>
   role_a_pos 170 671 3000 no_role_b
   multiplicity_a_pos 142 671 3000 multiplicity_b_pos 384 596 3000
 end
+relationcanvas 128554 relation_ref 149290 // <aggregation>
+  from ref 130425 z 2007 to ref 128426
+  role_a_pos 1157 729 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
 relationcanvas 128585 relation_ref 149321 // <dependency>
   from ref 128073 z 2001 to ref 128201
   no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 128682 relation_ref 149418 // <aggregation>
+  from ref 130425 z 2001 to ref 128298
+  role_a_pos 1297 555 3000 no_role_b
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 128713 relation_ref 149449 // <dependency>

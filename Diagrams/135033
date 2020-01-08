@@ -542,6 +542,39 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
+      attribute 190122 "id"
+	private explicit_type "uint64_t"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 150186 // config (<aggregation>)
+	relation 149290 o---
+	  a role_name "config" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 150186 // config (<aggregation>)
+	  b role_name "" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 150314 // <aggregation>
+      end
+
+      classrelation 150442 // status (<aggregation>)
+	relation 149418 o---
+	  a role_name "status" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 150442 // status (<aggregation>)
+	  b role_name "" private
+	    classrelation_ref 150570 // <aggregation>
+      end
     end
 
     class 162297 "BasicQueue"
@@ -809,6 +842,10 @@ ${items}};
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
+      end
+
+      classrelation 150570 // <aggregation>
+	relation_ref 149418 // <aggregation>
       end
     end
   end
