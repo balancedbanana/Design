@@ -1,1 +1,0 @@
-class job_details

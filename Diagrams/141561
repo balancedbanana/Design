@@ -235,14 +235,6 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
 	  b parent class_ref 134881 // specs
       end
 
-      classrelation 128353 // <dependency>
-	relation 128353 -_->
-	  a public
-	    cpp default "#include in source"
-	    classrelation_ref 128353 // <dependency>
-	  b parent class_ref 135009 // time
-      end
-
       classrelation 128481 // <dependency>
 	relation 128481 -_->
 	  a public
@@ -391,6 +383,22 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
 	
 	
       end
+
+      classrelation 143329 // <realization>
+	relation 143073 -_-|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 143329 // <realization>
+	  b parent class_ref 148961 // user_details
+      end
+
+      classrelation 144353 // <realization>
+	relation 144097 -_-|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 144353 // <realization>
+	  b parent class_ref 149089 // job_result
+      end
     end
 
     class 135393 "Repository"
@@ -442,6 +450,35 @@ ${inlines}
 	
       end
 
+      operation 131681 "getWorker"
+	public return_type class_ref 155129 // Worker
+	nparams 1
+	  param in name "worker_id" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 131553 "getWorkers"
+	public explicit_return_type "std::vector<std::shared_ptr<Worker>>"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
       operation 130529 "addJob"
 	public explicit_return_type "int"
 	nparams 4
@@ -461,6 +498,37 @@ ${inlines}
 	comment "Adds a new job to the DB and returns its ID."
       end
 
+      operation 139489 "removeJob"
+	public explicit_return_type "bool"
+	nparams 1
+	  param in name "job_id" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Deletes a Job from the DB."
+      end
+
+      operation 131169 "getJob"
+	public return_type class_ref 162169 // Job
+	nparams 1
+	  param in name "job_id" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
       operation 131041 "getJobs"
 	public explicit_return_type "std::vector<std::shared_ptr<Job>>"
 	nparams 0
@@ -473,6 +541,107 @@ ${inlines}
 	
 	
 	
+      end
+
+      operation 139361 "addUser"
+	public explicit_return_type "int"
+	nparams 3
+	  param in name "name" explicit_type "std::string"
+	  param in name "email" explicit_type "std::string"
+	  param in name "auth_key" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}, ${t2} ${p2}${v2}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}, ${t2} ${p2}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Adds a new User to the DB and returns their status."
+      end
+
+      operation 139617 "removeUser"
+	public explicit_return_type "bool"
+	nparams 1
+	  param in name "user_id" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Deletes a User from the DB."
+      end
+
+      operation 139745 "getUser"
+	public explicit_return_type "User"
+	nparams 1
+	  param in name "user_id" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 139873 "getUsers"
+	public explicit_return_type "std::vector<std::shared_ptr<User>>"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 138977 "startJob"
+	public explicit_return_type "bool"
+	nparams 4
+	  param in name "job_id" explicit_type "int"
+	  param in name "worker_id" explicit_type "int"
+	  param in name "specs" type class_ref 134881 // specs
+	  param in name "start_time" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}, const ${t2} & ${p2}${v2}, const ${t3} & ${p3}${v3}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}, const ${t2} & ${p2}, const ${t3} & ${p3}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Assigns a Worker (or a partition of a Worker) to a Job. The Job has now been started."
+      end
+
+      operation 139105 "finishJob"
+	public explicit_return_type "bool"
+	nparams 4
+	  param in name "job_id" explicit_type "int"
+	  param in name "finish_time" explicit_type "std::string"
+	  param in name "stdout" explicit_type "std::string"
+	  param in name "exit_code" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}, ${t3} ${p3}${v3}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}, ${t3} ${p3}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Changes the status of a Job to finish and gives it a finish time + assigns a Job Result to it."
       end
 
       classrelation 128993 // <dependency>
@@ -517,8 +686,24 @@ ${inlines}
 	  b parent class_ref 128097 // Gateway
       end
 
-      operation 131169 "getJob"
-	public return_type class_ref 162169 // Job
+      classrelation 143201 // <realization>
+	relation 142945 -_-|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 143201 // <realization>
+	  b parent class_ref 134753 // job_details
+      end
+
+      classrelation 143457 // <realization>
+	relation 143201 -_-|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 143457 // <realization>
+	  b parent class_ref 148961 // user_details
+      end
+
+      operation 140257 "getJobResult"
+	public return_type class_ref 149089 // job_result
 	nparams 1
 	  param in name "job_id" explicit_type "int"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
@@ -532,77 +717,12 @@ ${inlines}
 	
       end
 
-      operation 131553 "getWorkers"
-	public explicit_return_type "std::vector<std::shared_ptr<Worker>>"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 131681 "getWorker"
-	public return_type class_ref 155129 // Worker
-	nparams 1
-	  param in name "worker_id" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 131937 "getAllWorkerPartitions"
-	public explicit_return_type "std::vector<std::shared_ptr<Worker>>"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 132193 "getWorkers"
-	public explicit_return_type "std::vector<std::shared_ptr<Worker>>"
-	nparams 1
-	  param in name "status" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 132321 "getJobs"
-	public explicit_return_type "std::vector<std::shared_ptr<Job>>"
-	nparams 1
-	  param in name "status" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
+      classrelation 144225 // <realization>
+	relation 143969 -_-|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 144225 // <realization>
+	  b parent class_ref 149089 // job_result
       end
     end
 
@@ -672,34 +792,6 @@ ${members}};
 	comment "The id of the Job."
       end
 
-      attribute 137185 "times"
-	public type class_ref 135009 // time
-	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
-      classrelation 128865 // <dependency>
-	relation 128865 -_->
-	  a public
-	    cpp default "#include in source"
-	    classrelation_ref 128865 // <dependency>
-	  b parent class_ref 135009 // time
-      end
-
-      classrelation 142945 // <generalisation>
-	relation 142689 ---|>
-	  a public
-	    cpp default "${type}"
-	    classrelation_ref 142945 // <generalisation>
-	  b parent class_ref 135009 // time
-      end
-
       attribute 152417 "command"
 	public explicit_type "std::string"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
@@ -710,6 +802,62 @@ ${members}};
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
+      end
+
+      attribute 152801 "schedule_time"
+	public explicit_type "std::string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 152929 "start_time"
+	public explicit_type "std::string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 153057 "finish_time"
+	public explicit_type "std::string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 153697 "allocated_specs"
+	public type class_ref 134881 // specs
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 144097 // <generalisation>
+	relation 143841 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 144097 // <generalisation>
+	  b parent class_ref 134881 // specs
       end
     end
 
@@ -768,61 +916,6 @@ ${members}};
 	comment "CPU cores"
       end
 
-    end
-
-    class 135009 "time"
-      visibility public stereotype "struct"
-      cpp_decl "${comment}${template}struct ${name}${inherit} {
-${members}};
-${inlines}
-"
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl "${comment}struct ${name} {
-${members}};
-"
-      explicit_switch_type ""
-      mysql_decl ""
-      
-      attribute 136161 "start"
-	public explicit_type "std::string"
-	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-	comment "The start time of a job."
-      end
-
-      attribute 136289 "pause"
-	public explicit_type "std::string"
-	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-	comment "The pause time of a job."
-      end
-
-      attribute 136417 "finish"
-	public explicit_type "std::string"
-	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-	comment "The finish time of a job."
-      end
     end
 
     class 135137 "worker_details"
@@ -927,7 +1020,7 @@ ${inlines}
 	
 	
 	
-	comment "Creates a Job object using the info argument."
+	comment "Creates a Job object."
       end
 
       operation 130017 "createWorker"
@@ -943,7 +1036,145 @@ ${inlines}
 	
 	
 	
-	comment "Creates a Worker object using the info argument."
+	comment "Creates a Worker object."
+      end
+
+      operation 140001 "createUser"
+	public explicit_return_type "User"
+	nparams 1
+	  param in name "info" type class_ref 148961 // user_details
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Creates a User object."
+      end
+
+      classrelation 143585 // <realization>
+	relation 143329 -_-|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 143585 // <realization>
+	  b parent class_ref 135137 // worker_details
+      end
+
+      classrelation 143713 // <realization>
+	relation 143457 -_-|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 143713 // <realization>
+	  b parent class_ref 148961 // user_details
+      end
+
+      classrelation 143841 // <dependency>
+	relation 143585 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 143841 // <dependency>
+	  b parent class_ref 134753 // job_details
+      end
+
+      classrelation 143969 // <dependency>
+	relation 143713 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 143969 // <dependency>
+	  b parent class_ref 134881 // specs
+      end
+    end
+
+    class 148961 "user_details"
+      visibility package stereotype "struct"
+      cpp_decl "${comment}${template}struct ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl "${comment}struct ${name} {
+${members}};
+"
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 153313 "id"
+	public explicit_type "int"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 153441 "name"
+	public explicit_type "std::string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 153569 "email"
+	public explicit_type "std::string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 149089 "job_result"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 153825 "stdout"
+	public explicit_type "std::string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 153953 "exit_code"
+	public explicit_type "int"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
       end
     end
   end
