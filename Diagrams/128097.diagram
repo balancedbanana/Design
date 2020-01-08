@@ -10,7 +10,7 @@ classcanvas 128481 class_ref 134753 // job_details
 end
 classcanvas 128865 class_ref 134881 // specs
   classdiagramsettings member_max_width 0 end
-  xyz 1023.9 844.3 2000
+  xyz 1043.9 869.3 2000
 end
 classcanvas 131297 class_ref 135137 // worker_details
   classdiagramsettings member_max_width 0 end

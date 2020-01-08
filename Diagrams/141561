@@ -142,27 +142,10 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
 	comment "Removes a worker."
       end
 
-      operation 128481 "scheduleJob"
-	public explicit_return_type "bool"
-	nparams 2
-	  param in name "worker_id" explicit_type "int"
-	  param in name "job_id" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}, const ${t2} & ${p2}${v2}, const ${t3} & ${p3}${v3}, ${t4} ${p4}${v4}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}, const ${t2} & ${p2}, const ${t3} & ${p3}, ${t4} ${p4}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-	comment "Specs are assumed to be the whole worker's specs."
-      end
-
-      operation 128609 "pauseJob"
-	public explicit_return_type "bool"
+      operation 129633 "getWorker"
+	public return_type class_ref 135137 // worker_details
 	nparams 1
-	  param in name "id" explicit_type "int"
+	  param in name "worker_id" explicit_type "int"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
@@ -172,22 +155,22 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
 	
 	
 	
-	comment "Pauses a worker."
       end
 
-      operation 128737 "freeWorker"
-	public explicit_return_type "bool"
+      operation 132065 "getWorkers"
+	public explicit_return_type "std::vector<std::shared_ptr<worker_details>>"
 	nparams 1
-	  param in name "id" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}, ${t2} ${p2}${v2}, const ${t3} & ${p3}${v3}${)}${const}${volatile}${throw}${abstract};
+	  param in name "status" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, const ${t3} & ${p3}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
 	
 	
 	
+	comment "Get all workers with a certain status."
       end
 
       operation 128993 "getJobs"
@@ -251,37 +234,6 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
 	  b parent class_ref 134881 // specs
       end
 
-      operation 129249 "getJobStatus"
-	public explicit_return_type "int"
-	nparams 1
-	  param in name "job_id" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-	comment "Returns the job status id"
-      end
-
-      operation 129377 "getWorkerStatus"
-	public explicit_return_type "int"
-	nparams 1
-	  param in name "worker_id" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
       operation 129505 "getWorkers"
 	public explicit_return_type "std::vector<std::shared_ptr<worker_details>>"
 	nparams 0
@@ -303,70 +255,6 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
 	    cpp default "#include in source"
 	    classrelation_ref 128737 // <dependency>
 	  b parent class_ref 135137 // worker_details
-      end
-
-      operation 129633 "getWorker"
-	public return_type class_ref 135137 // worker_details
-	nparams 1
-	  param in name "worker_id" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 129761 "scheduleJob"
-	public explicit_return_type "bool"
-	nparams 3
-	  param in name "worker_id" explicit_type "id"
-	  param in name "job_id" explicit_type "id"
-	  param in name "specs" type class_ref 134881 // specs
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-	comment "This is when the resources of a worker are partitioned for a job."
-      end
-
-      operation 130145 "getAllWorkerPartitions"
-	public explicit_return_type "std::vector<std::shared_ptr<worker_details>>"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-	comment "This gets all the workers and their partitions."
-      end
-
-      operation 132065 "getWorkers"
-	public explicit_return_type "std::vector<std::shared_ptr<worker_details>>"
-	nparams 1
-	  param in name "status" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-	comment "Get all workers with a certain status."
       end
 
       operation 132449 "getJobs"
@@ -1129,6 +1017,18 @@ ${members}};
 
       attribute 153569 "email"
 	public explicit_type "std::string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 154081 "auth_key"
+	public explicit_type "int"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
