@@ -111,7 +111,7 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
       end
 
       operation 128225 "addWorker"
-	public explicit_return_type "bool"
+	public explicit_return_type "int"
 	nparams 1
 	  param in name "info" type class_ref 135137 // worker_details
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}, const ${t3} & ${p3}${v3}, ${t4} ${p4}${v4}${)}${const}${volatile}${throw}${abstract};
@@ -393,6 +393,219 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
       end
     end
 
+    class 135393 "Repository"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "This is the interface that the rest of the program uses to query the database."
+      operation 130273 "addWorker"
+	public explicit_return_type "int"
+	nparams 5
+	  param in name "auth_key" explicit_type "int"
+	  param in name "space" explicit_type "int"
+	  param in name "ram" explicit_type "int"
+	  param in name "cores" explicit_type "int"
+	  param in name "address" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}, ${t2} ${p2}${v2}, ${t3} ${p3}${v3}, const ${t4} & ${p4}${v4}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}, const ${t4} & ${p4}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Adds a Worker to the DB and returns its ID"
+      end
+
+      operation 130401 "removeWorker"
+	public explicit_return_type "bool"
+	nparams 1
+	  param in name "id" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 130529 "addJob"
+	public explicit_return_type "int"
+	nparams 4
+	  param in name "user_id" explicit_type "int"
+	  param in name "config" type class_ref 135722 // JobConfig
+	  param in name "schedule_time" explicit_type "std::string"
+	  param in name "command" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}, const ${t3} & ${p3}${v3}, const ${t4} & ${p4}${v4}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}, const ${t3} & ${p3}, const ${t4} & ${p4}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Adds a new job to the DB and returns its ID."
+      end
+
+      operation 131041 "getJobs"
+	public explicit_return_type "std::vector<std::shared_ptr<Job>>"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      classrelation 128993 // <dependency>
+	relation 128993 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 128993 // <dependency>
+	  b parent class_ref 134753 // job_details
+      end
+
+      classrelation 129121 // <dependency>
+	relation 129121 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 129121 // <dependency>
+	  b parent class_ref 135137 // worker_details
+      end
+
+      classrelation 129249 // <dependency>
+	relation 129249 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 129249 // <dependency>
+	  b parent class_ref 134881 // specs
+      end
+
+      classrelation 129377 // <unidirectional association>
+	relation 129377 --->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 129377 // <unidirectional association>
+	  b parent class_ref 135265 // Factory
+      end
+
+      classrelation 129505 // <unidirectional association>
+	relation 129505 --->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 129505 // <unidirectional association>
+	  b parent class_ref 128097 // Gateway
+      end
+
+      operation 131169 "getJob"
+	public return_type class_ref 162169 // Job
+	nparams 1
+	  param in name "job_id" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 131553 "getWorkers"
+	public explicit_return_type "std::vector<std::shared_ptr<Worker>>"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 131681 "getWorker"
+	public return_type class_ref 155129 // Worker
+	nparams 1
+	  param in name "worker_id" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 131937 "getAllWorkerPartitions"
+	public explicit_return_type "std::vector<std::shared_ptr<Worker>>"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 132193 "getWorkers"
+	public explicit_return_type "std::vector<std::shared_ptr<Worker>>"
+	nparams 1
+	  param in name "status" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 132321 "getJobs"
+	public explicit_return_type "std::vector<std::shared_ptr<Job>>"
+	nparams 1
+	  param in name "status" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+    end
+
     class 134753 "job_details"
       visibility public stereotype "struct"
       cpp_decl "${comment}${template}struct ${name}${inherit} {
@@ -433,7 +646,7 @@ ${members}};
 	MysqlColumn
       end
 
-      attribute 135393 "status_id"
+      attribute 135393 "status"
 	public explicit_type "int"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
@@ -443,6 +656,7 @@ ${members}};
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
+	comment "Represented with an ID."
       end
 
       attribute 136673 "id"
@@ -476,6 +690,26 @@ ${members}};
 	    cpp default "#include in source"
 	    classrelation_ref 128865 // <dependency>
 	  b parent class_ref 135009 // time
+      end
+
+      classrelation 142945 // <generalisation>
+	relation 142689 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 142945 // <generalisation>
+	  b parent class_ref 135009 // time
+      end
+
+      attribute 152417 "command"
+	public explicit_type "std::string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
       end
     end
 
@@ -534,18 +768,6 @@ ${members}};
 	comment "CPU cores"
       end
 
-      attribute 136033 "gpu"
-	public explicit_type "std::string"
-	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-	comment "The name and details of the GPU"
-      end
     end
 
     class 135009 "time"
@@ -657,7 +879,15 @@ ${members}};
 	MysqlColumn
       end
 
-      attribute 137057 "status"
+      classrelation 143073 // <generalisation>
+	relation 142817 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 143073 // <generalisation>
+	  b parent class_ref 134881 // specs
+      end
+
+      attribute 152545 "auth_key"
 	public explicit_type "int"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
@@ -714,288 +944,6 @@ ${inlines}
 	
 	
 	comment "Creates a Worker object using the info argument."
-      end
-    end
-
-    class 135393 "Repository"
-      visibility package 
-      cpp_decl "${comment}${template}class ${name}${inherit} {
-${members}};
-${inlines}
-"
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      mysql_decl ""
-      
-      comment "This is the interface that the rest of the program uses to query the database."
-      operation 130273 "addWorker"
-	public explicit_return_type "bool"
-	nparams 1
-	  param in name "info" type class_ref 135137 // worker_details
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 130401 "removeWorker"
-	public explicit_return_type "bool"
-	nparams 1
-	  param in name "id" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 130529 "scheduleJob"
-	public explicit_return_type "bool"
-	nparams 2
-	  param in name "worker_id" explicit_type "int"
-	  param in name "job_id" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 130657 "pauseJob"
-	public explicit_return_type "bool"
-	nparams 1
-	  param in name "id" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 130785 "freeWorker"
-	public explicit_return_type "bool"
-	nparams 1
-	  param in name "id" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 131041 "getJobs"
-	public explicit_return_type "std::vector<std::shared_ptr<Job>>"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      classrelation 128993 // <dependency>
-	relation 128993 -_->
-	  a public
-	    cpp default "#include in source"
-	    classrelation_ref 128993 // <dependency>
-	  b parent class_ref 134753 // job_details
-      end
-
-      classrelation 129121 // <dependency>
-	relation 129121 -_->
-	  a public
-	    cpp default "#include in source"
-	    classrelation_ref 129121 // <dependency>
-	  b parent class_ref 135137 // worker_details
-      end
-
-      classrelation 129249 // <dependency>
-	relation 129249 -_->
-	  a public
-	    cpp default "#include in source"
-	    classrelation_ref 129249 // <dependency>
-	  b parent class_ref 134881 // specs
-      end
-
-      classrelation 129377 // <unidirectional association>
-	relation 129377 --->
-	  a role_name "" private
-	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 129377 // <unidirectional association>
-	  b parent class_ref 135265 // Factory
-      end
-
-      classrelation 129505 // <unidirectional association>
-	relation 129505 --->
-	  a role_name "" private
-	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 129505 // <unidirectional association>
-	  b parent class_ref 128097 // Gateway
-      end
-
-      operation 131169 "getJob"
-	public return_type class_ref 162169 // Job
-	nparams 1
-	  param in name "job_id" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 131297 "getJobStatus"
-	public explicit_return_type "int"
-	nparams 1
-	  param in name "job_id" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 131425 "getWorkerStatus"
-	public explicit_return_type "int"
-	nparams 1
-	  param in name "worker_id" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 131553 "getWorkers"
-	public explicit_return_type "std::vector<std::shared_ptr<Worker>>"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 131681 "getWorker"
-	public return_type class_ref 155129 // Worker
-	nparams 1
-	  param in name "worker_id" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 131809 "scheduleJob"
-	public explicit_return_type "bool"
-	nparams 3
-	  param in name "worker_id" explicit_type "int"
-	  param in name "job_id" explicit_type "int"
-	  param in name "specs" type class_ref 134881 // specs
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}, const ${t2} & ${p2}${v2}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}, const ${t2} & ${p2}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 131937 "getAllWorkerPartitions"
-	public explicit_return_type "std::vector<std::shared_ptr<Worker>>"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 132193 "getWorkers"
-	public explicit_return_type "std::vector<std::shared_ptr<Worker>>"
-	nparams 1
-	  param in name "status" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      operation 132321 "getJobs"
-	public explicit_return_type "std::vector<std::shared_ptr<Job>>"
-	nparams 1
-	  param in name "status" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
       end
     end
   end
