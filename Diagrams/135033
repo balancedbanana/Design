@@ -1,7 +1,7 @@
 format 222
 "scheduler" // balancedbanana::scheduler
-  revision 8
-  modified_by 97 "rakoo"
+  revision 9
+  modified_by 42 "Niklas"
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -721,6 +721,94 @@ ${inlines}
 	
 	
 	comment "getter for the email_ attribute"
+      end
+    end
+
+    class 161834 "JobStatus"
+      visibility package stereotype "enum"
+      cpp_decl "${comment}enum ${name} {
+${items}};
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}enum ${name}${implements} {
+${items};
+${members}}
+"
+      php_decl "${comment}${visibility}final class ${name} {
+${items}}
+"
+      python_2_2 python_decl "class ${name}:
+${docstring}${members}
+"
+      idl_decl "${comment}enum ${name} {
+${items}};
+"
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 189354 "scheduled"
+	public type class_ref 161834 // JobStatus
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 189482 "processing"
+	public type class_ref 161834 // JobStatus
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 189610 "paused"
+	public type class_ref 161834 // JobStatus
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 189738 "interrupted"
+	public type class_ref 161834 // JobStatus
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 189866 "finished"
+	public type class_ref 161834 // JobStatus
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 189994 "canceled"
+	public type class_ref 161834 // JobStatus
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
       end
     end
   end
