@@ -1,7 +1,7 @@
 format 222
 "database" // balancedbanana::database
-  revision 6
-  modified_by 121 "christopher"
+  revision 7
+  modified_by 97 "rakoo"
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -362,7 +362,7 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
       end
 
       operation 132065 "getWorkers"
-	public explicit_return_type "std::vector<std::shared_ptr<Worker>>"
+	public explicit_return_type "std::vector<std::shared_ptr<worker_details>>"
 	nparams 1
 	  param in name "status" explicit_type "int"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
@@ -378,7 +378,7 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
       end
 
       operation 132449 "getJobs"
-	public explicit_return_type "std::vector<std::shared_ptr<Job>>"
+	public explicit_return_type "std::vector<std::shared_ptr<job_details>>"
 	nparams 1
 	  param in name "status" explicit_type "int"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
@@ -701,7 +701,7 @@ ${inlines}
       end
 
       operation 130017 "createWorker"
-	public return_type class_ref 135137 // worker_details
+	public return_type class_ref 141921 // Worker
 	nparams 1
 	  param in name "info" type class_ref 135137 // worker_details
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
