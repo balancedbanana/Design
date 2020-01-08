@@ -1,6 +1,6 @@
 format 222
 "database" // balancedbanana::database
-  revision 7
+  revision 8
   modified_by 97 "rakoo"
   // class settings
   
@@ -1025,10 +1025,6 @@ ${inlines}
       size A0
     end
 
-    classdiagram 134625 "database_diag"
-      classdiagramsettings member_max_width 0 end
-      size A4
-    end
   end
 
   classview 134625 "tables"
