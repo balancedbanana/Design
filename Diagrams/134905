@@ -1,7 +1,7 @@
 format 222
 "Authenticator" // balancedbanana::communication::Authenticator
-  revision 3
-  modified_by 97 "rakoo"
+  revision 4
+  modified_by 121 "christopher"
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -50,7 +50,7 @@ format 222
     
     activitydiagramsettings
      end
-    class 147961 "Authenticator"
+    class 147961 "AuthHandler"
       abstract visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
@@ -64,7 +64,7 @@ ${inlines}
       mysql_decl ""
       
       operation 148473 "GetDefault"
-	class_operation public return_type class_ref 147961 // Authenticator
+	class_operation public return_type class_ref 147961 // AuthHandler
 	nparams 1
 	  param in name "comm" type class_ref 128170 // Communicator
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
@@ -78,7 +78,7 @@ ${inlines}
 	
       end
 
-      operation 155129 "Authenticator"
+      operation 155129 "AuthHandler"
 	stereotype "create"
 	public explicit_return_type ""
 	nparams 1
@@ -97,9 +97,25 @@ ${inlines}
       operation 155513 "authenticate"
 	abstract cpp_virtual public explicit_return_type ""
 	nparams 2
-	  param in name "username" explicit_type "string"
-	  param in name "password" explicit_type "string"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+	  param in name "user" explicit_type "std::shared_ptr<User>"
+	  param in name "password" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+      end
+
+      operation 191481 "authenticate"
+	public explicit_return_type ""
+	nparams 2
+	  param in name "user" explicit_type "std::shared_ptr<User>"
+	  param in name "signature" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
 "
 	
 	
@@ -108,7 +124,7 @@ ${inlines}
       end
     end
 
-    class 148217 "SSHAuthenticator"
+    class 148217 "SSHAuthHandler"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
@@ -126,17 +142,17 @@ ${inlines}
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 134649 // <generalisation>
-	  b parent class_ref 147961 // Authenticator
+	  b parent class_ref 147961 // AuthHandler
       end
 
       operation 155769 "authenticate"
 	public explicit_return_type ""
 	nparams 2
-	  param in name "username" explicit_type "string"
-	  param in name "password" explicit_type "string"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+	  param in name "username" explicit_type "std::string"
+	  param in name "password" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -146,7 +162,7 @@ ${inlines}
       end
     end
 
-    class 148089 "LDAPAuthenticator"
+    class 148089 "LDAPAuthHandler"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
@@ -164,17 +180,17 @@ ${inlines}
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 134777 // <generalisation>
-	  b parent class_ref 147961 // Authenticator
+	  b parent class_ref 147961 // AuthHandler
       end
 
       operation 155641 "authenticate"
 	public explicit_return_type ""
 	nparams 2
-	  param in name "username" explicit_type "string"
-	  param in name "password" explicit_type "string"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+	  param in name "username" explicit_type "std::string"
+	  param in name "password" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -184,7 +200,7 @@ ${inlines}
       end
     end
 
-    class 154873 "AuthMessage"
+    class 154873 "PasswordAuthMessage"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
@@ -197,14 +213,6 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
-      classrelation 141433 // <generalisation>
-	relation 141433 ---|>
-	  a public
-	    cpp default "${type}"
-	    classrelation_ref 141433 // <generalisation>
-	  b parent class_ref 128938 // Message
-      end
-
       operation 155897 "process"
 	cpp_virtual public explicit_return_type "void"
 	nparams 1
@@ -245,14 +253,163 @@ ${inlines}
 	MysqlColumn
       end
 
-      operation 156025 "AuthMessage"
-	public return_type class_ref 154873 // AuthMessage
-	nparams 2
-	  param in name "username" explicit_type "string"
-	  param in name "password" explicit_type "string"
-	cpp_decl "    ${comment}${inline}${typeprefix}${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}${)}${volatile}${throw};
+      operation 156025 "PasswordAuthMessage"
+	public return_type class_ref 154873 // PasswordAuthMessage
+	nparams 3
+	  param in name "username" explicit_type "std::string"
+	  param in name "password" explicit_type "std::string"
+	  param in name "pubkey" explicit_type "std::string"
+	cpp_decl "    ${comment}${inline}${typeprefix}${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}${)}${volatile}${throw};
 "
-	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${volatile}${throw} {
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      attribute 148601 "publickey"
+	private explicit_type ""
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 162809 // <generalisation>
+	relation 162553 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 162809 // <generalisation>
+	  b parent class_ref 128938 // Message
+      end
+    end
+
+    class 182265 "PublicKeyAuthMessage"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 191737 "process"
+	cpp_virtual public explicit_return_type "void"
+	nparams 1
+	  param in name "mp" explicit_type "std::shared_ptr<MessageProcessor>"
+	multiplicity "1"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      attribute 148345 "username"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 148473 "usernamesignature"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 191865 "PublicKeyAuthMessage"
+	public return_type class_ref 182265 // PublicKeyAuthMessage
+	nparams 2
+	  param in name "username" explicit_type "std::string"
+	  param in name "usernamesignature" explicit_type "std::string"
+	cpp_decl "    ${comment}${inline}${typeprefix}${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      simplerelation 128121
+	---|>
+	  on class_ref 182265 // PublicKeyAuthMessage
+      end
+
+      classrelation 162937 // <generalisation>
+	relation 162681 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 162937 // <generalisation>
+	  b parent class_ref 128938 // Message
+      end
+    end
+
+    class 182137 "Authenticator"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 191353 "authenticate"
+	public explicit_return_type ""
+	nparams 2
+	  param in name "username" explicit_type "std::string"
+	  param in name "password" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 191609 "authenticate"
+	public explicit_return_type ""
+	nparams 1
+	  param in name "username" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
