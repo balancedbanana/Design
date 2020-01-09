@@ -92,14 +92,6 @@ classcanvas 133753 class_ref 128121 // Docker
   classdiagramsettings member_max_width 0 end
   xyzwh 2066.61 912.906 2000 263 143
 end
-classcanvas 133881 class_ref 155385 // ProcStarter
-  classdiagramsettings member_max_width 0 end
-  xyz 1993 1337.26 2000
-end
-classcanvas 134009 class_ref 155513 // Proc
-  classdiagramsettings member_max_width 0 end
-  xyz 2028.83 1414.38 2000
-end
 classcanvas 135978 class_ref 128682 // SchedulerClientMP
   classdiagramsettings member_max_width 0 end
   xyz 619.455 817.869 2000
