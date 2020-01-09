@@ -1,0 +1,75 @@
+format 222
+
+classinstancecanvas 128121 classinstance_ref 154361 // authenticator
+  xyz 163 5 2000 life_line_z 2000
+end
+classinstancecanvas 128761 classinstance_ref 154489 // com
+  xyz 506 4 2000 life_line_z 2000
+end
+classinstance 129273 class_ref 188793 // AuthResult
+  name "authresult"   xyz 592 121 2000 life_line_z 2000
+fragment 129785 "alt"
+  form "status != 0" xyzwh 12 231 2000 723 201
+  separator 5000
+end
+textcanvas 129913 "[status != 0]"
+  xyzwh 38 250 2005 56 13
+note 130937 "Generate Public / private Key pair"
+  xyzwh 242 67 2025 189 35
+durationcanvas 128249 classinstance_ref 128121 // authenticator:Authenticator
+  xyzwh 227 74 2010 11 340
+end
+durationcanvas 128889 classinstance_ref 128761 // com:Communicator
+  xyzwh 552 118 2010 11 40
+end
+durationcanvas 129401 classinstance_ref 129273 // authresult:AuthResult
+  xyzwh 643 171 2010 11 36
+end
+lostfoundmsgsupport 128377 xyz 32 76 2015
+lostfoundmsgsupport 130041 xyz 39 298 2015
+lostfoundmsgsupport 130425 xyz 32 405 2015
+msg 128505 found_synchronous
+  from lostfoundmsgsupport_ref 128377
+  to durationcanvas_ref 128249
+  yz 74 2015 msg operation_ref 191353 // "authenticate(in username : std::string, in password : std::string)"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "username
+password"
+  label_xy 90 53
+msg 129017 asynchronous
+  from durationcanvas_ref 128249
+  to durationcanvas_ref 128889
+  yz 124 2020 msg operation_ref 155001 // "send(in message : Message)"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "PasswordAuthMessage(username, password, pubkey)"
+  label_xy 267 106
+msg 129145 return
+  from durationcanvas_ref 128889
+  to durationcanvas_ref 128249
+  yz 144 2015 explicitmsg "authresult"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 365 131
+msg 129529 synchronous
+  from durationcanvas_ref 128249
+  to durationcanvas_ref 129401
+  yz 177 2015 msg operation_ref 198393 // "getStatus() : ulong"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 416 164
+msg 129657 return
+  from durationcanvas_ref 129401
+  to durationcanvas_ref 128249
+  yz 193 2020 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 130169 lost_synchronous
+  from durationcanvas_ref 128249
+  to lostfoundmsgsupport_ref 130041
+  yz 296 2015 explicitmsg "throw std::runtime_error(\"Authentication failed\")"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 24 283
+msg 130553 lost_synchronous
+  from durationcanvas_ref 128249
+  to lostfoundmsgsupport_ref 130425
+  yz 403 2015 explicitmsg "succeed"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 114 390
+end

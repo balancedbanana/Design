@@ -1,6 +1,6 @@
 format 222
 "Authenticator" // balancedbanana::communication::Authenticator
-  revision 4
+  revision 5
   modified_by 121 "christopher"
   // class settings
   
@@ -200,7 +200,7 @@ ${inlines}
       end
     end
 
-    class 154873 "PasswordAuthMessage"
+    class 154873 "ClientAuthMessage"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
@@ -213,6 +213,7 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
+      comment "Authenifiziert einen Arbeiter für die erste Verbinung  ( folgend PublicKeyAuthMessage on verwenden)"
       operation 155897 "process"
 	cpp_virtual public explicit_return_type "void"
 	nparams 1
@@ -230,7 +231,7 @@ ${inlines}
       end
 
       attribute 141689 "username"
-	private explicit_type "string"
+	private explicit_type "std::string"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -242,7 +243,7 @@ ${inlines}
       end
 
       attribute 141817 "password"
-	private explicit_type "string"
+	private explicit_type "std::string"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -253,8 +254,8 @@ ${inlines}
 	MysqlColumn
       end
 
-      operation 156025 "PasswordAuthMessage"
-	public return_type class_ref 154873 // PasswordAuthMessage
+      operation 156025 "ClientAuthMessage"
+	public return_type class_ref 154873 // ClientAuthMessage
 	nparams 3
 	  param in name "username" explicit_type "std::string"
 	  param in name "password" explicit_type "std::string"
@@ -321,7 +322,7 @@ ${inlines}
       end
 
       attribute 148345 "username"
-	private explicit_type "string"
+	private explicit_type "std::string"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -333,7 +334,7 @@ ${inlines}
       end
 
       attribute 148473 "usernamesignature"
-	private explicit_type "string"
+	private explicit_type "std::string"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -417,6 +418,140 @@ ${inlines}
 	
 	
       end
+
+      operation 198521 "authenticate"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Nur für worker"
+      end
+    end
+
+    class 188793 "AuthResult"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 155129 "status"
+	private explicit_type "ulong"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 198393 "getStatus"
+	public explicit_return_type "ulong"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Gibt den Authentfication status zurück 0 falls erfolgreich sonst ungleich 0"
+      end
+    end
+
+    class 188921 "WorkerAuthMessage"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 198649 "process"
+	cpp_virtual public explicit_return_type "void"
+	nparams 1
+	  param in name "mp" explicit_type "std::shared_ptr<MessageProcessor>"
+	multiplicity "1"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      attribute 155257 "workername"
+	private explicit_type "std::string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 198777 "WorkerAuthMessage"
+	public return_type class_ref 188921 // WorkerAuthMessage
+	nparams 2
+	  param in name "workername" explicit_type "std::string"
+	  param in name "pubkey" explicit_type "std::string"
+	cpp_decl "    ${comment}${inline}${typeprefix}${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      attribute 155385 "publickey"
+	private explicit_type ""
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 169465 // <generalisation>
+	relation 169209 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 169465 // <generalisation>
+	  b parent class_ref 128938 // Message
+      end
     end
   end
 
@@ -443,6 +578,37 @@ ${inlines}
     classdiagram 147961 "auth_diagram"
       classdiagramsettings member_max_width 0 end
       size A0
+    end
+
+    sequencediagram 181113 "Authentification"
+      sequencediagramsettings end
+      overlapping_bars size A4
+    end
+
+    classinstance 154361 "authenticator"
+      type class_ref 182137 // Authenticator
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 154489 "com"
+      type class_ref 128170 // Communicator
+      attributes
+        end
+      relations
+        end
+    end
+
+    sequencediagram 181241 "AuthPubkey"
+      sequencediagramsettings end
+      overlapping_bars size A4
+    end
+
+    sequencediagram 181369 "WorkerAuth"
+      sequencediagramsettings end
+      overlapping_bars size A4
     end
   end
 end

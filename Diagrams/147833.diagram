@@ -6,29 +6,29 @@ end
 classinstancecanvas 128633 classinstance_ref 134777 // q
   xyz 180 4 2000 life_line_z 2000
 end
-classinstance 129401 class_ref 147961 // Authenticator
+classinstance 129401 class_ref 147961 // AuthHandler
   name "auth"   xyz 385 4 2000 life_line_z 2000
 classinstancecanvas 129913 classinstance_ref 141305 // msg
   xyz 613 4 2000 life_line_z 2000
 end
 classinstance 131705 class_ref 128298 // SSLSocket
   name ""   xyz 309 4 2000 life_line_z 2000
-classinstance 132217 class_ref 154873 // AuthMessage
-  name "authmsg"   xyz 484 4 2000 life_line_z 2000
-durationcanvas 128249 classinstance_ref 128121 // c:client
+classinstance 132217 class_ref 154873 // ClientAuthMessage
+  name "authmsg"   xyz 487 4 2000 life_line_z 2000
+durationcanvas 128249 classinstance_ref 128121 // c:Client
   xyzwh 85 57 2010 11 552
 end
 durationcanvas 128761 classinstance_ref 128633 // q:Communicator
   xyzwh 219 56 2010 11 60
 end
-durationcanvas 129529 classinstance_ref 129401 // auth:Authenticator
-  xyzwh 428 144 2010 11 44
+durationcanvas 129529 classinstance_ref 129401 // auth:AuthHandler
+  xyzwh 427 144 2010 11 44
 end
 durationcanvas 130041 classinstance_ref 129913 // msg:SnapshotMessage
   xyzwh 669 491 2010 11 40
 end
-durationcanvas 130297 classinstance_ref 129401 // auth:Authenticator
-  xyzwh 428 214 2010 11 255
+durationcanvas 130297 classinstance_ref 129401 // auth:AuthHandler
+  xyzwh 427 214 2010 11 255
 end
 durationcanvas 131193 classinstance_ref 128633 // q:Communicator
   xyzwh 219 554 2010 11 35
@@ -36,8 +36,8 @@ end
 durationcanvas 131833 classinstance_ref 131705 // :SSLSocket
   xyzwh 337 63 2010 11 37
 end
-durationcanvas 132345 classinstance_ref 132217 // authmsg:AuthMessage
-  xyzwh 539 228 2010 11 46
+durationcanvas 132345 classinstance_ref 132217 // authmsg:ClientAuthMessage
+  xyzwh 556 228 2010 11 46
 end
 durationcanvas 132729 classinstance_ref 128633 // q:Communicator
   xyzwh 219 277 2010 11 144
@@ -45,8 +45,8 @@ end
 durationcanvas 132985 classinstance_ref 131705 // :SSLSocket
   xyzwh 337 347 2010 11 51
 end
-durationcanvas 133241 classinstance_ref 132217 // authmsg:AuthMessage
-  xyzwh 539 299 2010 11 32
+durationcanvas 133241 classinstance_ref 132217 // authmsg:ClientAuthMessage
+  xyzwh 556 299 2010 11 32
 end
 lostfoundmsgsupport 128377 xyz 0 59 2015
 msg 128505 found_synchronous
@@ -70,7 +70,7 @@ msg 129273 return
 msg 129657 synchronous
   from durationcanvas_ref 128249
   to durationcanvas_ref 129529
-  yz 144 2015 msg operation_ref 148473 // "GetDefault(in comm : Communicator) : Authenticator"
+  yz 144 2015 msg operation_ref 148473 // "GetDefault(in comm : Communicator) : AuthHandler"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
   args "q"
   label_xy 195 132
@@ -90,7 +90,7 @@ msg 130169 synchronous
 msg 130425 synchronous
   from durationcanvas_ref 128249
   to durationcanvas_ref 130297
-  yz 214 2015 msg operation_ref 155513 // "authenticate(in username : string, in password : string)"
+  yz 214 2015 msg operation_ref 155513 // "authenticate(in user : std::shared_ptr<User>, in password : std::string)"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
   label_xy 192 201
 msg 130553 return
@@ -130,7 +130,7 @@ msg 132089 return
 msg 132473 synchronous
   from durationcanvas_ref 130297
   to durationcanvas_ref 132345
-  yz 228 2020 msg operation_ref 156025 // "AuthMessage(in username : string, in password : string) : AuthMessage"
+  yz 228 2020 msg operation_ref 156025 // "ClientAuthMessage(in username : std::string, in password : std::string, in pubkey : std::string) : ClientAuthMessage"
   stereotype "<<create>>" xyz 461 233 3000
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
   label_xy 453 218
@@ -155,7 +155,7 @@ msg 133113 synchronous
 msg 133369 synchronous
   from durationcanvas_ref 132729
   to durationcanvas_ref 133241
-  yz 300 3005 msg operation_ref 136746 // "serialize(in dest : std::string * [1]) : virtual void"
+  yz 300 3005 msg operation_ref 136746 // "serialize() : std::string"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
   label_xy 361 287
 msg 133497 return
