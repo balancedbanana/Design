@@ -35,9 +35,6 @@ durationcanvas 135113 classinstance_ref 131913 // :CommandLineProcessor
   overlappingdurationcanvas 136265
     xyzwh 390 174 2020 11 35
   end
-  overlappingdurationcanvas 136521
-    xyzwh 390 232 2020 11 25
-  end
 end
 durationcanvas 137161 classinstance_ref 136905 // msg:TaskMessage
   xyzwh 868 303 2010 11 25
@@ -85,16 +82,10 @@ selfreflexivemsg 136137
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
 reflexivemsg 136393 synchronous
   to durationcanvas_ref 136265
-  yz 174 2025 msg operation_ref 128585 // "mainProcess(in argv : char**, in argc : int*, in task : std::shared_ptr<Task>)"
+  yz 174 2025 msg operation_ref 128585 // "processArguments(in argv : char**, in argc : int*, in task : std::shared_ptr<Task>)"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
   args "argv, argc, task"
   label_xy 425 169
-reflexivemsg 136649 synchronous
-  to durationcanvas_ref 136521
-  yz 232 2025 msg operation_ref 128713 // "postProcess(in task : std::shared_ptr<Task>)"
-  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
-  args "task"
-  label_xy 428 225
 msg 136777 return
   from durationcanvas_ref 135113
   to durationcanvas_ref 134217

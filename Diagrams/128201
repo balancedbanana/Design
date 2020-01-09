@@ -1,6 +1,6 @@
 format 222
 "commandLineProcessing" // balancedbanana::client::commandLineProcessing
-  revision 6
+  revision 7
   modified_by 73 "Thomas"
   // class settings
   
@@ -103,7 +103,7 @@ argc: Anzahl der Eintr�ge in argv
 task: Leere Instanz einer Aufgabe, die mit den komplexen Argumenten bef�llt wird."
       end
 
-      operation 128585 "mainProcess"
+      operation 128585 "processArguments"
 	private explicit_return_type ""
 	nparams 3
 	  param in name "argv" explicit_type "char**"
@@ -119,21 +119,6 @@ task: Leere Instanz einer Aufgabe, die mit den komplexen Argumenten bef�llt wi
 argv: Array der Bezeichner und Werte der Argumente
 argc: Anzahl der Eintr�ge in argv
 task: Datenheltestruktur, in die mithilfe einer setValue Operation die Werte den Argumenten zugewiesen werden"
-      end
-
-      operation 128713 "postProcess"
-	private explicit_return_type ""
-	nparams 1
-	  param in name "task" explicit_type "std::shared_ptr<Task>"
-	
-	
-	
-	
-	
-	comment "Erg�nzt Argumente mit Werten aus der Konfigurationsdatei des Benutzers.
-Macht bei Bedarf erkenntlich, dass ein Argument keinen Wert erhalten hat.
-
-task: Die Aufgabe, in der die auf der Befehlszeile angegebenen Argumente bereits abgelegt sind und die nun um die Argumente in der Konfigurationsdatei erweitert werden."
       end
 
       classrelation 157001 // <dependency>
@@ -263,6 +248,5 @@ task: Die Aufgabe, in der die auf der Befehlszeile angegebenen Argumente bereits
 	
       end
     end
-
   end
 end

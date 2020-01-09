@@ -1,6 +1,6 @@
 format 222
 "client" // balancedbanana::client
-  revision 7
+  revision 8
   modified_by 73 "Thomas"
   // class settings
   
@@ -61,7 +61,6 @@ format 222
       sequencediagramsettings end
       overlapping_bars size 4000x4000
     end
-
   end
 
   classview 141433 "classes"
