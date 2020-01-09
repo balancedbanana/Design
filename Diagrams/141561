@@ -96,7 +96,7 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
       end
 
       operation 128225 "addWorker"
-	public explicit_return_type "int"
+	public explicit_return_type "uint64_t"
 	nparams 5
 	  param in name "auth_key" explicit_type "int"
 	  param in name "space" explicit_type "int"
@@ -118,10 +118,10 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
       operation 128353 "removeWorker"
 	public explicit_return_type "bool"
 	nparams 1
-	  param in name "id" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+	  param in name "id" explicit_type "uint64_t"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -134,10 +134,10 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
       operation 129633 "getWorker"
 	public return_type class_ref 135137 // worker_details
 	nparams 1
-	  param in name "worker_id" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+	  param in name "worker_id" explicit_type "uint64_t"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -161,15 +161,15 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
       end
 
       operation 146785 "addJob"
-	public explicit_return_type "int"
+	public explicit_return_type "uint64_t"
 	nparams 4
-	  param in name "user_id" explicit_type "int"
+	  param in name "user_id" explicit_type "uint64_t"
 	  param in name "config" type class_ref 135722 // JobConfig
-	  param in name "schedule_time" explicit_type "std::string"
+	  param in name "schedule_time" explicit_type "std::chrono::time_point"
 	  param in name "command" explicit_type "std::string"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}, const ${t3} & ${p3}${v3}${)}${const}${volatile}${throw}${abstract};
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}, const ${t3} & ${p3}${v3}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}, const ${t3} & ${p3}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}, const ${t3} & ${p3}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -182,10 +182,10 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
       operation 146913 "removeJob"
 	public explicit_return_type "bool"
 	nparams 1
-	  param in name "job_id" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+	  param in name "job_id" explicit_type "uint64_t"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -197,10 +197,10 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
       operation 129121 "getJob"
 	public explicit_return_type "job_details"
 	nparams 1
-	  param in name "job_id" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+	  param in name "job_id" explicit_type "uint64_t"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -280,7 +280,7 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
       end
 
       operation 147041 "addUser"
-	public explicit_return_type "int"
+	public explicit_return_type "uint64_t"
 	nparams 3
 	  param in name "name" explicit_type "std::string"
 	  param in name "email" explicit_type "std::string"
@@ -300,10 +300,10 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
       operation 147169 "removeUser"
 	public explicit_return_type "bool"
 	nparams 1
-	  param in name "user_id" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+	  param in name "user_id" explicit_type "uint64_t"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -315,10 +315,10 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
       operation 147297 "getUser"
 	public return_type class_ref 148961 // user_details
 	nparams 1
-	  param in name "user_id" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+	  param in name "user_id" explicit_type "uint64_t"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -344,12 +344,12 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
       operation 147553 "startJob"
 	public explicit_return_type ""
 	nparams 3
-	  param in name "job_id" explicit_type "int"
-	  param in name "worker_id" explicit_type "int"
+	  param in name "job_id" explicit_type "uint64_t"
+	  param in name "worker_id" explicit_type "uint64_t"
 	  param in name "specs" type class_ref 134881 // specs
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}, const ${t2} & ${p2}${v2}${)}${const}${volatile}${throw}${abstract};
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}, const ${t2} & ${p2}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -362,13 +362,13 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
       operation 147681 "finishJob"
 	public explicit_return_type "bool"
 	nparams 4
-	  param in name "job_id" explicit_type "int"
-	  param in name "finish_time" explicit_type "std::string"
+	  param in name "job_id" explicit_type "uint64_t"
+	  param in name "finish_time" explicit_type "std::chrono::time_point"
 	  param in name "stdout" explicit_type "std::string"
-	  param in name "exit_code" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}, ${t3} ${p3}${v3}${)}${const}${volatile}${throw}${abstract};
+	  param in name "exit_code" explicit_type "int8_t"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}, const ${t3} & ${p3}${v3}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}, ${t3} ${p3}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}, const ${t3} & ${p3}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -380,10 +380,10 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
       operation 147809 "getJobResult"
 	public return_type class_ref 149089 // job_result
 	nparams 1
-	  param in name "job_id" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+	  param in name "job_id" explicit_type "uint64_t"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -408,7 +408,7 @@ ${inlines}
       
       comment "This is the interface that the rest of the program uses to query the database."
       operation 130273 "addWorker"
-	public explicit_return_type "int"
+	public explicit_return_type "uint64_t"
 	nparams 5
 	  param in name "auth_key" explicit_type "int"
 	  param in name "space" explicit_type "int"
@@ -430,10 +430,10 @@ ${inlines}
       operation 130401 "removeWorker"
 	public explicit_return_type "bool"
 	nparams 1
-	  param in name "id" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+	  param in name "id" explicit_type "uint64_t"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -445,10 +445,10 @@ ${inlines}
       operation 131681 "getWorker"
 	public return_type class_ref 155129 // Worker
 	nparams 1
-	  param in name "worker_id" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+	  param in name "worker_id" explicit_type "uint64_t"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -472,15 +472,15 @@ ${inlines}
       end
 
       operation 130529 "addJob"
-	public explicit_return_type "int"
+	public explicit_return_type "uint64_t"
 	nparams 4
-	  param in name "user_id" explicit_type "int"
+	  param in name "user_id" explicit_type "uint64_t"
 	  param in name "config" type class_ref 135722 // JobConfig
-	  param in name "schedule_time" explicit_type "std::string"
+	  param in name "schedule_time" explicit_type "std::chrono::time_point"
 	  param in name "command" explicit_type "std::string"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}, const ${t3} & ${p3}${v3}, const ${t4} & ${p4}${v4}${)}${const}${volatile}${throw}${abstract};
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}, const ${t3} & ${p3}${v3}, const ${t4} & ${p4}${v4}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}, const ${t3} & ${p3}, const ${t4} & ${p4}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}, const ${t3} & ${p3}, const ${t4} & ${p4}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -493,10 +493,10 @@ ${inlines}
       operation 139489 "removeJob"
 	public explicit_return_type "bool"
 	nparams 1
-	  param in name "job_id" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+	  param in name "job_id" explicit_type "uint64_t"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -509,10 +509,10 @@ ${inlines}
       operation 131169 "getJob"
 	public return_type class_ref 162169 // Job
 	nparams 1
-	  param in name "job_id" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+	  param in name "job_id" explicit_type "uint64_t"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -536,7 +536,7 @@ ${inlines}
       end
 
       operation 139361 "addUser"
-	public explicit_return_type "int"
+	public explicit_return_type "uint64_t"
 	nparams 3
 	  param in name "name" explicit_type "std::string"
 	  param in name "email" explicit_type "std::string"
@@ -556,10 +556,10 @@ ${inlines}
       operation 139617 "removeUser"
 	public explicit_return_type "bool"
 	nparams 1
-	  param in name "user_id" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+	  param in name "user_id" explicit_type "uint64_t"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -572,10 +572,10 @@ ${inlines}
       operation 139745 "getUser"
 	public explicit_return_type "User"
 	nparams 1
-	  param in name "user_id" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+	  param in name "user_id" explicit_type "uint64_t"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -601,13 +601,13 @@ ${inlines}
       operation 138977 "startJob"
 	public explicit_return_type "bool"
 	nparams 4
-	  param in name "job_id" explicit_type "int"
-	  param in name "worker_id" explicit_type "int"
+	  param in name "job_id" explicit_type "uint64_t"
+	  param in name "worker_id" explicit_type "uint64_t"
 	  param in name "specs" type class_ref 134881 // specs
-	  param in name "start_time" explicit_type "std::string"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}, const ${t2} & ${p2}${v2}, const ${t3} & ${p3}${v3}${)}${const}${volatile}${throw}${abstract};
+	  param in name "start_time" explicit_type "std::chrono::time_point"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}, const ${t3} & ${p3}${v3}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}, const ${t2} & ${p2}, const ${t3} & ${p3}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}, const ${t3} & ${p3}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -620,13 +620,13 @@ ${inlines}
       operation 139105 "finishJob"
 	public explicit_return_type "bool"
 	nparams 4
-	  param in name "job_id" explicit_type "int"
-	  param in name "finish_time" explicit_type "std::string"
+	  param in name "job_id" explicit_type "uint64_t"
+	  param in name "finish_time" explicit_type "std::chrono::time_point"
 	  param in name "stdout" explicit_type "std::string"
-	  param in name "exit_code" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}, ${t3} ${p3}${v3}${)}${const}${volatile}${throw}${abstract};
+	  param in name "exit_code" explicit_type "int8_t"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}, const ${t2} & ${p2}${v2}, const ${t3} & ${p3}${v3}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}, ${t3} ${p3}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}, const ${t3} & ${p3}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -697,10 +697,10 @@ ${inlines}
       operation 140257 "getJobResult"
 	public return_type class_ref 149089 // job_result
 	nparams 1
-	  param in name "job_id" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+	  param in name "job_id" explicit_type "uint64_t"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -755,7 +755,7 @@ ${members}};
       end
 
       attribute 135265 "user_id"
-	public explicit_type "int"
+	public explicit_type "uint64_t"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -780,7 +780,7 @@ ${members}};
       end
 
       attribute 136673 "id"
-	public explicit_type "int"
+	public explicit_type "uint64_t"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -805,7 +805,7 @@ ${members}};
       end
 
       attribute 152801 "schedule_time"
-	public explicit_type "std::string"
+	public explicit_type "std::chrono::time_point"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -817,7 +817,7 @@ ${members}};
       end
 
       attribute 152929 "start_time"
-	public explicit_type "std::string"
+	public explicit_type "std::chrono::time_point"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -829,7 +829,7 @@ ${members}};
       end
 
       attribute 153057 "finish_time"
-	public explicit_type "std::string"
+	public explicit_type "std::chrono::time_point"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -935,7 +935,7 @@ ${members}};
       
       comment "Encapsulates all details required to create Worker object."
       attribute 136545 "id"
-	public explicit_type "int"
+	public explicit_type "uint64_t"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
