@@ -1,7 +1,7 @@
 format 222
 "communication" // balancedbanana::communication
-  revision 14
-  modified_by 121 "christopher"
+  revision 15
+  modified_by 73 "Thomas"
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -849,7 +849,7 @@ ${inlines}
 	stereotype "constructor"
 	public explicit_return_type ""
 	nparams 1
-	  param in name "task" type class_ref 128201 // Task
+	  param in name "task" explicit_type "Task"
 	cpp_decl "    ${comment}${inline}${typeprefix}${name}${(}const ${t0} & ${p0}${v0}, ${t1} ${p1}${v1}, const ${t2} & ${p2}${v2}${)}${volatile}${throw};
 "
 	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}const ${t0} & ${p0}, ${t1} ${p1}, const ${t2} & ${p2}${)}${volatile}${throw} {
@@ -862,7 +862,7 @@ ${inlines}
       end
 
       attribute 158537 "task"
-	private type class_ref 128201 // Task
+	private explicit_type "Task"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""

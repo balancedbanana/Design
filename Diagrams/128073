@@ -1,7 +1,7 @@
 format 222
 "client" // balancedbanana::client
-  revision 6
-  modified_by 121 "christopher"
+  revision 7
+  modified_by 73 "Thomas"
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -54,7 +54,7 @@ format 222
      end
     classdiagram 128073 "CommandLineProcessing"
       classdiagramsettings member_max_width 0 end
-      size A4
+      size A0
     end
 
     sequencediagram 134601 "createTask"
@@ -62,28 +62,6 @@ format 222
       overlapping_bars size 4000x4000
     end
 
-    class 135241 "main"
-      visibility package 
-      cpp_decl "${comment}${template}class ${name}${inherit} {
-${members}};
-${inlines}
-"
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      mysql_decl ""
-      
-    end
-
-    classinstance 128073 "main"
-      type class_ref 135241 // main
-      attributes
-        end
-      relations
-        end
-    end
   end
 
   classview 141433 "classes"

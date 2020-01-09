@@ -1,7 +1,7 @@
 format 222
 "commandLineProcessing" // balancedbanana::client::commandLineProcessing
-  revision 5
-  modified_by 42 "Niklas"
+  revision 6
+  modified_by 73 "Thomas"
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -60,10 +60,12 @@ format 222
       explicit_switch_type ""
       mysql_decl ""
       
-      comment "Hauptverarbeitungseinheit fï¿½r Eingaben auf der Befehlszeile.
-Nimmt die Argumente der Befehlszeile entgegen und konstruiert eine Aufgabe."
+      comment "Verarbeitet die Eingabe der Befehlszeile und hinterlegt die Eingaben in einer JobConfig Instanz
+JobConfig liest Standardwerte aus einer Datei ein
+Diese werden durch die auf der Befehlszeile gegebenen Argumente ergänzt oder ersetzt
+"
       operation 128073 "process"
-	public return_type class_ref 128201 // Task
+	public explicit_return_type "Task"
 	nparams 2
 	  param in name "argv" explicit_type "char**"
 	  param in name "argc" explicit_type "int*"
@@ -134,31 +136,11 @@ Macht bei Bedarf erkenntlich, dass ein Argument keinen Wert erhalten hat.
 task: Die Aufgabe, in der die auf der Befehlszeile angegebenen Argumente bereits abgelegt sind und die nun um die Argumente in der Konfigurationsdatei erweitert werden."
       end
 
-      classrelation 129225 // preProcessor (<unidirectional association>)
-	relation 128713 --->
-	  a role_name "preProcessor" multiplicity "1" private
-	    classrelation_ref 129225 // preProcessor (<unidirectional association>)
-	  b parent class_ref 128457 // PreProcessor
-      end
-
-      classrelation 129353 // mainProcessor (<unidirectional association>)
-	relation 128841 --->
-	  a role_name "mainProcessor" multiplicity "1" private
-	    classrelation_ref 129353 // mainProcessor (<unidirectional association>)
-	  b parent class_ref 128585 // MainProcessor
-      end
-
-      classrelation 129481 // postProcessor (<unidirectional association>)
-	relation 128969 --->
-	  a role_name "postProcessor" multiplicity "1" private
-	    classrelation_ref 129481 // postProcessor (<unidirectional association>)
-	  b parent class_ref 128713 // PostProcessor
-      end
-
-      classrelation 129737 // <dependency>
-	relation 129225 -_->
+      classrelation 157001 // <dependency>
+	relation 156617 -_->
 	  a public
-	    classrelation_ref 129737 // <dependency>
+	    cpp default "#include in source"
+	    classrelation_ref 157001 // <dependency>
 	  b parent class_ref 128201 // Task
       end
     end
@@ -173,45 +155,86 @@ task: Die Aufgabe, in der die auf der Befehlszeile angegebenen Argumente bereits
       explicit_switch_type ""
       mysql_decl ""
       
-      operation 128329 "setValue"
-	public explicit_return_type "void"
-	nparams 2
-	  param in name "arg" explicit_type "Argument"
-	  param in name "val" explicit_type "std::string"
-	
-	
-	
-	
-	
-	comment "Setzt zu dem angegebenen Argument den spezifizierten Wert.
-
-arg: Das Argument, dessen Wert gesetzt werden soll.
-val: Neuer Wert des Arguments
+      comment "Enthält Informationen über die Anfrage des Benutzers auf der Befehlszeile, wie etwa um was für eine Art von Anfrage es sich handelt (Neue Aufgabe oder mit einer existierenden arbeiten, ...)"
+      attribute 165065 "taskCommand"
+	private explicit_type "std::string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Startbefehl für die eingereichte Aufgabe"
       end
 
-      operation 128457 "getValue"
-	public explicit_return_type "std::string"
+      classrelation 157129 // config (<unidirectional association>)
+	relation 156745 --->
+	  a role_name "config" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 157129 // config (<unidirectional association>)
+	  b parent class_ref 135722 // JobConfig
+      end
+
+      attribute 165193 "type"
+	private explicit_type "int"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	comment "Gibt an, um was für eine Form von Anfrage es sich handelt (Starte neue Aufgabe oder frage etwas über eine existierende Aufgabe ab)"
+      end
+
+      operation 169673 "getType"
+	public explicit_return_type "int"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 169801 "setType"
+	public explicit_return_type "void"
 	nparams 1
-	  param in name "arg" explicit_type "Argument"
+	  param in name "type" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
 	
 	
 	
 	
-	
-	comment "Gibt den Wert eines Arguments.
-
-arg: Argument, dessen Wert betrachtet werden soll"
       end
 
-      classrelation 129609 // <dependency>
-	relation 129097 -_->
-	  a public
-	    classrelation_ref 129609 // <dependency>
-	  b parent class_ref 128329 // Argument
+      operation 169929 "getConfig"
+	public return_type class_ref 135722 // JobConfig
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
       end
 
-      operation 163017 "serialize"
+      operation 170057 "getTaskCommand"
 	public explicit_return_type "std::string"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
@@ -223,346 +246,23 @@ arg: Argument, dessen Wert betrachtet werden soll"
 	
 	
 	
-	comment "Wandelt den Task in ein byte Array zum ï¿½bermitteln um"
-      end
-    end
-
-    class 128329 "Argument"
-      visibility package stereotype "enum"
-      cpp_decl "${comment}enum ${name} {
-${items}};
-"
-      java_decl "${comment}${@}${visibility}${static}${final}${abstract}enum ${name}${implements} {
-${items};
-${members}}
-"
-      php_decl "${comment}${visibility}final class ${name} {
-${items}}
-"
-      python_2_2 python_decl "class ${name}:
-${docstring}${members}
-"
-      idl_decl "${comment}enum ${name} {
-${items}};
-"
-      explicit_switch_type ""
-      mysql_decl ""
-      
-      comment "Sammlung aller akzeptierten Argumente.
-Die Liste variiert je nach Anwendung. Hier: Client"
-      attribute 128073 "Priority"
-	public type class_ref 128329 // Argument
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-	comment "Die Prioritï¿½t nach der die Aufgabe in der Warteschlange verarbeitet werden soll
-"
       end
 
-      attribute 128201 "MinCPUCount"
-	public type class_ref 128329 // Argument
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-	comment "Mindestanzahl der benï¿½tigten CPU Kerne fï¿½r diese Aufgabe"
-      end
-
-      attribute 128329 "MaxCPUCount"
-	public type class_ref 128329 // Argument
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-	comment "Grï¿½ï¿½te Anzahl an CPU Kernen, die diese Aufgabe verwenden kann.
-Die Aufgabe kann womï¿½glich auch mit weniger auskommen, wird aber nie mehr als diese Anzahl benï¿½tigen"
-      end
-
-      attribute 128457 "MinRAM"
-	public type class_ref 128329 // Argument
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-	comment "Mindestmenge an Arbeitsspeicher, der von dieser Aufgabe erfordert wird"
-      end
-
-      attribute 128585 "MaxRAM"
-	public type class_ref 128329 // Argument
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-	comment "Maximale Menge Arbeitsspeicher, der von dieser Aufgabe verwendet wird.
-Die Aufgabe kann womï¿½glich auch mit weniger auskommen, wird aber nie mehr als diese Menge benï¿½tigen"
-      end
-
-      attribute 128713 "Blocking"
-	public type class_ref 128329 // Argument
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-	comment "Gibt an, ob der Befehlszeilenaufruf blockieren soll, bis die Aufgabe beendet ist"
-      end
-
-      attribute 128841 "EMail"
-	public type class_ref 128329 // Argument
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-	comment "Gibt die EMail Adresse an, an die Abschlussinformationen der Aufgabe ï¿½bermittelt werden soll
-"
-      end
-
-      attribute 128969 "Image"
-	public type class_ref 128329 // Argument
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-	comment "Gibt das Standardimage fï¿½r Docker an, welches fï¿½r diese Aufgabe verwendet werden soll"
-      end
-
-      attribute 129097 "TaskStartCommand"
-	public type class_ref 128329 // Argument
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-	comment "Statbefehl dieser Aufgabe.
-Dieser Befehl wird auf dem Arbeiter ausgefï¿½hrt, um die Aufgabe zu starten"
-      end
-
-      attribute 129225 "addImage"
-	public type class_ref 128329 // Argument
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-	comment "Pfad zu neuem Docker Image, welches fï¿½r den Benutzer als Standardimage zur Verfï¿½gung stehen soll"
-      end
-
-      attribute 129353 "removeImage"
-	public type class_ref 128329 // Argument
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-	comment "Entfernt eines der Standard Dockerimages die dem Nutzer zur Verfï¿½gung stehen"
-      end
-
-      attribute 129481 "StatusRequest"
-	public type class_ref 128329 // Argument
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-	comment "Gibt die AugabenID an, deren Ausfï¿½hrungsstatus ermittelt werden soll"
-      end
-
-      attribute 129609 "TailRequest"
-	public type class_ref 128329 // Argument
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-	comment "Gibt die AufgabenID an, deren neuste Ausgabe ermittelt werden soll"
-      end
-
-      attribute 129737 "StopRequest"
-	public type class_ref 128329 // Argument
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-	comment "Gibt die AufgabenID an, die Abgebrochen werden soll"
-      end
-
-      attribute 129865 "PauseRequest"
-	public type class_ref 128329 // Argument
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-	comment "Gibt die AufgabenID an, die pausiert werden soll
-"
-      end
-
-      attribute 129993 "ResumeRequest"
-	public type class_ref 128329 // Argument
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-	comment "Gibt die AufgabenID an, die nach einer Pausierung Fortgesetzt werden soll"
-      end
-
-      attribute 130121 "BackupRequest"
-	public type class_ref 128329 // Argument
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-	comment "Gibt die AufgabenID an, von der eine Sicherung erstellt werden soll"
-      end
-
-      attribute 130249 "RestoreRequest"
-	public type class_ref 128329 // Argument
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-	comment "Gibt die AufgabenID an, die auf den Stand der letzten Verfï¿½gbaren Sicherung zurï¿½ckgesetzt werden soll"
-      end
-    end
-
-    class 128457 "PreProcessor"
-      abstract visibility package 
-      cpp_decl ""
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      mysql_decl ""
-      
-      operation 128841 "preProcess"
-	abstract cpp_virtual public explicit_return_type ""
-	nparams 3
-	  param in name "argv" explicit_type "char**"
-	  param in name "argc" explicit_type "int*"
-	  param in name "task" explicit_type "std::shared_ptr<Task>"
-	
-	
-	
-	
-	
-	comment "ï¿½bernimmt die Vorbereitung der Befehlszeilenargumente.
-
-Liefert: argv ist frei von problematischen Argumenten, argc entsprechend angepasst
-
-argv: Befehlszeilenargumente (Bezeichner und Werte)
-argc: Grï¿½ï¿½e von argv
-task: hier die komplexen Argumente einfï¿½gen"
-      end
-    end
-
-    class 128585 "MainProcessor"
-      abstract visibility package 
-      cpp_decl ""
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      mysql_decl ""
-      
-      operation 128969 "mainProcess"
-	abstract cpp_virtual public explicit_return_type ""
-	nparams 3
-	  param in name "argv" explicit_type "char**"
-	  param in name "argc" explicit_type "int*"
-	  param in name "task" explicit_type "std::shared_ptr<Task>"
-	
-	
-	
-	
-	
-	comment "ï¿½bernimmt die Hauptverarbeitung der Befehlszeilenargumente
-
-Geht davon aus, dass kein Eintrag in argv unverarbeitbar ist
-
-Liefert eine 1:1 ï¿½bersetzung von argv nach task
-
-argv: Befehlszeilenargumente (Bezeichner und Werte)
-argc: Grï¿½ï¿½e von argv
-task: hier die Argumente mit Werten einfï¿½gen"
-      end
-    end
-
-    class 128713 "PostProcessor"
-      abstract visibility package 
-      cpp_decl ""
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      mysql_decl ""
-      
-      operation 129097 "postProcess"
-	abstract cpp_virtual public explicit_return_type ""
+      operation 170185 "setTaskCommand"
+	public explicit_return_type "void"
 	nparams 1
-	  param in name "task" explicit_type "std::shared_ptr<Task>"
+	  param in name "taskCommand" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
 	
 	
 	
 	
-	
-	comment "ï¿½bernimmt die Nachbereitung einer Aufgabe mithilfe einer Konfigurationsdatei
-
-Geht davon aus, dass in task alle auf der Befehlszeile vorhandenen Argumente eingetragen sind.
-Erwartet die Konfigurationsdatei in festem Format an fester Stelle
-
-Liefert: fehlende Eintrï¿½ge in task sind mit Werten aus der Konfigurationsdatei aufgefï¿½llt"
       end
     end
+
   end
 end
