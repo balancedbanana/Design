@@ -1,7 +1,7 @@
 format 222
 "scheduler" // balancedbanana::scheduler
-  revision 13
-  modified_by 121 "christopher"
+  revision 14
+  modified_by 42 "Niklas"
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -359,6 +359,10 @@ Der Aufrufer wird nicht blockiert
 s: Anzahl der zu wartenden Sekunden
 func: Die auszuf�hrende Funktion"
       end
+
+      classrelation 157226 // <aggregation>
+	relation_ref 155946 // <aggregation>
+      end
     end
 
     class 155001 "Scheduler"
@@ -590,6 +594,30 @@ Sendet Nachricht an alle Arbeiter (ich bin hier nachricht)"
 	    classrelation_ref 186873 // <dependency>
 	  b parent class_ref 162169 // Job
       end
+
+      classrelation 157482 // user (<aggregation>)
+	relation 156202 o---
+	  a role_name "user" multiplicity "*" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type} *> ${name}${value};
+"
+	    classrelation_ref 157482 // user (<aggregation>)
+	  b role_name "" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 157610 // <aggregation>
+      end
+
+      classrelation 157738 // jobs (<aggregation>)
+	relation 156330 o---
+	  a role_name "jobs" multiplicity "*" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type} *> ${name}${value};
+"
+	    classrelation_ref 157738 // jobs (<aggregation>)
+	  b role_name "" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 157866 // <aggregation>
+      end
     end
 
     class 155129 "Worker"
@@ -707,10 +735,10 @@ ${inlines}
       end
 
       operation 163705 "getPos"
-	cpp_virtual public explicit_return_type "ulong"
+	cpp_virtual public explicit_return_type "uint64_t"
 	nparams 1
-	  param in name "id" explicit_type "ulong"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+	  param in name "id" explicit_type "uint64_t"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
 	
 	
@@ -721,7 +749,7 @@ ${inlines}
       operation 164089 "getJob"
 	abstract cpp_virtual public return_type class_ref 162169 // Job
 	nparams 1
-	  param in name "config" type class_ref 135722 // JobConfig
+	  param in name "id" explicit_type "uint64_t"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
 	
@@ -909,6 +937,10 @@ ${inlines}
 	    classrelation_ref 164065 // <unidirectional association>
 	  b parent class_ref 149089 // job_result
       end
+
+      classrelation 157866 // <aggregation>
+	relation_ref 156330 // <aggregation>
+      end
     end
 
     class 161834 "JobStatus"
@@ -1057,11 +1089,12 @@ ${inlines}
 
       operation 164601 "getJob"
 	cpp_virtual public return_type class_ref 162169 // Job
-	nparams 1
-	  param in name "config" type class_ref 135722 // JobConfig
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+	nparams 2
+	  param in name "ram" explicit_type "uint32_t"
+	  param in name "cores" explicit_type "uint32_t"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -1082,6 +1115,26 @@ ${inlines}
 	
 	
 	
+      end
+
+      classrelation 157098 // <aggregation>
+	relation 155946 o---
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 157098 // <aggregation>
+	  b role_name "" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 157226 // <aggregation>
+      end
+
+      classrelation 157354 // <dependency>
+	relation 156074 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 157354 // <dependency>
+	  b parent class_ref 162169 // Job
       end
     end
 
@@ -1181,6 +1234,10 @@ ${inlines}
 	
 	comment "getter for the email_ attribute"
       end
+
+      classrelation 157610 // <aggregation>
+	relation_ref 156202 // <aggregation>
+      end
     end
   end
 
@@ -1206,7 +1263,7 @@ ${inlines}
      end
     classdiagram 161273 "class_diagramm"
       classdiagramsettings draw_all_relations no member_max_width 0 end
-      size A1
+      size D-Landscape
     end
 
     sequencediagram 147657 "Startup Sequence"
