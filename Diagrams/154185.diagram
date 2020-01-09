@@ -1,0 +1,64 @@
+format 222
+
+classinstance 128073 class_ref 155257 // Worker
+  name ""   xyz 170 4 2005 life_line_z 2000
+classinstancecanvas 128201 classinstance_ref 141257 // tasks
+  xyz 370 4 2005 life_line_z 2000
+end
+note 130505 "Wiederholt für alle laufenden Aufgaben"
+  xyzwh 508 61 2000 279 75
+note 132169 "Ersetzt alte Snapshots auf dem Worker durch die neuen"
+  xyzwh 523 260 2000 227 91
+durationcanvas 129609 classinstance_ref 128073 // :Worker
+  xyzwh 204 66 2010 11 305
+  overlappingdurationcanvas 132553
+    xyzwh 210 193 2020 11 33
+  end
+end
+durationcanvas 129993 classinstance_ref 128201 // tasks:Container
+  xyzwh 436 127 2010 11 63
+end
+lostfoundmsgsupport 129737 xyz 42 68 2015
+lostfoundmsgsupport 132937 xyz 42 362 2015
+msg 129865 found_synchronous
+  from lostfoundmsgsupport_ref 129737
+  to durationcanvas_ref 129609
+  yz 66 2015 msg operation_ref 176841 // "backup(in location : std::string) : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "location"
+  label_xy 53 43
+msg 130121 synchronous
+  from durationcanvas_ref 129609
+  to durationcanvas_ref 129993
+  yz 128 2015 msg operation_ref 141689 // "Snapshot(in stop : bool = false)"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 279 106
+msg 130249 return
+  from durationcanvas_ref 129993
+  to durationcanvas_ref 129609
+  yz 176 2015 explicitmsg "snapshot"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 287 154
+reflexivemsg 132681 synchronous
+  to durationcanvas_ref 132553
+  yz 193 2025 msg operation_ref 176713 // "moveSnapshotToFileServer(in snapshot : Snapshot, in location : std::string) : void"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "snapshot, location"
+  label_xy 253 193
+selfreflexivemsg 132809
+  to durationcanvas_ref 132553
+  yz 218 2025 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 133065 lost_asynchronous
+  from durationcanvas_ref 129609
+  to lostfoundmsgsupport_ref 132937
+  yz 360 2015 unspecifiedmsg
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+line 131657 -_-_ decenter_end 32
+  from ref 130505 z 2001 to point 88 98
+  line 131785 z 2001 to point 88 239
+  line 131913 z 2001 to point 514 239
+  line 132041 z 2001 to ref 130505
+line 132425 -_-_ decenter_begin 515 decenter_end 811
+  from ref 132169 z 2011 to ref 129609
+end

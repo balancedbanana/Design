@@ -1,7 +1,7 @@
 format 222
 "worker" // balancedbanana::worker
-  revision 11
-  modified_by 121 "christopher"
+  revision 12
+  modified_by 73 "Thomas"
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -469,6 +469,41 @@ meldet sich bei Server an, falls mï¿½glich, ansonsten: wartet auf Anstoï¿½ eines
 	
 	comment "Liest Eintrï¿½ge aus einer Datei und interpretiert diese als Aufgaben (DockerImmages oder so)"
       end
+
+      operation 176713 "moveSnapshotToFileServer"
+	public explicit_return_type "void"
+	nparams 2
+	  param in name "snapshot" type class_ref 141305 // Snapshot
+	  param in name "location" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Speichert den Snapshot auf dem File Server, damit ein Benutzer darauf zugriff bekommt
+
+location: wo auf dem FileServer soll der Snapshot gespeichert werden."
+      end
+
+      operation 176841 "backup"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "location" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Speichert einen Snapshot aller laufenden Aufgaben an der angegebenen Stelle im FileServer oder nur auf dem Worker, falls location keine gültige Stelle auf dem File Server ist."
+      end
     end
   end
 
@@ -511,6 +546,19 @@ meldet sich bei Server an, falls mï¿½glich, ansonsten: wartet auf Anstoï¿½ eines
     end
 
     classinstance 134729 "tasks"
+      type class_ref 128249 // Container
+      attributes
+        end
+      relations
+        end
+    end
+
+    sequencediagram 154185 "backupAll"
+      sequencediagramsettings end
+      overlapping_bars size A0
+    end
+
+    classinstance 141257 "tasks"
       type class_ref 128249 // Container
       attributes
         end
