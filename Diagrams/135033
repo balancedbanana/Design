@@ -1,6 +1,6 @@
 format 222
 "scheduler" // balancedbanana::scheduler
-  revision 12
+  revision 13
   modified_by 121 "christopher"
   // class settings
   
@@ -81,6 +81,10 @@ ${inlines}
 	
 	
       end
+
+      classrelation 182777 // <aggregation>
+	relation_ref 182393 // <aggregation>
+      end
     end
 
     class 168953 "HttpServer"
@@ -127,6 +131,10 @@ ${inlines}
 	
 	
 	
+      end
+
+      classrelation 183033 // <aggregation>
+	relation_ref 182521 // <aggregation>
       end
     end
 
@@ -468,6 +476,120 @@ Sendet Nachricht an alle Arbeiter (ich bin hier nachricht)"
 	    classrelation_ref 150881 // <dependency>
 	  b parent class_ref 135393 // Repository
       end
+
+      classrelation 182649 // <aggregation>
+	relation 182393 o---
+	  a role_name "" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 182649 // <aggregation>
+	  b role_name "" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 182777 // <aggregation>
+      end
+
+      classrelation 182905 // <aggregation>
+	relation 182521 o---
+	  a role_name "" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 182905 // <aggregation>
+	  b role_name "" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 183033 // <aggregation>
+      end
+
+      simplerelation 134777
+	-_->
+	  on 
+	  package_ref 141354 // configfiles
+      end
+
+      classrelation 183545 // <dependency>
+	relation 183033 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 183545 // <dependency>
+	  b parent class_ref 148778 // SchedulerConfig
+      end
+
+      classrelation 184441 // <dependency>
+	relation 183929 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 184441 // <dependency>
+	  b parent class_ref 175609 // SchedulerWorkerMP
+      end
+
+      classrelation 184569 // <dependency>
+	relation 184057 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 184569 // <dependency>
+	  b parent class_ref 128682 // SchedulerClientMP
+      end
+
+      classrelation 184697 // <dependency>
+	relation 184185 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 184697 // <dependency>
+	  b parent class_ref 135393 // Repository
+      end
+
+      classrelation 185337 // <dependency>
+	relation 184697 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 185337 // <dependency>
+	  b parent class_ref 128170 // Communicator
+      end
+
+      classrelation 186233 // <dependency>
+	relation 185465 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 186233 // <dependency>
+	  b parent class_ref 147961 // AuthHandler
+      end
+
+      classrelation 186361 // <dependency>
+	relation 185593 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 186361 // <dependency>
+	  b parent class_ref 188793 // AuthResultMessage
+      end
+
+      classrelation 186489 // <aggregation>
+	relation 185721 o---
+	  a role_name "" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 186489 // <aggregation>
+	  b role_name "" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 186617 // <aggregation>
+      end
+
+      classrelation 186745 // <dependency>
+	relation 185849 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 186745 // <dependency>
+	  b parent class_ref 155306 // User
+      end
+
+      classrelation 186873 // <dependency>
+	relation 185977 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 186873 // <dependency>
+	  b parent class_ref 162169 // Job
+      end
     end
 
     class 155129 "Worker"
@@ -537,6 +659,26 @@ ${inlines}
 	
 	
       end
+
+      classrelation 184953 // <dependency>
+	relation 184441 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 184953 // <dependency>
+	  b parent class_ref 128170 // Communicator
+      end
+
+      classrelation 185081 // <aggregation>
+	relation 184569 o---
+	  a role_name "" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 185081 // <aggregation>
+	  b role_name "" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 185209 // <aggregation>
+      end
     end
 
     class 162041 "Queue"
@@ -597,6 +739,10 @@ ${inlines}
 	
 	
 	
+      end
+
+      classrelation 186617 // <aggregation>
+	relation_ref 185721 // <aggregation>
       end
     end
 
@@ -857,7 +1003,7 @@ ${items}};
       end
     end
 
-    class 162297 "BasicQueue"
+    class 162297 "PriorityQueue"
       visibility public 
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
@@ -870,7 +1016,7 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
-      comment "Basic FiFo Queue for testing purposes"
+      comment "Priorizes Task"
       classrelation 148345 // <generalisation>
 	relation 148217 ---|>
 	  a public

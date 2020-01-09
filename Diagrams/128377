@@ -1,7 +1,7 @@
 format 222
 "worker" // balancedbanana::worker
-  revision 12
-  modified_by 73 "Thomas"
+  revision 13
+  modified_by 121 "christopher"
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -348,6 +348,10 @@ ${inlines}
 	mysql_decl ""
 	MysqlColumn
       end
+
+      classrelation 185849 // <aggregation>
+	relation_ref 185081 // <aggregation>
+      end
     end
 
     class 141305 "Snapshot"
@@ -503,6 +507,50 @@ location: wo auf dem FileServer soll der Snapshot gespeichert werden."
 	
 	
 	comment "Speichert einen Snapshot aller laufenden Aufgaben an der angegebenen Stelle im FileServer oder nur auf dem Worker, falls location keine gültige Stelle auf dem File Server ist."
+      end
+
+      classrelation 183801 // <dependency>
+	relation 183289 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 183801 // <dependency>
+	  b parent class_ref 128170 // Communicator
+      end
+
+      classrelation 183929 // <dependency>
+	relation 183417 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 183929 // <dependency>
+	  b parent class_ref 128810 // WorkerMP
+      end
+
+      classrelation 185593 // <dependency>
+	relation 184953 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 185593 // <dependency>
+	  b parent class_ref 128121 // Docker
+      end
+
+      classrelation 185721 // <aggregation>
+	relation 185081 o---
+	  a role_name "" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 185721 // <aggregation>
+	  b role_name "" multiplicity "*" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type} *> ${name}${value};
+"
+	    classrelation_ref 185849 // <aggregation>
+      end
+
+      classrelation 185977 // <dependency>
+	relation 185209 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 185977 // <dependency>
+	  b parent class_ref 182137 // Authenticator
       end
     end
   end

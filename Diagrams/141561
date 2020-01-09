@@ -1,7 +1,7 @@
 format 222
 "database" // balancedbanana::scheduler::database
-  revision 14
-  modified_by 97 "rakoo"
+  revision 15
+  modified_by 121 "christopher"
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -1095,6 +1095,30 @@ ${inlines}
 	    classrelation_ref 157409 // <dependency>
 	  b parent class_ref 135137 // worker_details
       end
+
+      classrelation 183161 // <dependency>
+	relation 182649 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 183161 // <dependency>
+	  b parent class_ref 155306 // User
+      end
+
+      classrelation 183289 // <realization>
+	relation 182777 -_-|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 183289 // <realization>
+	  b parent class_ref 155129 // Worker
+      end
+
+      classrelation 183417 // <dependency>
+	relation 182905 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 183417 // <dependency>
+	  b parent class_ref 162169 // Job
+      end
     end
 
     class 148961 "user_details"
@@ -1231,5 +1255,11 @@ ${members}};
       sequencediagramsettings end
       overlapping_bars size A0
     end
+  end
+
+  simplerelation 134649
+    -_->
+      stereotype "use"
+      on class_ref 155306 // User
   end
 end

@@ -1,7 +1,7 @@
 format 222
 "client" // balancedbanana::client
-  revision 8
-  modified_by 73 "Thomas"
+  revision 9
+  modified_by 121 "christopher"
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -126,6 +126,74 @@ ${inlines}
 	
 	
       end
+
+      classrelation 184057 // <dependency>
+	relation 183545 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 184057 // <dependency>
+	  b parent class_ref 128073 // CommandLineProcessor
+      end
+
+      classrelation 184185 // <dependency>
+	relation 183673 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 184185 // <dependency>
+	  b parent class_ref 128554 // ClientMP
+      end
+
+      classrelation 184313 // <dependency>
+	relation 183801 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 184313 // <dependency>
+	  b parent class_ref 128554 // ClientMP
+      end
+
+      simplerelation 135161
+	-_->
+	  on 
+	  package_ref 134698 // communication
+      end
+
+      classrelation 184825 // <dependency>
+	relation 184313 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 184825 // <dependency>
+	  b parent class_ref 128170 // Communicator
+      end
+
+      classrelation 185465 // <realization>
+	relation 184825 -_-|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 185465 // <realization>
+	  b parent class_ref 182137 // Authenticator
+      end
+
+      classrelation 186105 // <dependency>
+	relation 185337 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 186105 // <dependency>
+	  b parent class_ref 182137 // Authenticator
+      end
+
+      classrelation 187513 // <dependency>
+	relation 186617 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 187513 // <dependency>
+	  b parent class_ref 188793 // AuthResultMessage
+      end
     end
+  end
+
+  simplerelation 135289
+    -_->
+      on 
+      package_ref 134698 // communication
   end
 end

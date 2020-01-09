@@ -1,6 +1,6 @@
 format 222
 "Authenticator" // balancedbanana::communication::Authenticator
-  revision 6
+  revision 7
   modified_by 121 "christopher"
   // class settings
   
@@ -121,6 +121,14 @@ ${inlines}
 	
 	
 	
+      end
+
+      classrelation 187641 // <dependency>
+	relation 186745 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 187641 // <dependency>
+	  b parent class_ref 188793 // AuthResultMessage
       end
     end
 
@@ -432,6 +440,38 @@ ${inlines}
 	
 	
 	comment "Nur für worker"
+      end
+
+      classrelation 187001 // <realization>
+	relation 186105 -_-|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 187001 // <realization>
+	  b parent class_ref 154873 // ClientAuthMessage
+      end
+
+      classrelation 187129 // <dependency>
+	relation 186233 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 187129 // <dependency>
+	  b parent class_ref 154873 // ClientAuthMessage
+      end
+
+      classrelation 187257 // <dependency>
+	relation 186361 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 187257 // <dependency>
+	  b parent class_ref 182265 // PublicKeyAuthMessage
+      end
+
+      classrelation 187385 // <dependency>
+	relation 186489 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 187385 // <dependency>
+	  b parent class_ref 188921 // WorkerAuthMessage
       end
     end
 

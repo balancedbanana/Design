@@ -1,6 +1,6 @@
 format 222
 "communication" // balancedbanana::communication
-  revision 17
+  revision 18
   modified_by 121 "christopher"
   // class settings
   
@@ -117,6 +117,18 @@ ${inlines}
 	
 	
 	
+      end
+
+      classrelation 183673 // <dependency>
+	relation 183161 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 183673 // <dependency>
+	  b parent class_ref 128938 // Message
+      end
+
+      classrelation 185209 // <aggregation>
+	relation_ref 184569 // <aggregation>
       end
     end
 
@@ -909,5 +921,17 @@ ${inlines}
       classdiagramsettings draw_all_relations no hide_attributes no hide_operations no hide_getset_operations no hide_ports no show_members_full_definition yes show_members_visibility yes show_members_stereotype yes show_members_context uml show_members_multiplicity no show_members_initialization yes show_attribute_modifiers yes member_max_width 127 show_parameter_dir no show_parameter_name yes package_name_in_tab yes class_drawing_mode class drawing_language uml show_context_mode no auto_label_position yes show_relation_modifiers yes show_relation_visibility yes show_infonote no shadow yes show_stereotype_properties yes end
       size B-Landscape
     end
+  end
+
+  simplerelation 134905
+    -_->
+      on 
+      package_ref 134698 // communication
+  end
+
+  simplerelation 135033
+    -_->
+      on 
+      package_ref 134698 // communication
   end
 end
