@@ -1,6 +1,6 @@
 format 222
 "Diagrams"
-  revision 6
+  revision 7
   modified_by 97 "rakoo"
 
 
@@ -44,5 +44,7 @@ format 222
 
   mark_for_import
   
+  ncouples 1
+  key "html dir" value "C:\\Users\\rakoo\\Desktop\\output\\Database/"
   package_ref 134826 // balancedbanana
 end

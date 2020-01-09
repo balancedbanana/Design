@@ -1,7 +1,7 @@
 format 222
 "Authenticator" // balancedbanana::communication::Authenticator
-  revision 2
-  modified_by 121 "christopher"
+  revision 3
+  modified_by 97 "rakoo"
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -285,7 +285,7 @@ ${inlines}
      end
     classdiagram 147961 "auth_diagram"
       classdiagramsettings member_max_width 0 end
-      size A4
+      size A0
     end
   end
 end

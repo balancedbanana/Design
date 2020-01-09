@@ -22,7 +22,7 @@ classcanvas 131553 class_ref 135265 // Factory
 end
 classcanvas 131681 class_ref 135393 // Repository
   classdiagramsettings member_max_width 0 end
-  xyzwh 10.4 417.1 2000 609 323
+  xyzwh 17.4 416.1 2000 609 323
 end
 classcanvas 132833 class_ref 148961 // user_details
   classdiagramsettings member_max_width 0 end

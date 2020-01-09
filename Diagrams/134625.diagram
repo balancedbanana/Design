@@ -1,39 +1,106 @@
 format 222
 
-classcanvas 128097 class_ref 141921 // Worker
-  classdiagramsettings member_max_width 0 end
-  xyz 65 428 2000
+classinstance 128353 class_ref 135393 // Repository
+  name ""   xyz 154 18 2005 life_line_z 2000
+classinstance 128481 class_ref 128097 // Gateway
+  name ""   xyz 379 7 2005 life_line_z 2000
+classinstance 128609 class_ref 135265 // Factory
+  name ""   xyz 927 5 2005 life_line_z 2000
+classinstance 129377 class_ref 135137 // worker_details
+  name "info"   xyz 720 291 2005 life_line_z 2000
+fragment 129761 "alt"
+  xyzwh 378 251 2025 481 393
 end
-classcanvas 128353 class_ref 142049 // Worker_status
-  classdiagramsettings member_max_width 0 end
-  xyz 62 102 2000
+note 130273 "if Worker mit worker_id existiert"
+  xyzwh 427 297 2030 219 43
+note 130401 "if Worker mit worker_id existiert nicht"
+  xyzwh 431 454 2000 247 37
+classinstance 132321 class_ref 155129 // Worker
+  name "worker"   xyz 1156 573 2005 life_line_z 2000
+durationcanvas 128737 classinstance_ref 128353 // :Repository
+  xyzwh 187 73 2010 11 959
 end
-classcanvas 128609 class_ref 142177 // Job
-  classdiagramsettings member_max_width 0 end
-  xyz 559 436 2000
+durationcanvas 129121 classinstance_ref 128481 // :Gateway
+  xyzwh 407 127 2010 11 464
 end
-classcanvas 128737 class_ref 142305 // Job_status
-  classdiagramsettings member_max_width 0 end
-  xyz 583 77 2000
+durationcanvas 129505 classinstance_ref 129377 // info:worker_details
+  xyzwh 774 350 2010 11 61
 end
-classcanvas 128993 class_ref 142433 // Schedule
-  classdiagramsettings member_max_width 0 end
-  xyz 303 266 2000
+durationcanvas 131297 classinstance_ref 129377 // info:worker_details
+  xyzwh 774 670 2010 11 40
 end
-note 129377 "Using JOINs data from these tables can be combined"
-  xyzwh 266 398 2000 199 123
-relationcanvas 128481 relation_ref 136033 // <association>
-  from ref 128353 z 2001 to ref 128097
-  no_role_a no_role_b
-  no_multiplicity_a no_multiplicity_b
+durationcanvas 131425 classinstance_ref 128481 // :Gateway
+  xyzwh 407 646 2010 11 75
 end
-relationcanvas 128865 relation_ref 136161 // <association>
-  from ref 128737 z 2001 to ref 128609
-  no_role_a no_role_b
-  no_multiplicity_a no_multiplicity_b
+durationcanvas 132065 classinstance_ref 128609 // :Factory
+  xyzwh 951 771 2010 11 85
 end
-line 129121 -_-_
-  from ref 128993 z 2001 to ref 128609
-line 129249 -_-_
-  from ref 128993 z 2001 to ref 128097
+durationcanvas 132449 classinstance_ref 132321 // worker:Worker
+  xyzwh 1198 807 2010 11 184
+end
+lostfoundmsgsupport 128865 xyz 8 104.98 2015
+lostfoundmsgsupport 133089 xyz 3 971.98 2015
+msg 128993 found_synchronous
+  from lostfoundmsgsupport_ref 128865
+  to durationcanvas_ref 128737
+  yz 103 2015 msg operation_ref 131681 // "getWorker(in worker_id : int) : Worker"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "int worker_id"
+  label_xy 26 86
+msg 129249 synchronous
+  from durationcanvas_ref 128737
+  to durationcanvas_ref 129121
+  yz 135 2020 msg operation_ref 129633 // "getWorker(in worker_id : int) : worker_details"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "int worker_id"
+  label_xy 213 118
+msg 129633 synchronous
+  from durationcanvas_ref 129121
+  to durationcanvas_ref 129505
+  yz 379 2015 explicitmsg "worker_details = {id, specs, address, auth_key}"
+  stereotype "<<<<create>>>>" xyz 517 356 3000
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 456 395
+selfreflexivemsg 131169
+  to durationcanvas_ref 129121
+  yz 583 2015 explicitmsg "throw Exception"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 419 567
+msg 131553 return
+  from durationcanvas_ref 131297
+  to durationcanvas_ref 131425
+  yz 670 2015 explicitmsg "info"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 586 654
+msg 131937 return
+  from durationcanvas_ref 131425
+  to durationcanvas_ref 128737
+  yz 705 2015 explicitmsg "info"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 290 689
+msg 132193 synchronous
+  from durationcanvas_ref 128737
+  to durationcanvas_ref 132065
+  yz 777 2015 msg operation_ref 130017 // "createWorker(in info : worker_details) : Worker"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  args "worker_details info"
+  label_xy 476 761
+msg 132577 synchronous
+  from durationcanvas_ref 132065
+  to durationcanvas_ref 132449
+  yz 807 2015 unspecifiedmsg
+  stereotype "<<<<create>>>>" xyz 1014 823 3000
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+msg 132961 return
+  from durationcanvas_ref 132449
+  to durationcanvas_ref 128737
+  yz 920 2015 explicitmsg "worker"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 676 904
+msg 133217 lost_synchronous
+  from durationcanvas_ref 128737
+  to lostfoundmsgsupport_ref 133089
+  yz 970 2015 explicitmsg "worker"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 83 954
 end
