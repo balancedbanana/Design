@@ -1,7 +1,9 @@
 format 222
 "scheduler" // balancedbanana::scheduler
   revision 9
+
   modified_by 42 "Niklas"
+  
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -340,15 +342,6 @@ ${inlines}
 	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 148217 // <aggregation>
-      end
-
-      classrelation 148729 // <dependency>
-	relation 148473 -_->
-	  stereotype "use"
-	  a public
-	    cpp default "#include in source"
-	    classrelation_ref 148729 // <dependency>
-	  b parent class_ref 162425 // DB
       end
 
       classrelation 148857 // <dependency>
