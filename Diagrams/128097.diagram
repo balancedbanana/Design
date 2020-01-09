@@ -2,37 +2,37 @@ format 222
 
 classcanvas 128097 class_ref 128097 // Gateway
   classdiagramsettings member_max_width 0 end
-  xyzwh 806.9 427 2000 717 335
+  xyzwh 805.1 426.2 2000 717 335
 end
 classcanvas 128481 class_ref 134753 // job_details
   classdiagramsettings member_max_width 0 end
-  xyzwh 694.8 1075.8 2000 189 217
+  xyzwh 694.2 1075.2 2000 189 217
 end
 classcanvas 128865 class_ref 134881 // specs
   classdiagramsettings member_max_width 0 end
-  xyz 1043.9 869.3 2000
+  xyz 1043.7 869.7 2000
 end
 classcanvas 131297 class_ref 135137 // worker_details
   classdiagramsettings member_max_width 0 end
-  xyz 648.3 826.4 2000
+  xyz 648.5 826.6 2000
 end
 classcanvas 131553 class_ref 135265 // Factory
   classdiagramsettings member_max_width 0 end
-  xyzwh 43.7 1022.9 2000 459 140
+  xyzwh 42.8 1022.1 2000 459 140
 end
 classcanvas 131681 class_ref 135393 // Repository
   classdiagramsettings member_max_width 0 end
-  xyzwh 17.4 416.1 2000 609 323
+  xyzwh 17.6 418.7 2000 609 322
 end
 classcanvas 132833 class_ref 148961 // user_details
   classdiagramsettings member_max_width 0 end
-  xyz 333 792 2006
+  xyz 333.6 792 2006
 end
 note 134113 "Factory should have relationships with Job, Worker and User classes"
-  xyzwh 196 1188 2000 209 83
+  xyzwh 196 1188.2 2000 209 83
 classcanvas 134241 class_ref 149089 // job_result
   classdiagramsettings member_max_width 0 end
-  xyz 641 445 2000
+  xyz 642.6 445 2000
 end
 relationcanvas 131041 relation_ref 128481 // <dependency>
   from ref 128097 z 2001 to ref 128481

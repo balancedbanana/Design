@@ -1,7 +1,7 @@
 format 222
 "scheduler" // balancedbanana::scheduler
-  revision 10
-  modified_by 42 "Niklas"
+  revision 11
+  modified_by 97 "rakoo"
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -677,13 +677,13 @@ ${inlines}
 	    classrelation_ref 150570 // <aggregation>
       end
 
-      classrelation 157098 // result (<unidirectional association>)
-	relation 155946 --->
-	  a role_name "result" private
+      classrelation 164065 // <unidirectional association>
+	relation 163809 --->
+	  a role_name "" private
 	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
 "
-	    classrelation_ref 157098 // result (<unidirectional association>)
-	  b parent class_ref 168362 // JobResult
+	    classrelation_ref 164065 // <unidirectional association>
+	  b parent class_ref 149089 // job_result
       end
     end
 
@@ -776,49 +776,6 @@ ${items}};
 
       classrelation 150570 // <aggregation>
 	relation_ref 149418 // <aggregation>
-      end
-    end
-
-    class 168362 "JobResult"
-      visibility package stereotype "struct"
-      cpp_decl "${comment}${template}struct ${name}${inherit} {
-${members}};
-${inlines}
-"
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl "${comment}struct ${name} {
-${members}};
-"
-      explicit_switch_type ""
-      mysql_decl ""
-      
-      comment "This class contains the output of a job as well as the exit code that it creates."
-      attribute 197802 "stdout"
-	public explicit_type "std::string"
-	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-	comment "This attribute holds the output of the job."
-      end
-
-      attribute 197930 "exit_code"
-	public explicit_type "int8_t"
-	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-	comment "This attribute holds the exit code of the job"
       end
     end
 

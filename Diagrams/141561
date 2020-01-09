@@ -1,7 +1,7 @@
 format 222
-"database" // balancedbanana::database
-  revision 13
-  modified_by 42 "Niklas"
+"database" // balancedbanana::scheduler::database
+  revision 14
+  modified_by 97 "rakoo"
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -1113,7 +1113,7 @@ ${members}};
       mysql_decl ""
       
       attribute 153313 "id"
-	public explicit_type "int"
+	public explicit_type "uint64_t"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -1162,15 +1162,17 @@ ${members}};
     end
 
     class 149089 "job_result"
-      visibility package 
-      cpp_decl "${comment}${template}class ${name}${inherit} {
+      visibility package stereotype "struct"
+      cpp_decl "${comment}${template}struct ${name}${inherit} {
 ${members}};
 ${inlines}
 "
       java_decl ""
       php_decl ""
       python_2_2 python_decl ""
-      idl_decl ""
+      idl_decl "${comment}struct ${name} {
+${members}};
+"
       explicit_switch_type ""
       mysql_decl ""
       
@@ -1187,7 +1189,7 @@ ${inlines}
       end
 
       attribute 153953 "exit_code"
-	public explicit_type "int"
+	public explicit_type "int8_t"
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
