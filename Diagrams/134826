@@ -1,7 +1,7 @@
 format 222
 "balancedbanana" // balancedbanana
-  revision 12
-  modified_by 121 "christopher"
+  revision 13
+  modified_by 42 "Niklas"
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -332,6 +332,4 @@ ${inlines}
         end
     end
   end
-
-  package_ref 141561 // database
 end

@@ -1,7 +1,7 @@
 format 222
 "database" // balancedbanana::database
-  revision 12
-  modified_by 97 "rakoo"
+  revision 13
+  modified_by 42 "Niklas"
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -1229,6 +1229,5 @@ ${inlines}
       sequencediagramsettings end
       overlapping_bars size A0
     end
-
   end
 end

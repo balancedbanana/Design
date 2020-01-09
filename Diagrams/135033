@@ -30,6 +30,8 @@ format 222
   activitydiagramsettings
    end
   
+  package_ref 141561 // database
+
   classview 148217 "classes"
     
     classdiagramsettings member_max_width 0 end

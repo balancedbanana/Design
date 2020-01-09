@@ -2,59 +2,59 @@ format 222
 
 classcanvas 128073 class_ref 155081 // EventDispatcher
   classdiagramsettings member_max_width 0 end
-  xyz 457 1046 2000
+  xyz 673 910 2000
 end
 classcanvas 128097 class_ref 135393 // Repository
   classdiagramsettings member_max_width 0 end
-  xyz 175 40 3005
+  xyz 39 384 3005
 end
 classcanvas 128121 class_ref 155001 // Scheduler
   classdiagramsettings member_max_width 0 end
-  xyz 407 511 2000
+  xyz 271 199 2000
 end
 classcanvas 128170 class_ref 155306 // User
   classdiagramsettings member_max_width 0 end
-  xyz 1168.5 40.5 2000
+  xyz 40.5 1704.5 2000
 end
 classcanvas 128201 class_ref 154953 // Timer
   classdiagramsettings member_max_width 0 end
-  xyz 560 913 2000
+  xyz 1368 897 2000
 end
 classcanvas 128249 class_ref 155129 // Worker
   classdiagramsettings member_max_width 0 end
-  xyz 41 704 2000
+  xyz 953 40 2000
 end
 classcanvas 128298 class_ref 161834 // JobStatus
   classdiagramsettings member_max_width 0 end
-  xyz 1554 383 2000
+  xyz 114 1399 2000
 end
 classcanvas 128329 class_ref 155209 // Event
   classdiagramsettings member_max_width 0 end
-  xyz 1154 954 2000
+  xyz 834 1018 2000
 end
 classcanvas 128426 class_ref 135722 // JobConfig
   classdiagramsettings hide_attributes yes hide_operations yes member_max_width 0 end
-  xyz 1568 844 2006
+  xyz 473 1184 2006
 end
 classcanvas 128505 class_ref 162041 // Queue
   classdiagramsettings member_max_width 0 end
-  xyz 36 911 2000
+  xyz 1460 39 2000
 end
 classcanvas 128633 class_ref 162297 // BasicQueue
   classdiagramsettings member_max_width 0 end
-  xyz 40 1095 2000
+  xyz 1464 223 2000
 end
 classcanvas 128810 class_ref 168362 // JobResult
   classdiagramsettings member_max_width 0 end
-  xyz 1567 659 2000
+  xyz 135 895 2000
 end
 classcanvas 129913 class_ref 128426 // MessageProcessor
   classdiagramsettings member_max_width 0 end
-  xyz 321 691 2000
+  xyz 761 199 2000
 end
 classcanvas 130425 class_ref 162169 // Job
   classdiagramsettings member_max_width 0 end
-  xyz 1035.5 546.5 2000
+  xyz 41 1057 2000
 end
 relationcanvas 128353 relation_ref 150625 // <dependency>
   from ref 128121 z 3006 to ref 128097
@@ -62,15 +62,16 @@ relationcanvas 128353 relation_ref 150625 // <dependency>
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 128377 relation_ref 148089 // <aggregation>
-  geometry HV unfixed
-  from ref 128121 z 2001 to point 158 582
+  geometry VH unfixed
+  decenter_end 527
+  from ref 128121 z 2001 to point 494 101
   line 128042 z 2001 to ref 128249
-  role_a_pos 170 671 3000 no_role_b
-  multiplicity_a_pos 142 671 3000 multiplicity_b_pos 384 596 3000
+  role_a_pos 879 71 3000 no_role_b
+  multiplicity_a_pos 934 115 3000 multiplicity_b_pos 474 166 3000
 end
 relationcanvas 128554 relation_ref 149290 // <aggregation>
   from ref 130425 z 2007 to ref 128426
-  role_a_pos 1505 815 3000 no_role_b
+  role_a_pos 406 1176 3000 no_role_b
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 128585 relation_ref 149321 // <dependency>
@@ -79,8 +80,9 @@ relationcanvas 128585 relation_ref 149321 // <dependency>
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 128682 relation_ref 149418 // <aggregation>
+  decenter_begin 508
   from ref 130425 z 2001 to ref 128298
-  role_a_pos 1486 515 3000 no_role_b
+  role_a_pos 249 1366 3000 no_role_b
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 128713 relation_ref 149449 // <dependency>
@@ -94,8 +96,10 @@ relationcanvas 128761 relation_ref 148217 // <generalisation>
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 128938 relation_ref 155946 // <unidirectional association>
+  decenter_begin 508
+  decenter_end 517
   from ref 130425 z 2001 to ref 128810
-  role_a_pos 1505 681 3000 no_role_b
+  role_a_pos 249 1029 3000 no_role_b
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 130041 relation_ref 148601 // <dependency>
@@ -104,8 +108,6 @@ relationcanvas 130041 relation_ref 148601 // <dependency>
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 130297 relation_ref 148857 // <dependency>
-  decenter_begin 462
-  decenter_end 469
   from ref 128249 z 2001 to ref 129913
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
