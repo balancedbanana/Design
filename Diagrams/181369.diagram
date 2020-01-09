@@ -6,8 +6,8 @@ end
 classinstancecanvas 128761 classinstance_ref 154489 // com
   xyz 506 4 2000 life_line_z 2000
 end
-classinstance 129273 class_ref 188793 // AuthResult
-  name "authresult"   xyz 592 121 2000 life_line_z 2000
+classinstance 129273 class_ref 188793 // AuthResultMessage
+  name "authresult"   xyz 571 121 2000 life_line_z 2000
 fragment 129785 "alt"
   form "status != 0" xyzwh 12 231 2000 723 201
   separator 5000
@@ -22,7 +22,7 @@ end
 durationcanvas 128889 classinstance_ref 128761 // com:Communicator
   xyzwh 552 118 2010 11 40
 end
-durationcanvas 129401 classinstance_ref 129273 // authresult:AuthResult
+durationcanvas 129401 classinstance_ref 129273 // authresult:AuthResultMessage
   xyzwh 643 171 2010 11 36
 end
 lostfoundmsgsupport 128377 xyz 32 76 2015

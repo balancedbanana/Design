@@ -1,6 +1,6 @@
 format 222
 "Authenticator" // balancedbanana::communication::Authenticator
-  revision 5
+  revision 6
   modified_by 121 "christopher"
   // class settings
   
@@ -435,7 +435,7 @@ ${inlines}
       end
     end
 
-    class 188793 "AuthResult"
+    class 188793 "AuthResultMessage"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
@@ -473,6 +473,30 @@ ${inlines}
 	
 	
 	comment "Gibt den Authentfication status zurück 0 falls erfolgreich sonst ungleich 0"
+      end
+
+      classrelation 176121 // <generalisation>
+	relation 175865 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 176121 // <generalisation>
+	  b parent class_ref 128938 // Message
+      end
+
+      operation 205305 "process"
+	cpp_virtual public explicit_return_type "void"
+	nparams 1
+	  param in name "mp" explicit_type "std::shared_ptr<MessageProcessor>"
+	multiplicity "1"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
       end
     end
 
@@ -545,11 +569,11 @@ ${inlines}
 	MysqlColumn
       end
 
-      classrelation 169465 // <generalisation>
-	relation 169209 ---|>
+      classrelation 175993 // <generalisation>
+	relation 175737 ---|>
 	  a public
 	    cpp default "${type}"
-	    classrelation_ref 169465 // <generalisation>
+	    classrelation_ref 175993 // <generalisation>
 	  b parent class_ref 128938 // Message
       end
     end
