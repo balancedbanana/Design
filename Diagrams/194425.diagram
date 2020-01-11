@@ -2,39 +2,39 @@ format 222
 
 classcanvas 128042 class_ref 128170 // Communicator
   classdiagramsettings member_max_width 0 end
-  xyz 893.918 1013.15 2000
+  xyz 893.918 1013.35 2000
 end
 classcanvas 128170 class_ref 128298 // SSLSocket
   classdiagramsettings member_max_width 0 end
-  xyz 964.43 860.436 2000
+  xyz 964.23 860.636 2000
 end
 classcanvas 128505 class_ref 154745 // SnapshotMessage
   classdiagramsettings member_max_width 0 end
-  xyz 833.09 641.58 2006
+  xyz 833.09 641.78 2006
 end
 classcanvas 128682 class_ref 128426 // MessageProcessor
   classdiagramsettings member_max_width 0 end
-  xyz 463.2 982.91 2000
+  xyz 463.4 982.71 2000
 end
 classcanvas 128810 class_ref 128554 // ClientMP
   classdiagramsettings member_max_width 0 end
-  xyz 585.41 1117.03 2000
+  xyz 585.21 1117.03 2000
 end
 classcanvas 129066 class_ref 128810 // WorkerMP
   classdiagramsettings member_max_width 0 end
-  xyz 891.37 1087.14 2000
+  xyz 891.57 1087.14 2000
 end
 classcanvas 129145 class_ref 168905 // TaskMessage
   classdiagramsettings member_max_width 0 end
-  xyz 47.419 742.36 2000
+  xyz 47.219 742.16 2000
 end
 classcanvas 129273 class_ref 148425 // HardwareDetailMessage
   classdiagramsettings member_max_width 0 end
-  xyz 684.73 743.68 2000
+  xyz 684.93 743.88 2000
 end
 classcanvas 129401 class_ref 141897 // RegistrationMessage
   classdiagramsettings member_max_width 0 end
-  xyz 207.385 864.32 2005
+  xyz 207.185 864.12 2005
 end
 classcanvas 129962 class_ref 128938 // Message
   classdiagramsettings member_max_width 0 end
@@ -42,27 +42,27 @@ classcanvas 129962 class_ref 128938 // Message
 end
 classcanvas 130937 class_ref 154873 // ClientAuthMessage
   classdiagramsettings member_max_width 0 end
-  xyz 597.7 493.41 2000
+  xyz 597.6 493.51 2000
 end
 classcanvas 135978 class_ref 128682 // SchedulerClientMP
   classdiagramsettings member_max_width 0 end
-  xyz 14.155 1095.51 2000
+  xyz 14.355 1095.71 2000
 end
 classcanvas 137593 class_ref 148089 // LDAPAuthHandler
   classdiagramsettings member_max_width 0 end
-  xyzwh 896.08 145.318 2000 343 57
+  xyzwh 896.88 145.518 2000 343 57
 end
 classcanvas 137721 class_ref 147961 // AuthHandler
   classdiagramsettings member_max_width 0 end
-  xyzwh 159.3 169.827 2000 690 103
+  xyzwh 158.5 169.827 2000 690 103
 end
 classcanvas 137849 class_ref 148217 // SSHAuthHandler
   classdiagramsettings member_max_width 0 end
-  xyzwh 919.42 283.265 2000 310 50
+  xyzwh 918.62 283.065 2000 310 50
 end
 classcanvas 147449 class_ref 175609 // SchedulerWorkerMP
   classdiagramsettings member_max_width 0 end
-  xyz 234.02 1175.52 2005
+  xyz 234.22 1175.72 2005
 end
 classcanvas 147833 class_ref 182137 // Authenticator
   classdiagramsettings member_max_width 0 end
@@ -70,19 +70,19 @@ classcanvas 147833 class_ref 182137 // Authenticator
 end
 classcanvas 148089 class_ref 182265 // PublicKeyAuthMessage
   classdiagramsettings member_max_width 0 end
-  xyz 92.7 288.34 3005
+  xyz 92.5 288.34 3005
 end
 classcanvas 150265 class_ref 188921 // WorkerAuthMessage
   classdiagramsettings member_max_width 0 end
-  xyz 44.3 395 3011
+  xyz 44.5 395.8 3011
 end
 classcanvas 150521 class_ref 188793 // AuthResultMessage
   classdiagramsettings member_max_width 0 end
-  xyz 870.7 385 2005
+  xyz 870.5 385 2005
 end
 packagecanvas 170873 
   package_ref 134905 // Authenticator
-    xyzwh 22.8 26 3017 1340 570
+    xyzwh 22.4 26 3017 1340 570
 end
 packagecanvas 171129 
   package_ref 134698 // communication

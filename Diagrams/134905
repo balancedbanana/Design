@@ -1,6 +1,6 @@
 format 222
 "Authenticator" // balancedbanana::communication::Authenticator
-  revision 8
+  revision 9
   modified_by 121 "christopher"
   // class settings
   
@@ -435,14 +435,6 @@ ${inlines}
 	
 	
 	comment "Nur für worker"
-      end
-
-      classrelation 187001 // <realization>
-	relation 186105 -_-|>
-	  a public
-	    cpp default "${type}"
-	    classrelation_ref 187001 // <realization>
-	  b parent class_ref 154873 // ClientAuthMessage
       end
 
       classrelation 187129 // <dependency>

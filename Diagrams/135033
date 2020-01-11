@@ -1,6 +1,6 @@
 format 222
 "scheduler" // balancedbanana::scheduler
-  revision 15
+  revision 16
   modified_by 121 "christopher"
   // class settings
   
@@ -940,7 +940,7 @@ ${inlines}
       end
 
       operation 189482 "id"
-	public explicit_return_type ""
+	public explicit_return_type "uint64_t"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -955,7 +955,7 @@ ${inlines}
       end
 
       operation 189610 "name"
-	public explicit_return_type ""
+	public return_type class_ref 195449 // string
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -970,7 +970,7 @@ ${inlines}
       end
 
       operation 189738 "email"
-	public explicit_return_type ""
+	public return_type class_ref 195449 // string
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -987,6 +987,21 @@ ${inlines}
       classrelation 157610 // <aggregation>
 	relation_ref 156202 // <aggregation>
       end
+    end
+
+    class 201977 "AuthUser"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
     end
   end
 

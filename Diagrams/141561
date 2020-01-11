@@ -1,6 +1,6 @@
 format 222
 "database" // balancedbanana::scheduler::database
-  revision 15
+  revision 16
   modified_by 121 "christopher"
   // class settings
   
@@ -223,19 +223,19 @@ See more: https://doc.qt.io/qt-5/qsqldatabase.html"
 	
       end
 
-      classrelation 128097 // <realization>
-	relation 128097 -_-|>
+      classrelation 128097 // <dependency>
+	relation 128097 -_->
 	  a public
-	    cpp default "${type}"
-	    classrelation_ref 128097 // <realization>
+	    cpp default "#include in source"
+	    classrelation_ref 128097 // <dependency>
 	  b parent class_ref 134753 // job_details
       end
 
-      classrelation 128225 // <realization>
-	relation 128225 -_-|>
+      classrelation 128225 // <dependency>
+	relation 128225 -_->
 	  a public
-	    cpp default "${type}"
-	    classrelation_ref 128225 // <realization>
+	    cpp default "#include in source"
+	    classrelation_ref 128225 // <dependency>
 	  b parent class_ref 134881 // specs
       end
 
@@ -981,8 +981,8 @@ ${members}};
 	  b parent class_ref 134881 // specs
       end
 
-      attribute 152545 "auth_key"
-	public explicit_type "int"
+      attribute 152545 "public_key"
+	public type class_ref 195449 // string
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -1172,8 +1172,8 @@ ${members}};
 	MysqlColumn
       end
 
-      attribute 154081 "auth_key"
-	public explicit_type "int"
+      attribute 154081 "public_key"
+	public type class_ref 195449 // string
 	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -1257,9 +1257,4 @@ ${members}};
     end
   end
 
-  simplerelation 134649
-    -_->
-      stereotype "use"
-      on class_ref 155306 // User
-  end
 end
