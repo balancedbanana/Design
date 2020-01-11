@@ -1,6 +1,6 @@
 format 222
 "client" // balancedbanana::client
-  revision 10
+  revision 11
   modified_by 121 "christopher"
   // class settings
   
@@ -149,12 +149,6 @@ ${inlines}
 	  b parent class_ref 128554 // ClientMP
       end
 
-      simplerelation 135161
-	-_->
-	  on 
-	  package_ref 134698 // communication
-      end
-
       classrelation 184825 // <dependency>
 	relation 184313 -_->
 	  a public
@@ -187,12 +181,6 @@ ${inlines}
 	  b parent class_ref 188793 // AuthResultMessage
       end
     end
-  end
-
-  simplerelation 135289
-    -_->
-      on 
-      package_ref 134698 // communication
   end
 
   deploymentview 128121 "Client"

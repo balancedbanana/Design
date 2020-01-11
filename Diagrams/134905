@@ -1,6 +1,6 @@
 format 222
 "Authenticator" // balancedbanana::communication::Authenticator
-  revision 7
+  revision 8
   modified_by 121 "christopher"
   // class settings
   
@@ -367,11 +367,6 @@ ${inlines}
 	
 	
 	
-      end
-
-      simplerelation 128121
-	---|>
-	  on class_ref 182265 // PublicKeyAuthMessage
       end
 
       classrelation 162937 // <generalisation>

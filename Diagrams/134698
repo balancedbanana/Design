@@ -1,6 +1,6 @@
 format 222
 "communication" // balancedbanana::communication
-  revision 19
+  revision 20
   modified_by 121 "christopher"
   // class settings
   
@@ -923,15 +923,4 @@ ${inlines}
     end
   end
 
-  simplerelation 134905
-    -_->
-      on 
-      package_ref 134698 // communication
-  end
-
-  simplerelation 135033
-    -_->
-      on 
-      package_ref 134698 // communication
-  end
 end
