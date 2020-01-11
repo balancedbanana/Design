@@ -1,0 +1,34 @@
+format 222
+
+classcanvas 131321 class_ref 128201 // Task
+  classdiagramsettings hide_attributes no hide_operations no show_members_full_definition yes show_members_visibility yes show_members_stereotype yes show_members_multiplicity yes show_members_initialization yes show_attribute_modifiers yes member_max_width 0 show_parameter_dir no show_parameter_name yes class_drawing_mode class end
+  xyzwh 462.82 96.3 2000 317 155
+end
+classcanvas 131705 class_ref 128073 // CommandLineProcessor
+  classdiagramsettings hide_attributes no hide_operations no show_members_full_definition yes show_members_visibility yes show_members_stereotype yes show_members_multiplicity yes show_members_initialization yes show_attribute_modifiers yes member_max_width 0 show_parameter_dir no show_parameter_name yes class_drawing_mode class end
+  xyzwh 33.37 135.898 2000 382 77
+end
+classcanvas 154873 class_ref 168649 // Client
+  classdiagramsettings member_max_width 0 end
+  xyz 131.1 297.1 2000
+end
+packagecanvas 157177 
+  package_ref 128201 // commandLineProcessing
+    xyzwh 27 74.3 2005 782 187
+end
+packagecanvas 171385 
+  package_ref 128073 // client
+    xyzwh -4.7 12 2012 817 363
+end
+relationcanvas 155001 relation_ref 183545 // <dependency>
+  from ref 154873 z 2001 to ref 131705
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 166649 relation_ref 156617 // <dependency>
+  from ref 131705 z 2001 to ref 131321
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+preferred_whz 2426 1360 1.1
+end

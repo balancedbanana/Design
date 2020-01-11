@@ -1,0 +1,334 @@
+format 222
+"TimedEvents" // balancedbanana::TimedEvents
+  revision 1
+  modified_by 121 "christopher"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  classcompositediagramsettings end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  objectcompositediagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  classview 161529 "classes"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    classcompositediagramsettings end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    objectcompositediagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    class 154953 "Timer"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 149193 "wait"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "s" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Blockiert den Aufrufer f�r eine Anzahl an Sekunden
+
+s: Anzahl der zu wartenden Sekunden"
+      end
+
+      operation 149321 "wait"
+	public explicit_return_type "void"
+	nparams 2
+	  param in name "s" explicit_type "int"
+	  param in name "func" explicit_type "const std::function&"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, const ${t1} & ${p1}${v1}, ${t2} ${p2}${v2}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, const ${t1} & ${p1}, ${t2} ${p2}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	comment "Wartet s Sekunden und f�hrt dann die Funktion func aus.
+Der Aufrufer wird nicht blockiert
+
+s: Anzahl der zu wartenden Sekunden
+func: Die auszuf�hrende Funktion"
+      end
+
+      classrelation 157226 // <aggregation>
+	relation_ref 155946 // <aggregation>
+      end
+    end
+
+    class 155337 "EventHandler"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 149577 "receiveEvent"
+	public explicit_return_type ""
+	nparams 2
+	  param in name "event" type class_ref 155209 // Event
+	  param in name "taskID" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      classrelation 150217 // <dependency>
+	relation 149833 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 150217 // <dependency>
+	  b parent class_ref 128121 // Docker
+      end
+
+      classrelation 150345 // <dependency>
+	relation 149961 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 150345 // <dependency>
+	  b parent class_ref 155257 // Worker
+      end
+
+      classrelation 194169 // <dependency>
+	relation 193273 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 194169 // <dependency>
+	  b parent class_ref 155209 // Event
+      end
+    end
+
+    class 155081 "EventDispatcher"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 149449 "dispatch"
+	public explicit_return_type "void"
+	nparams 3
+	  param in name "eventType" type class_ref 155209 // Event
+	  param in name "worker" explicit_type "std::string"
+	  param in name "taskID" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}, const ${t1} & ${p1}${v1}, ${t2} ${p2}${v2}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}, ${t2} ${p2}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      classrelation 128457 // <dependency>
+	relation 128457 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 128457 // <dependency>
+	  b parent class_ref 154953 // Timer
+      end
+
+      classrelation 128585 // <dependency>
+	relation 128585 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 128585 // <dependency>
+	  b parent class_ref 154953 // Timer
+      end
+
+      classrelation 128713 // <dependency>
+	relation 136393 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 128713 // <dependency>
+	  b parent class_ref 155209 // Event
+      end
+
+      classrelation 149705 // <dependency>
+	relation 149321 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 149705 // <dependency>
+	  b parent class_ref 154953 // Timer
+      end
+
+      classrelation 149833 // <dependency>
+	relation 149449 -_->
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 149833 // <dependency>
+	  b parent class_ref 155209 // Event
+      end
+    end
+
+    class 155209 "Event"
+      visibility package stereotype "enum"
+      cpp_decl "${comment}enum ${name} {
+${items}};
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}enum ${name}${implements} {
+${items};
+${members}}
+"
+      php_decl "${comment}${visibility}final class ${name} {
+${items}}
+"
+      python_2_2 python_decl "class ${name}:
+${docstring}${members}
+"
+      idl_decl "${comment}enum ${name} {
+${items}};
+"
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 143561 "Event_StatusRequest"
+	public type class_ref 155209 // Event
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 143689 "Event_TailRequest"
+	public type class_ref 155209 // Event
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 143817 "Event_StopRequest"
+	public type class_ref 155209 // Event
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 143945 "Event_PauseRequest"
+	public type class_ref 155209 // Event
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 144073 "Event_ResumeRequest"
+	public type class_ref 155209 // Event
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 144201 "Event_BackupRequest"
+	public type class_ref 155209 // Event
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 144329 "Event_RestoreRequest"
+	public type class_ref 155209 // Event
+	cpp_decl "  ${name}${value},${comment}"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+  end
+end

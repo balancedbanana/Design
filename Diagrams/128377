@@ -1,6 +1,6 @@
 format 222
 "worker" // balancedbanana::worker
-  revision 13
+  revision 15
   modified_by 121 "christopher"
   // class settings
   
@@ -50,159 +50,6 @@ format 222
     
     activitydiagramsettings
      end
-    class 162121 "Event"
-      visibility package stereotype "enum"
-      cpp_decl "${comment}enum ${name} {
-${items}};
-"
-      java_decl "${comment}${@}${visibility}${static}${final}${abstract}enum ${name}${implements} {
-${items};
-${members}}
-"
-      php_decl "${comment}${visibility}final class ${name} {
-${items}}
-"
-      python_2_2 python_decl "class ${name}:
-${docstring}${members}
-"
-      idl_decl "${comment}enum ${name} {
-${items}};
-"
-      explicit_switch_type ""
-      mysql_decl ""
-      
-      attribute 150857 "Event_StatusRequest"
-	public type class_ref 162121 // Event
-	cpp_decl "  ${name}${value},${comment}"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
-      attribute 150985 "Event_TailRequest"
-	public type class_ref 162121 // Event
-	cpp_decl "  ${name}${value},${comment}"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
-      attribute 151113 "Event_StopRequest"
-	public type class_ref 162121 // Event
-	cpp_decl "  ${name}${value},${comment}"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
-      attribute 151241 "Event_PauseRequest"
-	public type class_ref 162121 // Event
-	cpp_decl "  ${name}${value},${comment}"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
-      attribute 151369 "Event_ResumeRequest"
-	public type class_ref 162121 // Event
-	cpp_decl "  ${name}${value},${comment}"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
-      attribute 151497 "Event_BackupRequest"
-	public type class_ref 162121 // Event
-	cpp_decl "  ${name}${value},${comment}"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
-      attribute 151625 "Event_RestoreRequest"
-	public type class_ref 162121 // Event
-	cpp_decl "  ${name}${value},${comment}"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-    end
-
-    class 155337 "EventHandler"
-      visibility package 
-      cpp_decl "${comment}${template}class ${name}${inherit} {
-${members}};
-${inlines}
-"
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      mysql_decl ""
-      
-      operation 149577 "receiveEvent"
-	public explicit_return_type ""
-	nparams 2
-	  param in name "event" type class_ref 155209 // Event
-	  param in name "taskID" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	
-	
-	
-	
-      end
-
-      classrelation 150089 // <dependency>
-	relation 149705 -_->
-	  a public
-	    cpp default "#include in source"
-	    classrelation_ref 150089 // <dependency>
-	  b parent class_ref 162121 // Event
-      end
-
-      classrelation 150217 // <dependency>
-	relation 149833 -_->
-	  a public
-	    cpp default "#include in source"
-	    classrelation_ref 150217 // <dependency>
-	  b parent class_ref 128121 // Docker
-      end
-
-      classrelation 150345 // <dependency>
-	relation 149961 -_->
-	  a public
-	    cpp default "#include in source"
-	    classrelation_ref 150345 // <dependency>
-	  b parent class_ref 155257 // Worker
-      end
-    end
-
     class 128121 "Docker"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
@@ -308,7 +155,7 @@ ${inlines}
       end
 
       operation 141689 "Snapshot"
-	public explicit_return_type ""
+	public return_type class_ref 141305 // Snapshot
 	nparams 1
 	  param in name "stop" explicit_type "bool"
 	    defaultvalue "false"
@@ -325,10 +172,11 @@ ${inlines}
 
       operation 141817 "Resume"
 	public explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+	nparams 1
+	  param in name "snap" type class_ref 141305 // Snapshot
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	
@@ -377,6 +225,43 @@ ${inlines}
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
+	get_oper operation_ref 211833 // getId
+      end
+
+      operation 211833 "getId"
+	force_body_gen const cpp_inline public explicit_return_type "string"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}const ${type} ${name}${(}${)}${const}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${typeprefix}const ${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  return id;
+}
+"
+	cpp_name_spec "get_${name}"
+	final 
+	java_name_spec "get${Name}"
+	php_final 
+	php_name_spec "get${Name}"
+	
+	python_name_spec "get${Name}"
+	
+	idl_name_spec "get_${name}"
+	get_of_attribute attribute_ref 134777 // id
+      end
+
+      operation 211961 "Snapshot"
+	public explicit_return_type ""
+	nparams 1
+	  param in name "id" explicit_type "std::string"
+	cpp_decl "    ${comment}${inline}${typeprefix}${name}${(}const ${t0} & ${p0}${v0}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}const ${t0} & ${p0}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
       end
     end
 
@@ -533,12 +418,12 @@ location: wo auf dem FileServer soll der Snapshot gespeichert werden."
 	  b parent class_ref 128121 // Docker
       end
 
-      classrelation 185721 // <aggregation>
+      classrelation 185721 // container (<aggregation>)
 	relation 185081 o---
-	  a role_name "" multiplicity "1" private
+	  a role_name "container" multiplicity "1" private
 	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
 "
-	    classrelation_ref 185721 // <aggregation>
+	    classrelation_ref 185721 // container (<aggregation>)
 	  b role_name "" multiplicity "*" private
 	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type} *> ${name}${value};
 "

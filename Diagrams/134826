@@ -1,6 +1,6 @@
 format 222
 "balancedbanana" // balancedbanana
-  revision 21
+  revision 25
   modified_by 121 "christopher"
   // class settings
   
@@ -31,6 +31,8 @@ format 222
    end
   
   package_ref 134698 // communication
+
+  package_ref 128201 // commandLineProcessing
 
   package_ref 128073 // client
 
@@ -66,7 +68,7 @@ format 222
     end
 
     classdiagram 128170 "class_diagram"
-      classdiagramsettings draw_all_relations no hide_attributes no hide_operations no hide_getset_operations no hide_ports no show_members_full_definition yes show_members_visibility yes show_members_stereotype yes show_members_context uml show_members_multiplicity no show_members_initialization yes show_attribute_modifiers yes member_max_width 127 show_parameter_dir no show_parameter_name yes package_name_in_tab yes class_drawing_mode class drawing_language uml show_context_mode no auto_label_position yes show_relation_modifiers yes show_relation_visibility yes show_infonote no shadow yes show_stereotype_properties yes end
+      classdiagramsettings draw_all_relations yes hide_attributes no hide_operations no hide_getset_operations no hide_ports no show_members_full_definition yes show_members_visibility yes show_members_stereotype yes show_members_context uml show_members_multiplicity no show_members_initialization yes show_attribute_modifiers yes member_max_width 127 show_parameter_dir no show_parameter_name yes package_name_in_tab yes class_drawing_mode class drawing_language uml show_context_mode no auto_label_position yes show_relation_modifiers yes show_relation_visibility yes show_infonote no shadow yes show_stereotype_properties yes end
       size A0
     end
 
@@ -116,5 +118,22 @@ format 222
       relations
         end
     end
+
+    classdiagram 187897 "class_diagram_small"
+      classdiagramsettings draw_all_relations no hide_attributes yes hide_operations yes hide_getset_operations yes hide_ports no show_members_full_definition no show_members_visibility no show_members_stereotype yes show_members_context uml show_members_multiplicity no show_members_initialization yes show_attribute_modifiers yes member_max_width 127 show_parameter_dir no show_parameter_name no package_name_in_tab yes class_drawing_mode class drawing_language uml show_context_mode no auto_label_position yes show_relation_modifiers yes show_relation_visibility yes show_infonote no shadow no show_stereotype_properties yes end
+      size A0
+    end
+
+    classdiagram 194425 "com"
+      classdiagramsettings draw_all_relations no hide_attributes no hide_operations no hide_getset_operations no hide_ports no show_members_full_definition yes show_members_visibility yes show_members_stereotype yes show_members_context uml show_members_multiplicity no show_members_initialization yes show_attribute_modifiers yes member_max_width 127 show_parameter_dir no show_parameter_name yes package_name_in_tab yes class_drawing_mode class drawing_language uml show_context_mode no auto_label_position yes show_relation_modifiers yes show_relation_visibility yes show_infonote no shadow yes show_stereotype_properties yes end
+      size A0
+    end
+
+    classdiagram 194553 "client"
+      classdiagramsettings draw_all_relations no hide_attributes no hide_operations no hide_getset_operations no hide_ports no show_members_full_definition yes show_members_visibility yes show_members_stereotype yes show_members_context uml show_members_multiplicity no show_members_initialization yes show_attribute_modifiers yes member_max_width 127 show_parameter_dir no show_parameter_name yes package_name_in_tab yes class_drawing_mode class drawing_language uml show_context_mode no auto_label_position yes show_relation_modifiers yes show_relation_visibility yes show_infonote no shadow yes show_stereotype_properties yes end
+      size A0
+    end
   end
+
+  package_ref 148089 // TimedEvents
 end

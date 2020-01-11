@@ -1,6 +1,6 @@
 format 222
 "communication" // balancedbanana::communication
-  revision 18
+  revision 19
   modified_by 121 "christopher"
   // class settings
   
@@ -584,7 +584,7 @@ ${inlines}
       end
 
       operation 136746 "serialize"
-	cpp_virtual public explicit_return_type "std::string"
+	cpp_virtual public return_type class_ref 195449 // string
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "

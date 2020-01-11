@@ -1,6 +1,6 @@
 format 222
 "client" // balancedbanana::client
-  revision 9
+  revision 10
   modified_by 121 "christopher"
   // class settings
   
@@ -30,8 +30,6 @@ format 222
   activitydiagramsettings
    end
   
-  package_ref 128201 // commandLineProcessing
-
   classview 147657 "diagrams"
     
     classdiagramsettings member_max_width 0 end
@@ -195,5 +193,57 @@ ${inlines}
     -_->
       on 
       package_ref 134698 // communication
+  end
+
+  deploymentview 128121 "Client"
+    //deployment diagram settings
+    deploymentdiagramsettings
+     end
+    artifact 128121 "bbc"
+      stereotype "executable"
+      associated_artifacts
+	artifact_ref 128249 // src
+      end
+      comment "Client Executable"
+    end
+
+    artifact 128249 "src"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+#include <string>
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_elems
+	class_ref 182137 // Authenticator
+	class_ref 188793 // AuthResultMessage
+	class_ref 154873 // ClientAuthMessage
+	class_ref 168649 // Client
+	class_ref 128554 // ClientMP
+	class_ref 128073 // CommandLineProcessor
+	class_ref 128170 // Communicator
+	class_ref 155209 // Event
+	class_ref 155081 // EventDispatcher
+	class_ref 155337 // EventHandler
+	class_ref 128938 // Message
+	class_ref 128426 // MessageProcessor
+	class_ref 154745 // SnapshotMessage
+	class_ref 128298 // SSLSocket
+	class_ref 154953 // Timer
+      end
+    end
   end
 end

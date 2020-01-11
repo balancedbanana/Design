@@ -1,7 +1,8 @@
 format 222
 "Diagrams"
-  revision 7
-  modified_by 97 "rakoo"
+  revision 8
+  modified_by 121 "christopher"
+  cpp_root_dir "/home/christopher/PSE/D2/Diagrams/cpp/"
 
 
   
@@ -47,4 +48,6 @@ format 222
   ncouples 1
   key "html dir" value "C:\\Users\\rakoo\\Desktop\\output\\Database/"
   package_ref 134826 // balancedbanana
+
+  package_ref 148217 // std
 end
